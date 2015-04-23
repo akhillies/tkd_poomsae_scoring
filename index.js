@@ -27,7 +27,7 @@ var updater = (function()
 
             function updatePres()
             {
-                
+               $(".everything #presscore").innerHTML(0);
             }
         })();
 
