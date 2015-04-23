@@ -33,8 +33,8 @@ var updater = (function()
                 updateSpeed: function()
                 {
                     $(".everything #speednum").innerHTML($(".everything #speedin").attr("value"));
-                };
-            }
+                }
+            };
         })();
 
 
