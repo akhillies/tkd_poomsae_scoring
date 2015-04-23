@@ -5,6 +5,11 @@ var updater = (function()
             var minor = 0;
             var major = 0;
 
+            var updatePres = function()
+            {
+                   $(".everything #presscore").html($(".everything #speedin").val() + $(".everything #strengthin").val() + $(".everything #energyin").val());
+            }
+
             return {
                 addMinor: function() 
                 {
@@ -25,10 +30,6 @@ var updater = (function()
                 updatePoom: function()
                 {
                     return 0 - 0.1 * minor - 0.3 * major;
-                },
-                updatePres: function()
-                {
-                   $(".everything #presscore").html($(".everything #speedin").val() + $(".everything #strengthin").val() + $(".everything #energyin").val());
                 },
                 updateSpeed: function()
                 {
