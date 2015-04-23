@@ -29,10 +29,15 @@ var updater = (function()
             {
                $(".everything #presscore").innerHTML(0);
             }
+
+            function updateSpeed()
+            {
+                $(".everything #speednum").innerHTML($(".everything #speedin").attr("value");
+            }
         })();
 
 
 $(document).ready(function()
         {
-            
+            $(".everything #speedin").onChange(updater.updateSpeed);
         });
