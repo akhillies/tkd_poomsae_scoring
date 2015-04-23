@@ -7,7 +7,10 @@ var updater = (function()
 
             var updatePres = function()
             {
-                   $(".everything #presscore").html($(".everything #speedin").val() + $(".everything #strengthin").val() + $(".everything #energyin").val());
+                var spd = parseInt($(".everything #speedin").val());
+                var stg = parseInt($(".everything #strengthin").val());
+                var eng = parseInt($(".everything #energyin").val());
+                $(".everything #presscore").html(spd + stg + eng);
             }
 
             return {
