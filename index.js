@@ -32,7 +32,7 @@ var updater = (function()
                 },
                 updateSpeed: function()
                 {
-                    $(".everything #speednum").html($(".everything #speedin").attr("value"));
+                    $(".everything #speednum").html($(".everything #speedin").val());
                 }
             };
         })();
