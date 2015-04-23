@@ -33,6 +33,14 @@ var updater = (function()
                 updateSpeed: function()
                 {
                     $(".everything #speednum").html($(".everything #speedin").val());
+                },
+                updateStrength: function()
+                {
+                    $(".everything #strengthnum").html($(".everything #strengthin").val());
+                },
+                updateEnergy: function()
+                {
+                    $(".everything #energynum").html($(".everything #energyin").val());
                 }
             };
         })();
@@ -41,4 +49,6 @@ var updater = (function()
 $(document).ready(function()
         {
             $(".everything #speedin")[0].oninput = that.updater.updateSpeed;
+            $(".everything #strengthin")[0].oninput = that.updater.updateStrength;
+            $(".everything #energyin")[0].oninput = that.updater.updateEnergy;
         });
