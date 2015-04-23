@@ -1,3 +1,5 @@
+var that = this;
+
 var updater = (function()
         {
             var minor = 0;
@@ -39,5 +41,5 @@ var updater = (function()
 
 $(document).ready(function()
         {
-            $(".everything #speedin").onChange(updater.updateSpeed);
+            $(".everything #speedin").onChange(that.updater.updateSpeed);
         });
