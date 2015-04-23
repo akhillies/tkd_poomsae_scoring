@@ -28,11 +28,11 @@ var updater = (function()
                 },
                 updatePres: function()
                 {
-                   $(".everything #presscore").innerHTML(0);
+                   $(".everything #presscore").html(0);
                 },
                 updateSpeed: function()
                 {
-                    $(".everything #speednum").innerHTML($(".everything #speedin").attr("value"));
+                    $(".everything #speednum").html($(".everything #speedin").attr("value"));
                 }
             };
         })();
@@ -40,5 +40,5 @@ var updater = (function()
 
 $(document).ready(function()
         {
-            $(".everything #speedin").oninput(that.updater.updateSpeed);
+            $(".everything #speedin")[0].oninput(that.updater.updateSpeed);
         });
