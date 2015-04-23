@@ -13,6 +13,13 @@ var updater = (function()
                 $(".everything #presscore").html(spd + stg + eng);
             }
 
+            var updateTotal = function()
+            {
+                var poom = parseFloat($(".everything #poomscore").html());
+                var pres = parseFloat($(".everything #presscore").html());
+                $(".everything #totalscore").html(spd + stg + eng);
+            }
+
             return {
                 addMinor: function() 
                 {
@@ -32,7 +39,7 @@ var updater = (function()
                 },
                 updatePoom: function()
                 {
-                    return 0 - 0.1 * minor - 0.3 * major;
+                    return max(0, 4 - 0.1 * minor - 0.3 * major);
                 },
                 updateSpeed: function()
                 {
