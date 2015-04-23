@@ -28,19 +28,22 @@ var updater = (function()
                 },
                 updatePres: function()
                 {
-                   $(".everything #presscore").html(0);
+                   $(".everything #presscore").html($(".everything #speedin").val() + $(".everything #strengthin").val() + $(".everything #energyin").val());
                 },
                 updateSpeed: function()
                 {
                     $(".everything #speednum").html($(".everything #speedin").val());
+                    updatePres();
                 },
                 updateStrength: function()
                 {
                     $(".everything #strengthnum").html($(".everything #strengthin").val());
+                    updatePres();
                 },
                 updateEnergy: function()
                 {
                     $(".everything #energynum").html($(".everything #energyin").val());
+                    updatePres();
                 }
             };
         })();
