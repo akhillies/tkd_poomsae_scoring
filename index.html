@@ -1,70 +1,73 @@
-<head>
-    <link rel="stylesheet" href="./bootstrap-3.3.4-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./index.css">
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <link rel="stylesheet" href="./bootstrap-3.3.4-dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./index.css">
 
-    <title>Poomsae Scorer</title>
+        <title>Poomsae Scorer</title>
 
-    <script src="./jquery-2.1.3-dist/jquery-2.1.3.min.js" defer></script>
-    <script src="./bootstrap-3.3.4-dist/js/bootstrap.min.js" defer></script>
-</head>
-<body class="everything">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-3 col-xs-offset-1">
-                <h1>###</h1>
-                <h3>Poomsae Score</h3>
-            </div>
-            <div class="col-xs-1"><h1>+</h1></div>
-            <div class="col-xs-3">
-                <h1>###</h1>
-                <h3>Presentation Score</h3>
-            </div>
-            <div class="col-xs-1"><h1>=</h1></div>
-            <div class="col-xs-3">
-                <h1>###</h1>
-                <h3>Total Score</h3>
-            </div>
-        </div>
-        <br/><br/>
-        <div class="row">
-            <div class="col-xs-4"><h2 id="minorcount" class="mistakecount">###</h2></div>
-            <div class="col-xs-4 col-xs-offset-4"><h2 id="majorcount" class="mistakecount">###</h2></div>
-        </div>
-
-        <div class="row">
-            <div class="col-xs-4">
-                <button id="minorbutton" class="btn btn-danger mistakebutton">Minor Deduction</button>
-            </div>
-            <div class="col-xs-4">
-                <div class="row">
-                    <h2>Speed / Power: <span id="slider1">###</span></h2>
-                    <input type="range" name="points" min="0" max="2" step="0.1"/>
+        <script src="./jquery-2.1.3-dist/jquery-2.1.3.min.js" defer></script>
+        <script src="./bootstrap-3.3.4-dist/js/bootstrap.min.js" defer></script>
+    </head>
+    <body class="everything">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-3 col-xs-offset-1">
+                    <h1>###</h1>
+                    <h3>Poomsae Score</h3>
                 </div>
-                <div class="row">
-                    <h2>Strength / Speed / Rhythm: <span id="slider2">###</span></h2>
-                    <input type="range" name="points" min="0" max="2" step="0.1"/>
+                <div class="col-xs-1"><h1>+</h1></div>
+                <div class="col-xs-3">
+                    <h1>###</h1>
+                    <h3>Presentation Score</h3>
                 </div>
-                <div class="row">
-                    <h2>Expression of Energy: <span id="slider3">###</span></h2>
-                    <input type="range" name="points" min="0" max="2" step="0.1"/>
+                <div class="col-xs-1"><h1>=</h1></div>
+                <div class="col-xs-3">
+                    <h1>###</h1>
+                    <h3>Total Score</h3>
                 </div>
             </div>
-            <div class="col-xs-4">
-                <button id="majorbutton" class="btn btn-danger mistakebutton">Major Deduction</button>
+            <br/><br/>
+            <div class="row">
+                <div class="col-xs-4"><h2 id="minorcount" class="mistakecount">###</h2></div>
+                <div class="col-xs-4 col-xs-offset-4"><h2 id="majorcount" class="mistakecount">###</h2></div>
             </div>
-        </div>
 
-        <div class="row">
-            <div class="col-xs-4">
-                <button class="btn btn-warning">Undo Minor</button>
+            <div class="row">
+                <div class="col-xs-4">
+                    <button id="minorbutton" class="btn btn-danger mistakebutton">Minor Deduction</button>
+                </div>
+                <div class="col-xs-4">
+                    <div class="row">
+                        <h2>Speed / Power: <span id="slider1">###</span></h2>
+                        <input type="range" name="points" min="0" max="2" step="0.1"/>
+                    </div>
+                    <div class="row">
+                        <h2>Strength / Speed / Rhythm: <span id="slider2">###</span></h2>
+                        <input type="range" name="points" min="0" max="2" step="0.1"/>
+                    </div>
+                    <div class="row">
+                        <h2>Expression of Energy: <span id="slider3">###</span></h2>
+                        <input type="range" name="points" min="0" max="2" step="0.1"/>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <button id="majorbutton" class="btn btn-danger mistakebutton">Major Deduction</button>
+                </div>
             </div>
-            <div class="col-xs-4 col-xs-offset-4">
-                <button class="btn btn-warning">Undo Major</button>
-            </div>
-        </div>
 
-        <div class="row">
-            <button id="submitScore" class="btn btn-success">Submit Score</button>
+            <div class="row">
+                <div class="col-xs-4">
+                    <button class="btn btn-warning">Undo Minor</button>
+                </div>
+                <div class="col-xs-4 col-xs-offset-4">
+                    <button class="btn btn-warning">Undo Major</button>
+                </div>
+            </div>
+
+            <div class="row">
+                <button id="submitScore" class="btn btn-success">Submit Score</button>
+            </div>
         </div>
-    </div>
-</body>
+    </body>
+</html>
