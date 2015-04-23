@@ -7,9 +7,9 @@ var updater = (function()
 
             var updatePres = function()
             {
-                var spd = parseInt($(".everything #speedin").val());
-                var stg = parseInt($(".everything #strengthin").val());
-                var eng = parseInt($(".everything #energyin").val());
+                var spd = parseFloat($(".everything #speedin").val());
+                var stg = parseFloat($(".everything #strengthin").val());
+                var eng = parseFloat($(".everything #energyin").val());
                 $(".everything #presscore").html(spd + stg + eng);
             }
 
