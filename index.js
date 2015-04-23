@@ -40,5 +40,5 @@ var updater = (function()
 
 $(document).ready(function()
         {
-            $(".everything #speedin").onChange(that.updater.updateSpeed);
+            $(".everything #speedin").oninput(that.updater.updateSpeed);
         });
