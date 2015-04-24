@@ -90,7 +90,7 @@ var updater = (function()
                 },
                 updateSpeed: function(dombutton)
                 {
-                    spd = grabValue(dombutton.innerHTML);
+                    spd = parseFloat(grabValue(dombutton.innerHTML));
                     $(".everything #speednum").html(spd);
                     updatePres();
                 },
