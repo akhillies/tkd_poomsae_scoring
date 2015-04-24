@@ -10,7 +10,7 @@ var updater = (function()
             var eng = 0.0;
             var presScore = 0.0;
             var accScore = 4.0;
-            var totalScore = 0.0;
+            var totalScore = 4.0;
 
             var grabValue = function(html)
             {
