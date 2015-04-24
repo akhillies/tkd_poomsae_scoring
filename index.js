@@ -12,10 +12,11 @@ var updater = (function()
             var accScore = 4;
             var totalScore;
 
-            var grabValue = function(text)
+            var grabValue = function(html)
             {
-                var len = text.length;
-                return text.substring(len - 2);
+                txt = html.trim()
+                var len = txt.length;
+                return txt.substring(len - 3);
             }
 			
 
@@ -93,7 +94,7 @@ var updater = (function()
                 updateSpeed: function(dombutton)
                 {
                     $(".everything #speednum").html($(".everything #speedin").val());
-                    console.log(getValue(dombutton.innerHTML));
+                    console.log(grabValue(dombutton.innerHTML));
                     updatePres();
                 },
                 updateStrength: function()
