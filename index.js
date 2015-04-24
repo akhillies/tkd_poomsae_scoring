@@ -103,14 +103,20 @@ var updater = (function()
                     $(".everything #speednum").html(spd);
                     updatePres();
                 },
-                updateStrength: function()
+                updateStrength: function(dombutton)
                 {
-                    $(".everything #strengthnum").html($(".everything #strengthin").val());
+                    var id = "strength" + (str*10).toString();
+                    $(".everything #" + id).removeClass("active");
+                    str = parseFloat(grabValue(dombutton.innerHTML));
+                    $(".everything #strengthnum").html(str);
                     updatePres();
                 },
-                updateEnergy: function()
+                updateEnergy: function(dombutton)
                 {
-                    $(".everything #energynum").html($(".everything #energyin").val());
+                    var id = "energy" + (eng*10).toString();
+                    $(".everything #" + id).removeClass("active");
+                    eng = parseFloat(grabValue(dombutton.innerHTML));
+                    $(".everything #energynum").html(eng);
                     updatePres();
                 }
             };
@@ -130,21 +136,13 @@ $(document).ready(function()
 			{
 				that.updater.updateSpeed(this);
 			});
+            $(".everything .strengthin").click(function()
+			{
+				that.updater.updateStrength(this);
+			});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            $(".everything .energyin").click(function()
+			{
+				that.updater.updateEnergy(this);
+			});
         });
