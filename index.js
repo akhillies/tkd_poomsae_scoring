@@ -32,9 +32,6 @@ var updater = (function()
 
             var updatePres = function()
             {
-                spd = parseFloat($(".everything #speedin").val());
-                str = parseFloat($(".everything #strengthin").val());
-                eng = parseFloat($(".everything #energyin").val());
                 presScore = spd + str + eng;
                 $(".everything #presscore").html(presScore);
                 updateTotal();
