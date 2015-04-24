@@ -1,5 +1,6 @@
 var that = this;
 
+
 var updater = (function()
         {
             var minor = 0;
@@ -10,6 +11,8 @@ var updater = (function()
             var presScore = 0;
             var accScore = 4;
             var totalScore;
+			
+			
 
             var updateMajorDisp = function()
             {
