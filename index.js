@@ -112,7 +112,10 @@ $(document).ready(function()
             $(".everything #undomajorbutton").click(that.updater.subMajor);
             $(".everything #undominorbutton").click(that.updater.subMinor);
             
-            $(".everything #speed00").click(spd = 0.0);
+            $(".everything .speed").click(function()
+			{
+				that.updater.updateSpeed(this.);
+			});
 
 
 
