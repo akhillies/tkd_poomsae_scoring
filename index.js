@@ -132,7 +132,7 @@ var updater = (function()
             		totalScore = 0.0;
 					updateMajorDisp();
 					updateMinorDisp();
-					
+					updateTotal();
 					$(".everything #submitscore").modal("hide");
 				}
             };
