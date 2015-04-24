@@ -45,7 +45,7 @@ var updater = (function()
             return {
                 addMinor: function() 
                 {
-                    if (presScore >=0.1) {
+                    if (poomScore >=0.1) {
                         minor += 1;
                         updatePoomScore();
                         updateMinorDisp();
@@ -63,7 +63,7 @@ var updater = (function()
                 },
                 addMajor: function() 
                 {
-                    if (presScore >=0.3) {
+                    if (poomScore >=0.3) {
                         major += 1;
                         updatePoomScore();
                         updateMajorDisp();
@@ -72,7 +72,7 @@ var updater = (function()
                 },
                 subMajor: function()
                 {
-                    if (majore > 0) {
+                    if (major > 0) {
                         major -= 1;
                         updatePoomScore();
                         updateMajorDisp();
