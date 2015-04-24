@@ -8,8 +8,8 @@ var updater = (function()
             var spd = 0.0;
             var str = 0.0;
             var eng = 0.0;
-            var presScore = 0;
-            var accScore = 4;
+            var presScore = 0.0;
+            var accScore = 4.0;
             var totalScore;
 
             var grabValue = function(html)
@@ -97,6 +97,8 @@ var updater = (function()
                 },
                 updateSpeed: function(dombutton)
                 {
+                    var id = "speed" + (spd*10).toString();
+                    $(".everything #" + id).removeClass("active");
                     spd = parseFloat(grabValue(dombutton.innerHTML));
                     $(".everything #speednum").html(spd);
                     updatePres();
