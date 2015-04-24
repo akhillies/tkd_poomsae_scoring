@@ -103,9 +103,6 @@ var updater = (function()
 
 $(document).ready(function()
         {
-            $(".everything #speedin")[0].oninput = that.updater.updateSpeed;
-            $(".everything #strengthin")[0].oninput = that.updater.updateStrength;
-            $(".everything #energyin")[0].oninput = that.updater.updateEnergy;
         
             $(".everything #majorbutton").click(that.updater.addMajor);
             $(".everything #minorbutton").click(that.updater.addMinor);
