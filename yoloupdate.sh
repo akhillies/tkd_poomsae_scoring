@@ -1,6 +1,7 @@
 git status
 git add -A
 git commit -m "$1"
+git pull
 git push origin master
 git checkout gh-pages
 git rebase master
