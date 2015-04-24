@@ -26,7 +26,7 @@ var updater = (function()
                 spd = parseFloat($(".everything #speedin").val());
                 str = parseFloat($(".everything #strengthin").val());
                 eng = parseFloat($(".everything #energyin").val());
-                presScore = spd.toFixed(1) + str.toFixed(1) + eng.toFixed(1);
+                presScore = spd + str + eng;
                 $(".everything #presscore").html(presScore);
                 updateTotal();
 
