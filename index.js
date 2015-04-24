@@ -32,7 +32,7 @@ var updater = (function()
 
             var updatePoomScore = function()
             {
-                poomScore = max(0, 4 - 0.1 * minor - 0.3 * major);
+                poomScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
                 $(".everything #poomscore").html(poomScore); 
             }
 
