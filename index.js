@@ -135,7 +135,7 @@ var updater = (function()
                     str = 0.0;
                     $(".everything #strengthnum").html(str.toFixed(1));
                     id = "energy" + (eng*10).toString();
-                    $(".everything #energy").removeClass("active");
+                    $(".everything #" + id).removeClass("active");
                     eng = 0.0;
                     $(".everything #energynum").html(eng.toFixed(1));
 
