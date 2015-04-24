@@ -20,7 +20,12 @@
     padding: 0;
 }
 
-.everything #totalscore
+.everything .scorebody
 {
-    font-size: 500%;   
+    height: 99%;
+}
+
+.everything #finalscore
+{
+    font-size: 3000%;
 }
