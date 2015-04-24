@@ -4,7 +4,7 @@
         <link rel="stylesheet" href="./bootstrap-3.3.4-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="./index.css">
 
-        <title>Poomsae Scorer</title>
+        <title>Sport Poomsae Scorer</title>
 
         <script src="./jquery-2.1.3-dist/jquery-2.1.3.min.js" defer></script>
         <script src="./bootstrap-3.3.4-dist/js/bootstrap.min.js" defer></script>
@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-xs-3 col-xs-offset-1">
-                    <h1 id="poomscore">0</h1>
+                    <h1 id="accscore">0</h1>
                     <h3>Accuracy Score</h3>
                 </div>
                 <div class="col-xs-1"><h1>+</h1></div>
@@ -40,18 +40,79 @@
                 </div>
                 <div class="col-xs-8">
                     <div class="row">
-                        <h2>Speed / Power: <span id="speednum">0</span></h2>
+                        <h2>Power and Speed: <span id="speednum">0</span></h2>
                         <div class="btn-group" data-toggle="buttons">
-  <label class="btn btn-primary speedin">
-    <input type="radio" name="speed00" id="speed00" autocomplete="off"> 0.0
-  </label>  
-  <label class="btn btn-primary speedin">
-    <input type="radio" name="speed01" id="speed01" autocomplete="off"> 0.1
-  </label> 
-</div>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed00" id="speed00" autocomplete="off"> 0.0
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed01" id="speed01" autocomplete="off"> 0.1
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed02" id="speed02" autocomplete="off"> 0.2
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed03" id="speed03" autocomplete="off"> 0.3
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed04" id="speed04" autocomplete="off"> 0.4
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed05" id="speed05" autocomplete="off"> 0.5
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed06" id="speed06" autocomplete="off"> 0.6
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed07" id="speed07" autocomplete="off"> 0.7
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed08" id="speed08" autocomplete="off"> 0.8
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed09" id="speed09" autocomplete="off"> 0.9
+                            </label>
+                        <!--</div>-->
+                        <br/>
+                        <!--<div class="btn-group" data-toggle="buttons">-->
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed10" id="speed00" autocomplete="off"> 1.0
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed11" id="speed01" autocomplete="off"> 1.1
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed12" id="speed02" autocomplete="off"> 1.2
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed13" id="speed03" autocomplete="off"> 1.3
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed14" id="speed04" autocomplete="off"> 1.4
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed15" id="speed05" autocomplete="off"> 1.5
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed16" id="speed06" autocomplete="off"> 1.6
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed17" id="speed07" autocomplete="off"> 1.7
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed18" id="speed08" autocomplete="off"> 1.8
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed19" id="speed09" autocomplete="off"> 1.9
+                            </label>
+                            <label class="btn btn-primary speedin">
+                                <input type="radio" name="speed20" id="speed20" autocomplete="off"> 2.0
+                            </label>
+                        </div>
                     </div>
+                    
                     <div class="row">
-                        <h2>Strength / Speed / Rhythm: <span id="strengthnum">0</span></h2>
+                        <h2>Coordination of Rhythm and Tempo <span id="strengthnum">0</span></h2>
                         <div class="btn-group" data-toggle="buttons">
   <label class="btn btn-primary strengthin">
     <input type="radio" name="strength00" id="strength00" autocomplete="off"> 0.0
