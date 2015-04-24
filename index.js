@@ -130,7 +130,10 @@ var updater = (function()
             		presScore = 0.0;
             		accScore = 0.0;
             		totalScore = 0.0;
-					updateTotal();
+					updateMajorDisp();
+					updateMinorDisp();
+					updateSpeed($(".everything #speed0")[0]);
+					
 					$(".everything #submitscore").modal("hide");
 				}
             };
