@@ -133,6 +133,8 @@ var updater = (function()
 					updateMajorDisp();
 					updateMinorDisp();
 					updateTotal();
+					updateAccScore();
+					updatePres();
 					$(".everything #submitscore").modal("hide");
 				}
             };
