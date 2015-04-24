@@ -28,12 +28,15 @@ var updater = (function()
                 eng = parseFloat($(".everything #energyin").val());
                 presScore = spd + str + eng;
                 $(".everything #presscore").html(presScore);
+                updateTotal();
+
             }
 
             var updatePoomScore = function()
             {
                 poomScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
                 $(".everything #poomscore").html(poomScore); 
+                updateTotal();
             }
 
             var updateTotal = function()
@@ -107,5 +110,5 @@ $(document).ready(function()
             $(".everything #majorbutton").click(that.updater.addMajor);
             $(".everything #minorbutton").click(that.updater.addMinor);
             $(".everything #undomajorbutton").click(that.updater.subMajor);
-            $(".everything #undominorbutton").click(that.updater.subMajor);
+            $(".everything #undominorbutton").click(that.updater.subMinor);
         });
