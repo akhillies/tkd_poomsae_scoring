@@ -34,7 +34,7 @@ var updater = (function()
 
             var updatePres = function()
             {
-                presScore = spd + str + eng;
+                presScore = (spd + str + eng).toFixed(1);
                 $(".everything #presscore").html(presScore);
                 updateTotal();
 
@@ -43,7 +43,7 @@ var updater = (function()
             var updateAccScore = function()
             {
                 console.log("updated acc score");
-                accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
+                accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major).toFixed(1);
                 $(".everything #accscore").html(accScore); 
                 updateTotal();
             }
@@ -51,7 +51,7 @@ var updater = (function()
             var updateTotal = function()
             {
                 totalScore = presScore + accScore;
-                $(".everything #totalscore").html(totalScore);
+                $(".everything #totalscore").html(totalScore).toFixed(1);
             }
 
             return {
