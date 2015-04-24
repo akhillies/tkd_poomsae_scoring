@@ -110,7 +110,7 @@ $(document).ready(function()
             $(".everything #undominorbutton").click(that.updater.subMinor);
 
             
-            $(".everything .speed").click(function()
+            $(".everything .speedin").click(function()
 			{
 				//that.updater.updateSpeed(this.);
 				console.log(this.id);
