@@ -113,7 +113,7 @@ $(document).ready(function()
             $(".everything .speedin").click(function()
 			{
 				//that.updater.updateSpeed(this.);
-				console.log(this.id);
+				console.log(this.innerHTML.substring(0, 2));
 			});
 
 
