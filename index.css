@@ -42,4 +42,9 @@
     float: none;
     display: table-cell;
     vertical-align: top;
-    }
+}
+
+.everything .undobutton
+{
+    width: 100%;
+}
