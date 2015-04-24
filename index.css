@@ -12,6 +12,7 @@
 {
     width: 100%;
     height: 100%;
+    font-size: 250%;
 }
 
 .everything .scorescreen
@@ -47,4 +48,10 @@
 .everything .undobutton
 {
     width: 100%;
+}
+
+.everything #scoresubmit
+{
+    width: 40%;
+    font-size: 300%;
 }
