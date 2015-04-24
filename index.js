@@ -135,9 +135,10 @@ var updater = (function()
 					updateEnergy();
 					updateMajorDisp();
 					updateMinorDisp();
-					updateTotal();
 					updatePres();
 					updateAccScore();
+					updateTotal();
+					
 					$(".everything #submitscore").modal("hide");
 				}
             };
