@@ -54,19 +54,6 @@ var updater = (function()
                 $(".everything #totalscore").html(totalScore.toFixed(1));
             }
 			
-			var resetScore = function()
-			{
-				minor = 0;
-            	major = 0;
-            	spd = 0.0;
-            	str = 0.0;
-            	eng = 0.0;
-            	presScore = 0.0;
-            	accScore = 4.0;
-            	totalScore = 0.0;
-				updateTotal();
-				$(".everything #submitscore").modal("hide");
-			}
 
             return {
                 addMinor: function() 
@@ -132,7 +119,20 @@ var updater = (function()
                     eng = parseFloat(grabValue(dombutton.innerHTML));
                     $(".everything #energynum").html(eng);
                     updatePres();
-                }
+                },
+				resetScore: function()
+				{
+					minor = 0;
+            		major = 0;
+            		spd = 0.0;
+            		str = 0.0;
+            		eng = 0.0;
+            		presScore = 0.0;
+            		accScore = 4.0;
+            		totalScore = 0.0;
+					updateTotal();
+					$(".everything #submitscore").modal("hide");
+				}
             };
         })();
 
@@ -144,7 +144,7 @@ $(document).ready(function()
             $(".everything #minorbutton").click(that.updater.addMinor);
             $(".everything #undomajorbutton").click(that.updater.subMajor);
             $(".everything #undominorbutton").click(that.updater.subMinor);
-
+			$(".everything #resetbutton").click(that.updater.resetScore);
             
             $(".everything .speedin").click(function()
 			{
@@ -159,7 +159,6 @@ $(document).ready(function()
 				that.updater.updateEnergy(this);
 			});
 			
-			$(".everything #resetbutton").click(that.updater.resetScore);
 
 
         });
