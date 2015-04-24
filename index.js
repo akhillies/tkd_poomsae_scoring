@@ -11,7 +11,12 @@ var updater = (function()
             var presScore = 0;
             var accScore = 4;
             var totalScore;
-			
+
+            var grabValue(text)
+            {
+                var len = text.length;
+                return text.substring(len - 2);
+            }
 			
 
             var updateMajorDisp = function()
@@ -116,7 +121,7 @@ $(document).ready(function()
             $(".everything .speedin").click(function()
 			{
 				//that.updater.updateSpeed(this.);
-				console.log(this.innerHTML.substring(0, 2));
+				console.log(that.updater.grabValue(this.innerHTML));
 			});
 
 
