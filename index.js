@@ -158,6 +158,8 @@ $(document).ready(function()
 			{
 				that.updater.updateEnergy(this);
 			});
+			
+			$(".everything #resetbutton").click(that.updater.resetScore);
 
 
         });
