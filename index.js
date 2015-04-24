@@ -47,7 +47,7 @@ var updater = (function()
                 {
                     minor += 1;
                     updatePoomScore();
-                    updateMajorDisp();
+                    updateMinorDisp();
                 },
                 subMinor: function()
                 {
@@ -60,12 +60,14 @@ var updater = (function()
                 {
                     major += 1;
                     updatePoomScore();
+                    updateMajorDisp();
 
                 },
                 subMajor: function()
                 {
                     major -= 1;
                     updatePoomScore();
+                    updateMajorDisp();
 
                 },
                 updateSpeed: function()
