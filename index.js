@@ -100,7 +100,7 @@ var updater = (function()
                     var id = "speed" + (spd*10).toString();
                     $(".everything #" + id).removeClass("active");
                     spd = parseFloat(grabValue(dombutton.innerHTML));
-                    $(".everything #speednum").html(spd);
+                    $(".everything #speednum").html(spd.toFixed(1));
                     updatePres();
                 },
                 updateStrength: function(dombutton)
@@ -108,7 +108,7 @@ var updater = (function()
                     var id = "strength" + (str*10).toString();
                     $(".everything #" + id).removeClass("active");
                     str = parseFloat(grabValue(dombutton.innerHTML));
-                    $(".everything #strengthnum").html(str);
+                    $(".everything #strengthnum").html(str.toFixed(1));
                     updatePres();
                 },
                 updateEnergy: function(dombutton)
@@ -116,26 +116,35 @@ var updater = (function()
                     var id = "energy" + (eng*10).toString();
                     $(".everything #" + id).removeClass("active");
                     eng = parseFloat(grabValue(dombutton.innerHTML));
-                    $(".everything #energynum").html(eng);
+                    $(".everything #energynum").html(eng.toFixed(1));
                     updatePres();
                 },
 				resetScore: function()
 				{
-					/*minor = 0;
+					minor = 0;
             		major = 0;
-            		spd = 0.0;
-            		str = 0.0;
-            		eng = 0.0;
-            		presScore = 0.0;
-            		accScore = 0.0;
-            		totalScore = 0.0;
-					updateMajorDisp();
+                    updateMajorDisp();
 					updateMinorDisp();
-					updateTotal();
+
+                    var id = "speed" + (spd*10).toString();
+                    $(".everything #" + id).removeClass("active");
+                    spd = 0.0;
+                    $(".everything #speednum").html(spd.toFixed(1));
+                    id = "strength" + (str*10).toString();
+                    $(".everything #" + id).removeClass("active");
+                    str = 0.0;
+                    $(".everything #strengthnum").html(str.toFixed(1));
+                    id = "energy" + (eng*10).toString();
+                    $(".everything #energy").removeClass("active");
+                    eng = 0.0;
+                    $(".everything #energynum").html(eng.toFixed(1));
+
 					updateAccScore();
 					updatePres();
-					$(".everything #submitscore").modal("hide");*/
-                    location.reload();
+
+                    $(".everything #submitscore").modal("hide");
+
+                    //location.reload();
 				}
             };
         })();
