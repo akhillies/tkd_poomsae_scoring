@@ -130,15 +130,11 @@ var updater = (function()
             		presScore = 0.0;
             		accScore = 0.0;
             		totalScore = 0.0;
-					updateSpeed();
-					updateStrength();
-					updateEnergy();
 					updateMajorDisp();
 					updateMinorDisp();
 					updatePres();
 					updateAccScore();
 					updateTotal();
-					
 					$(".everything #submitscore").modal("hide");
 				}
             };
