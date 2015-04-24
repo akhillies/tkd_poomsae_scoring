@@ -12,7 +12,7 @@ var updater = (function()
             var accScore = 4;
             var totalScore;
 
-            var grabValue(text)
+            var grabValue = function(text)
             {
                 var len = text.length;
                 return text.substring(len - 2);
