@@ -60,11 +60,10 @@ var updater = (function()
                 addMinor: function() 
                 {
                     //console.log("added minor");
-                    if (accScore >=0.1) {
-                        minor += 1;
-                        updateAccScore();
-                        updateMinorDisp();
-                    }
+                	minor += 1;
+                	updateAccScore();
+                    updateMinorDisp();
+           
 
                 },
                 subMinor: function()
@@ -80,11 +79,10 @@ var updater = (function()
                 addMajor: function() 
                 {
                     //console.log("added Major");
-                    if (accScore >=0.3) {
-                        major += 1;
-                        updateAccScore();
-                        updateMajorDisp();
-                    }
+
+                	major += 1;
+                    updateAccScore();
+                    updateMajorDisp();
 
                 },
                 subMajor: function()
