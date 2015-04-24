@@ -26,13 +26,13 @@ var updater = (function()
                 spd = parseFloat($(".everything #speedin").val());
                 str = parseFloat($(".everything #strengthin").val());
                 eng = parseFloat($(".everything #energyin").val());
-                presScore = spd + stg + eng;
+                presScore = spd + str + eng;
                 $(".everything #presscore").html(presScore);
             }
 
             var updatePoomScore = function()
             {
-                poomScore = max(0, 4 - 0.1 * minor - 0.3 * major)
+                poomScore = max(0, 4 - 0.1 * minor - 0.3 * major);
                 $(".everything #poomscore").html(poomScore); 
             }
 
