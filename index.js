@@ -140,9 +140,10 @@ $(document).ready(function()
 			{
 				that.updater.updateStrength(this);
 			});
-
             $(".everything .energyin").click(function()
 			{
 				that.updater.updateEnergy(this);
 			});
+
+
         });
