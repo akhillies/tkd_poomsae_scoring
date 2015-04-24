@@ -22,13 +22,13 @@ var updater = (function()
 
             var updateMajorDisp = function()
             {
-                console.log("updated major disp");
+                //console.log("updated major disp");
                 $(".everything #majorcount").html(major); 
             }
 
             var updateMinorDisp = function()
             {
-                console.log("updated minor disp")
+                //console.log("updated minor disp")
                 $(".everything #minorcount").html(minor); 
             }
 
@@ -42,7 +42,7 @@ var updater = (function()
 
             var updateAccScore = function()
             {
-                console.log("updated acc score");
+                //console.log("updated acc score");
                 accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
                 $(".everything #accscore").html(accScore.toFixed(1)); 
                 updateTotal();
@@ -52,13 +52,14 @@ var updater = (function()
             {
                 totalScore = presScore + accScore;
                 $(".everything #totalscore").html(totalScore.toFixed(1));
+                $(".everything #finalscore").html(totalScore.toFixed(1));
             }
 			
 
             return {
                 addMinor: function() 
                 {
-                    console.log("added minor");
+                    //console.log("added minor");
                     if (accScore >=0.1) {
                         minor += 1;
                         updateAccScore();
@@ -68,7 +69,7 @@ var updater = (function()
                 },
                 subMinor: function()
                 {
-                    console.log("subbed minor");
+                    //console.log("subbed minor");
                     if (minor > 0) {
                         minor -= 1;
                         updateAccScore();
@@ -78,7 +79,7 @@ var updater = (function()
                 },
                 addMajor: function() 
                 {
-                    console.log("added Major");
+                    //console.log("added Major");
                     if (accScore >=0.3) {
                         major += 1;
                         updateAccScore();
@@ -88,7 +89,7 @@ var updater = (function()
                 },
                 subMajor: function()
                 {
-                    console.log("subbed Major");
+                    //console.log("subbed Major");
                     if (major > 0) {
                         major -= 1;
                         updateAccScore();
@@ -122,7 +123,7 @@ var updater = (function()
                 },
 				resetScore: function()
 				{
-					minor = 0;
+					/*minor = 0;
             		major = 0;
             		spd = 0.0;
             		str = 0.0;
@@ -135,7 +136,8 @@ var updater = (function()
 					updateTotal();
 					updateAccScore();
 					updatePres();
-					$(".everything #submitscore").modal("hide");
+					$(".everything #submitscore").modal("hide");*/
+                    location.reload();
 				}
             };
         })();
@@ -162,7 +164,4 @@ $(document).ready(function()
 			{
 				that.updater.updateEnergy(this);
 			});
-			
-
-
         });
