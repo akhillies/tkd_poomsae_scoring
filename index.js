@@ -93,8 +93,8 @@ var updater = (function()
                 },
                 updateSpeed: function(dombutton)
                 {
-                    $(".everything #speednum").html($(".everything #speedin").val());
-                    console.log(grabValue(dombutton.innerHTML));
+                    spd = grabValue(dombutton.innerHTML);
+                    $(".everything #speednum").html(spd);
                     updatePres();
                 },
                 updateStrength: function()
