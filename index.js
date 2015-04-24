@@ -10,7 +10,7 @@ var updater = (function()
             var eng = 0.0;
             var presScore = 0.0;
             var accScore = 4.0;
-            var totalScore;
+            var totalScore = 0.0;
 
             var grabValue = function(html)
             {
@@ -34,8 +34,8 @@ var updater = (function()
 
             var updatePres = function()
             {
-                presScore = (spd + str + eng).toFixed(1);
-                $(".everything #presscore").html(presScore);
+                presScore = (spd + str + eng);
+                $(".everything #presscore").html(presScore.toFixed(1));
                 updateTotal();
 
             }
@@ -43,15 +43,15 @@ var updater = (function()
             var updateAccScore = function()
             {
                 console.log("updated acc score");
-                accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major).toFixed(1);
-                $(".everything #accscore").html(accScore); 
+                accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
+                $(".everything #accscore").html(accScore.toFixed(1)); 
                 updateTotal();
             }
 
             var updateTotal = function()
             {
                 totalScore = presScore + accScore;
-                $(".everything #totalscore").html(totalScore).toFixed(1);
+                $(".everything #totalscore").html(totalScore.toFixed(1));
             }
 
             return {
