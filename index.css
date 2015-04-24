@@ -12,3 +12,9 @@
 {
     width: 100%;
 }
+
+.everything .col-xs-8
+{
+    padding: 0;
+    margin 0;
+}
