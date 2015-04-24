@@ -114,7 +114,8 @@ $(document).ready(function()
             
             $(".everything .speed").click(function()
 			{
-				that.updater.updateSpeed(this.);
+				//that.updater.updateSpeed(this.);
+				console.log(this.id);
 			});
 
 
