@@ -1,0 +1,5 @@
+To Do..... by the next UC Open:
+
+Adapt for any mobile screen size
+Add key supports (l/r arrows) 
+Change to updateAll function
