@@ -90,9 +90,10 @@ var updater = (function()
                     }
 
                 },
-                updateSpeed: function()
+                updateSpeed: function(dombutton)
                 {
                     $(".everything #speednum").html($(".everything #speedin").val());
+                    console.log(getValue(dombutton.innerHTML));
                     updatePres();
                 },
                 updateStrength: function()
@@ -120,8 +121,7 @@ $(document).ready(function()
             
             $(".everything .speedin").click(function()
 			{
-				//that.updater.updateSpeed(this.);
-				console.log(that.updater.grabValue(this.innerHTML));
+				that.updater.updateSpeed(this);
 			});
 
 
