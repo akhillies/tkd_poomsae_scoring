@@ -8,7 +8,7 @@ var updater = (function()
             var str = 0.0;
             var eng = 0.0;
             var presScore = 0;
-            var poomScore = 4;
+            var accScore = 4;
             var totalScore;
 
             var updateMajorDisp = function()
@@ -32,25 +32,25 @@ var updater = (function()
 
             }
 
-            var updatePoomScore = function()
+            var updateAccScore = function()
             {
-                poomScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
-                $(".everything #poomscore").html(poomScore); 
+                accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
+                $(".everything #accscore").html(accScore); 
                 updateTotal();
             }
 
             var updateTotal = function()
             {
-                totalScore = presScore + poomScore;
+                totalScore = presScore + accScore;
                 $(".everything #totalscore").html(totalScore);
             }
 
             return {
                 addMinor: function() 
                 {
-                    if (poomScore >=0.1) {
+                    if (accScore >=0.1) {
                         minor += 1;
-                        updatePoomScore();
+                        updateAccScore();
                         updateMinorDisp();
                     }
 
@@ -59,16 +59,16 @@ var updater = (function()
                 {
                     if (minor > 0) {
                         minor -= 1;
-                        updatePoomScore();
+                        updateAccScore();
                         updateMinorDisp();
                     }
 
                 },
                 addMajor: function() 
                 {
-                    if (poomScore >=0.3) {
+                    if (accScore >=0.3) {
                         major += 1;
-                        updatePoomScore();
+                        updateAccScore();
                         updateMajorDisp();
                     }
 
@@ -77,7 +77,7 @@ var updater = (function()
                 {
                     if (major > 0) {
                         major -= 1;
-                        updatePoomScore();
+                        updateAccScore();
                         updateMajorDisp();
                     }
 
@@ -111,12 +111,14 @@ $(document).ready(function()
             $(".everything #minorbutton").click(that.updater.addMinor);
             $(".everything #undomajorbutton").click(that.updater.subMajor);
             $(".everything #undominorbutton").click(that.updater.subMinor);
+
             
             $(".everything .speed").click(function()
 			{
 				//that.updater.updateSpeed(this.);
 				console.log(this.id);
 			});
+
 
 
 
