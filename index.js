@@ -22,11 +22,13 @@ var updater = (function()
 
             var updateMajorDisp = function()
             {
+                console.log("updated major disp");
                 $(".everything #majorcount").html(major); 
             }
 
             var updateMinorDisp = function()
             {
+                console.log("updated minor disp")
                 $(".everything #minorcount").html(minor); 
             }
 
@@ -40,6 +42,7 @@ var updater = (function()
 
             var updateAccScore = function()
             {
+                console.log("updated acc score");
                 accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
                 $(".everything #accscore").html(accScore); 
                 updateTotal();
@@ -54,6 +57,7 @@ var updater = (function()
             return {
                 addMinor: function() 
                 {
+                    console.log("added minor");
                     if (accScore >=0.1) {
                         minor += 1;
                         updateAccScore();
@@ -63,6 +67,7 @@ var updater = (function()
                 },
                 subMinor: function()
                 {
+                    console.log("subbed minor");
                     if (minor > 0) {
                         minor -= 1;
                         updateAccScore();
@@ -72,6 +77,7 @@ var updater = (function()
                 },
                 addMajor: function() 
                 {
+                    console.log("added Major");
                     if (accScore >=0.3) {
                         major += 1;
                         updateAccScore();
@@ -81,6 +87,7 @@ var updater = (function()
                 },
                 subMajor: function()
                 {
+                    console.log("subbed Major");
                     if (major > 0) {
                         major -= 1;
                         updateAccScore();
