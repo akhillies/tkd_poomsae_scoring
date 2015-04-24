@@ -128,7 +128,7 @@ var updater = (function()
             		str = 0.0;
             		eng = 0.0;
             		presScore = 0.0;
-            		accScore = 4.0;
+            		accScore = 0.0;
             		totalScore = 0.0;
 					updateTotal();
 					$(".everything #submitscore").modal("hide");
