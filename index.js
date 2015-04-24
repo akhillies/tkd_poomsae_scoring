@@ -4,42 +4,69 @@ var updater = (function()
         {
             var minor = 0;
             var major = 0;
+            var spd = 0;
+            var str = 0;
+            var eng = 0;
+            var presScore = 0;
+            var poomScore = 4;
+            var totalScore;
+
+            var updateMajorDisp = function()
+            {
+                $(".everything #majorcount").html(major); 
+            }
+
+            var updateMinorDisp = function()
+            {
+                $(".everything #minorcount").html(minor); 
+            }
 
             var updatePres = function()
             {
-                var spd = parseFloat($(".everything #speedin").val());
-                var stg = parseFloat($(".everything #strengthin").val());
-                var eng = parseFloat($(".everything #energyin").val());
-                $(".everything #presscore").html(spd + stg + eng);
+                spd = parseFloat($(".everything #speedin").val());
+                str = parseFloat($(".everything #strengthin").val());
+                eng = parseFloat($(".everything #energyin").val());
+                presScore = spd + stg + eng;
+                $(".everything #presscore").html(presScore);
+            }
+
+            var updatePoomScore = function()
+            {
+                poomScore = max(0, 4 - 0.1 * minor - 0.3 * major)
+                $(".everything #poomscore").html(poomScore); 
             }
 
             var updateTotal = function()
             {
-                var poom = parseFloat($(".everything #poomscore").html());
-                var pres = parseFloat($(".everything #presscore").html());
-                $(".everything #totalscore").html(spd + stg + eng);
+                totalScore = presScore + poomScore;
+                $(".everything #totalscore").html(totalScore);
             }
 
             return {
                 addMinor: function() 
                 {
                     minor += 1;
+                    updatePoomScore();
+                    updateMajorDisp();
                 },
                 subMinor: function()
                 {
                     minor -= 1;
+                    updatePoomScore();
+                    updateMinorDisp();
+
                 },
                 addMajor: function() 
                 {
                     major += 1;
+                    updatePoomScore();
+
                 },
                 subMajor: function()
                 {
                     major -= 1;
-                },
-                updatePoom: function()
-                {
-                    return max(0, 4 - 0.1 * minor - 0.3 * major);
+                    updatePoomScore();
+
                 },
                 updateSpeed: function()
                 {
