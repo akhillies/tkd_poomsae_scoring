@@ -4,9 +4,9 @@ var updater = (function()
         {
             var minor = 0;
             var major = 0;
-            var spd = 0;
-            var str = 0;
-            var eng = 0;
+            var spd = 0.0;
+            var str = 0.0;
+            var eng = 0.0;
             var presScore = 0;
             var poomScore = 4;
             var totalScore;
@@ -111,4 +111,22 @@ $(document).ready(function()
             $(".everything #minorbutton").click(that.updater.addMinor);
             $(".everything #undomajorbutton").click(that.updater.subMajor);
             $(".everything #undominorbutton").click(that.updater.subMinor);
+            
+            $(".everything #speed00").click(spd = 0.0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         });
