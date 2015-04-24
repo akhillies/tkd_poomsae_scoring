@@ -54,7 +54,7 @@ var updater = (function()
                 },
                 subMinor: function()
                 {
-                    if (presScore <=3.9) {
+                    if (minor > 0) {
                         minor -= 1;
                         updatePoomScore();
                         updateMinorDisp();
@@ -72,10 +72,10 @@ var updater = (function()
                 },
                 subMajor: function()
                 {
-                    if (presScore <= 3.7) {
+                    if (majore > 0) {
                         major -= 1;
                         updatePoomScore();
-                        updateMinorDisp();
+                        updateMajorDisp();
                     }
 
                 },
