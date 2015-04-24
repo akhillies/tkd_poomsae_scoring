@@ -1,6 +1,13 @@
 .everything
 {
     text-align: center;
+    color: #FFD700;
+    text-shadow: -1px 0px 5px #00008F,
+                0px -1px 5px #00008F,
+                1px 0px 5px #00008F,
+                0px 1px 5px #00008F,
+                -1px -1px 5px #00008F,
+                1px 1px 5px #00008F;
     position: absolute;
     top: 0;
     right: 0;
@@ -8,11 +15,33 @@
     right: 0;
 }
 
+.everything .container-fluid
+{   
+    background: radial-gradient(#FFFF99, #CCFFFF, #00AAFF);
+    padding-bottom: 50px;
+}
+
 .everything .mistakebutton
 {
     width: 100%;
     height: 100%;
     font-size: 250%;
+}
+
+.everything .undobutton
+{
+    font-size: 150%;
+    background: #FF8888;
+}
+
+.everything .undobutton span
+{
+    -moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
 }
 
 .everything .scorescreen
