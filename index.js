@@ -45,29 +45,38 @@ var updater = (function()
             return {
                 addMinor: function() 
                 {
-                    minor += 1;
-                    updatePoomScore();
-                    updateMinorDisp();
+                    if (presScore >=0.1) {
+                        minor += 1;
+                        updatePoomScore();
+                        updateMinorDisp();
+                    }
+
                 },
                 subMinor: function()
                 {
-                    minor -= 1;
-                    updatePoomScore();
-                    updateMinorDisp();
+                    if (presScore <=3.9) {
+                        minor -= 1;
+                        updatePoomScore();
+                        updateMinorDisp();
+                    }
 
                 },
                 addMajor: function() 
                 {
-                    major += 1;
-                    updatePoomScore();
-                    updateMajorDisp();
+                    if (presScore >=0.3) {
+                        major += 1;
+                        updatePoomScore();
+                        updateMajorDisp();
+                    }
 
                 },
                 subMajor: function()
                 {
-                    major -= 1;
-                    updatePoomScore();
-                    updateMajorDisp();
+                    if (presScore <= 3.7) {
+                        major -= 1;
+                        updatePoomScore();
+                        updateMinorDisp();
+                    }
 
                 },
                 updateSpeed: function()
