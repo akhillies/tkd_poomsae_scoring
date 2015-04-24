@@ -53,6 +53,20 @@ var updater = (function()
                 totalScore = presScore + accScore;
                 $(".everything #totalscore").html(totalScore.toFixed(1));
             }
+			
+			var resetScore = function()
+			{
+				minor = 0;
+            	major = 0;
+            	spd = 0.0;
+            	str = 0.0;
+            	eng = 0.0;
+            	presScore = 0.0;
+            	accScore = 4.0;
+            	totalScore = 0.0;
+				updateTotal();
+				$(".everything #submitscore").modal("hide");
+			}
 
             return {
                 addMinor: function() 
