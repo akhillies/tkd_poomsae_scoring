@@ -132,9 +132,8 @@ var updater = (function()
             		totalScore = 0.0;
 					updateMajorDisp();
 					updateMinorDisp();
-					updatePres();
-					updateAccScore();
-					updateTotal();
+					updateSpeed($(".everything #speed0")[0]);
+					
 					$(".everything #submitscore").modal("hide");
 				}
             };
