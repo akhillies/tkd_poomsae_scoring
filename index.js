@@ -23,7 +23,7 @@ var updater = (function()
             var updateMajorDisp = function()
             {
                 //console.log("updated major disp");
-                $(".everything #majorcount").html(major); 
+                $(".everything #majorcount").html(major);
             }
 
             var updateMinorDisp = function()
@@ -37,7 +37,10 @@ var updater = (function()
                 presScore = (spd + str + eng);
                 $(".everything #presscore").html(presScore.toFixed(1));
                 updateTotal();
-
+                if(presScore >= 1.5 && spd >= 0.5 && str >= 0.5 && eng >= 0.5)
+                {
+                    $(".everything #scoresubmit").removeAttr("disabled");
+                }
             }
 
             var updateAccScore = function()
@@ -63,8 +66,7 @@ var updater = (function()
                 	minor += 1;
                 	updateAccScore();
                     updateMinorDisp();
-           
-
+                    $(".everything #undominorbutton").removeAttr("disabled");
                 },
                 subMinor: function()
                 {
@@ -74,16 +76,18 @@ var updater = (function()
                         updateAccScore();
                         updateMinorDisp();
                     }
-
+                    if(minor <= 0)
+                    {
+                        $(".everything #undominorbutton").attr("disabled", true);
+                    }
                 },
                 addMajor: function() 
                 {
                     //console.log("added Major");
-
                 	major += 1;
                     updateAccScore();
                     updateMajorDisp();
-
+                    $(".everything #undomajorbutton").removeAttr("disabled");
                 },
                 subMajor: function()
                 {
@@ -93,7 +97,10 @@ var updater = (function()
                         updateAccScore();
                         updateMajorDisp();
                     }
-
+                    if(major <= 0)
+                    {
+                        $(".everything #undomajorbutton").attr("disabled", true);
+                    }
                 },
                 updateSpeed: function(dombutton)
                 {
