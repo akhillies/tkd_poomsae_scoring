@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" href="./bootstrap-3.3.4-dist/css/bootstrap.min.css">
         <!--<link rel="stylesheet" href="./jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />-->
+        <link rel="stylesheet" href="./font-awesome-4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./index.css">
 
         <title>Sport Poomsae Scorer</title>
@@ -31,7 +32,7 @@
                 </div>
             </div>
             
-            <div class="row">
+            <div class="row miscounts">
                 <div class="col-xs-3"><h2 id="majorcount" class="mistakecount">0</h2></div>
                 <div class="col-xs-3 col-xs-offset-6"><h2 id="minorcount" class="mistakecount">0</h2></div>
             </div>
@@ -225,13 +226,13 @@
 
             <div class="row">
                 <div class="col-xs-3">
-                    <button id="undomajorbutton" class="btn btn-warning undobutton" disabled><span class="glyphicon glyphicon-share-alt"></span> Undo Major</button>
+                    <button id="undomajorbutton" class="btn btn-warning undobutton" disabled><i class="fa fa-undo"></i> Undo Major</button>
                 </div>
                 <div class="col-xs-6">
                     <button id="scoresubmit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#submitscore" disabled>Submit Score</button>
                 </div>
                 <div class="col-xs-3">
-                    <button id="undominorbutton" class="btn btn-warning undobutton" disabled><span class="glyphicon glyphicon-share-alt"></span> Undo Minor</button>
+                    <button id="undominorbutton" class="btn btn-warning undobutton" disabled><i class="fa fa-undo"></i> Undo Minor</button>
                 </div>
             </div>
 

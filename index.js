@@ -158,6 +158,7 @@ var updater = (function()
                     if(presScore < 1.5 || spd < 0.5 || str < 0.5 || eng < 0.5)
                     {
                         alert("Please enter a valid Presentation score");
+                        $(".everything #submitscore").modal("hide");
                     }
                 }
             };
