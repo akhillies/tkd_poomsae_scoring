@@ -31,6 +31,8 @@
 {
     font-size: 150%;
     background: #FF8888;
+    margin-top: 25px;
+    padding: 17px;
 }
 
 .everything .undobutton span
@@ -41,6 +43,12 @@
     transform: scaleX(-1);
     filter: FlipH;
     -ms-filter: "FlipH";
+}
+
+.everything .pressibuttons, .everything .pressibuttons [class*="col-"]
+{
+    padding: none;
+    margin: none;
 }
 
 .everything .scorescreen
@@ -78,9 +86,15 @@
     width: 100%;
 }
 
+.everything .scorebox
+{
+    background: #00008F;
+}
+
 .everything #scoresubmit
 {
-    width: 40%;
+    margin-top: 44px;
+    width: 100%;
     font-size: 300%;
 }
 
@@ -90,4 +104,70 @@
     text-shadow: none;
     color: black;
     padding-top: 12px;
+}
+
+.everything .poorpressie
+{
+    color: #AA5500;
+    text-shadow: -1px 0px 1px #660000,
+                0px -1px 1px #660000,
+                1px 0px 1px #660000,
+                0px 1px 1px #660000,
+                -1px -1px 1px #660000,
+                1px 1px 1px #660000;
+}
+
+.everything .fairpressie
+{
+    color: #887700;
+    text-shadow: -1px 0px 2px #220022,
+                0px -1px 2px #220022,
+                1px 0px 2px #220022,
+                0px 1px 2px #220022,
+                -1px -1px 2px #220022,
+                1px 1px 2px #220022;
+}
+
+.everything .goodpressie
+{
+    color: #669900;
+    text-shadow: -1px 0px 3px #222211,
+                0px -1px 3px #222211,
+                1px 0px 3px #222211,
+                0px 1px 3px #222211,
+                -1px -1px 3px #222211,
+                1px 1px 3px #222211;
+}
+
+.everything .verygoodpressie
+{
+    color: #44BB00;
+    text-shadow: -1px 0px 4px #220022,
+                0px -1px 4px #220022,
+                1px 0px 4px #220022,
+                0px 1px 4px #220022,
+                -1px -1px 4px #220022,
+                1px 1px 4px #220022;
+}
+
+.everything .excellentpressie
+{
+    color: #22DD00;
+    text-shadow: -1px 0px 5px #221144,
+                0px -1px 5px #221144,
+                1px 0px 5px #221144,
+                0px 1px 5px #221144,
+                -1px -1px 5px #221144,
+                1px 1px 5px #221144;
+}
+
+.everything .prefectpressie
+{
+    color: #00FF00;
+    text-shadow: -1px 0px 6px #000066,
+                0px -1px 6px #000066,
+                1px 0px 6px #000066,
+                0px 1px 6px #000066,
+                -1px -1px 6px #000066,
+                1px 1px 6px #000066;
 }
