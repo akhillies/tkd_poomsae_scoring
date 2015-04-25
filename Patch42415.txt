@@ -5,3 +5,53 @@ Red, yellow, green
 
 Move undo buttons inside of the deductions
  
+
+
+<label class="btn btn-primary speedin" id="speed0">
+                                <input type="radio" name="speed00" autocomplete="off"> 0.0
+                            </label>
+                            <label class="btn btn-primary speedin" id="speed1">
+                                <input type="radio" name="speed01" autocomplete="off"> 0.1
+                            </label>
+                            <label class="btn btn-primary speedin" id="speed2">
+                                <input type="radio" name="speed02" autocomplete="off"> 0.2
+                            </label>
+                            <label class="btn btn-primary speedin" id="speed3">
+                                <input type="radio" name="speed03" autocomplete="off"> 0.3
+                            </label>
+                            <label class="btn btn-primary speedin" id="speed4">
+                                <input type="radio" name="speed04" autocomplete="off"> 0.4
+                            </label>
+
+
+<label class="btn btn-primary strengthin" id="strength0">
+                                <input type="radio" name="strength00" autocomplete="off"> 0.0
+                            </label>
+                            <label class="btn btn-primary strengthin" id="strength1">
+                                <input type="radio" name="strength01" autocomplete="off"> 0.1
+                            </label>
+                            <label class="btn btn-primary strengthin" id="strength2">
+                                <input type="radio" name="strength02" autocomplete="off"> 0.2
+                            </label>
+                            <label class="btn btn-primary strengthin" id="strength3">
+                                <input type="radio" name="strength03" autocomplete="off"> 0.3
+                            </label>
+                            <label class="btn btn-primary strengthin" id="strength4">
+                                <input type="radio" name="strength04" autocomplete="off"> 0.4
+                            </label>
+
+<label class="btn btn-primary energyin" id="energy0">
+                                <input type="radio" name="energy00" autocomplete="off"> 0.0
+                            </label>
+                            <label class="btn btn-primary energyin" id="energy1">
+                                <input type="radio" name="energy01" autocomplete="off"> 0.1
+                            </label>
+                            <label class="btn btn-primary energyin" id="energy2">
+                                <input type="radio" name="energy02" autocomplete="off"> 0.2
+                            </label>
+                            <label class="btn btn-primary energyin" id="energy3">
+                                <input type="radio" name="energy03" autocomplete="off"> 0.3
+                            </label>
+                            <label class="btn btn-primary energyin" id="energy4">
+                                <input type="radio" name="energy04" autocomplete="off"> 0.4
+                            </label>
