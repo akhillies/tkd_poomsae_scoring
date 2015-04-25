@@ -159,65 +159,29 @@
 .everything .poorpressie
 {
     color: #FF0000;
-    text-shadow: -1px 0px 0px #000000,
-                0px -1px 0px #000000,
-                -1px -1px 0px #000000,
-                1px 0px 0px #000000,
-                0px 1px 0px #000000,
-                1px 1px 0px #000000;
 }
 
 .everything .fairpressie
 {
-    color: #CC5500;
-    text-shadow: -1px 0px 0px #000000,
-                0px -1px 0px #000000,
-                -1px -1px 0px #000000,
-                1px 0px 0px #000000,
-                0px 1px 0px #000000,
-                1px 1px 0px #000000;
+    color: #FF7700;
 }
 
 .everything .goodpressie
 {
-    color: #AAAA00;
-    text-shadow: -1px 0px 0px #000000,
-                0px -1px 0px #000000,
-                -1px -1px 0px #000000,
-                1px 0px 0px #000000,
-                0px 1px 0px #000000,
-                1px 1px 0px #000000;
+    color: #FFFF00;
 }
 
 .everything .verygoodpressie
 {
-    color: #44BB00;
-    text-shadow: -1px 0px 0px #000000,
-                0px -1px 0px #000000,
-                -1px -1px 0px #000000,
-                1px 0px 0px #000000,
-                0px 1px 0px #000000,
-                1px 1px 0px #000000;
+    color: #006400;
 }
 
 .everything .excellentpressie
 {
-    color: #22DD00;
-    text-shadow: -1px 0px 0px #000000,
-                0px -1px 0px #000000,
-                -1px -1px 0px #000000,
-                1px 0px 0px #000000,
-                0px 1px 0px #000000,
-                1px 1px 0px #000000;
+    color: #339900;
 }
 
 .everything .prefectpressie
 {
-    color: #00FF00;
-    text-shadow: -1px 0px 0px #000000,
-                0px -1px 0px #000000,
-                -1px -1px 0px #000000,
-                1px 0px 0px #000000,
-                0px 1px 0px #000000,
-                1px 1px 0px #000000;
+    color: #77FF00;
 }
