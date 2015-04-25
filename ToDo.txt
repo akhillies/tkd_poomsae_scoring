@@ -1,5 +1,10 @@
 To Do..... by the next UC Open:
 
+COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
+
 Adapt for any mobile screen size
 Add key supports (l/r arrows) 
 Change to updateAll function
+
+add server support (in addition to no-server option)
+have option for 3 and 6 options for presentation scoring
