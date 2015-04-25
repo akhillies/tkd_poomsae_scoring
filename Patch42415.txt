@@ -1,12 +1,5 @@
 Change presScore buttons to start from 0.5 to 2.0 and rearrange
 (no change to presScore functions needed)
-Change color settings for each presScore button (0.5-0.9 good, 1.0-1.5 fair, etc.)
-Red, yellow, green
-
-Move undo buttons inside of the deductions
- 
-
-
 
 Color Coding for presScore buttons:
 
