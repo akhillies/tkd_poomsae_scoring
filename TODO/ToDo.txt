@@ -8,3 +8,7 @@ Change to updateAll function
 
 add server support (in addition to no-server option)
 have option for 3 and 6 options for presentation scoring
+
+Get rid of blue rectangle button outline on computer
+
+Undo major/minor buttons turn yellow when you can't undo anymore and still selected.... doesn't look right
