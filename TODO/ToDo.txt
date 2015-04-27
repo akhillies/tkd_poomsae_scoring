@@ -3,7 +3,7 @@ To Do..... by the next UC Open:
 COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
 
 Adapt for any mobile screen size
-Add key supports (l/r arrows) 
+Add key supports (f and j keys, with g and h as undo) 
 Change to updateAll function
 
 add server support (in addition to no-server option)
