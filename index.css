@@ -1,3 +1,11 @@
+@PresFontColor = #000062;
+
+body {
+    background-image: url("./images/bgnoise_lg/bgnoise_lg.png");
+    /*background-image: url("./images/retina_wood/retina_wood.png");*/
+
+}
+
 .everything
 {
     text-align: center;
@@ -19,10 +27,10 @@
     right: 0;
 }
 
-.everything .container-fluid
+/*.everything .container-fluid
 {   
     background: radial-gradient(#FFFFEE, #CCFFFF);
-}
+}*/
 
 .everything .mistakebutton
 {
