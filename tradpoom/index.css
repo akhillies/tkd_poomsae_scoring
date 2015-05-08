@@ -1,0 +1,23 @@
+.tradpoom
+{
+    text-align: center;
+}
+
+.tradpoom .formtitle
+{
+    font-size: 750%;
+}
+
+.tradpoom .numberoptions span
+{
+    font-size: 1750%;
+}
+
+.tradpoom #submitscore
+{
+    background: #50DD55;
+    width: 50%;
+    padding: 20px;
+    margin: auto;
+    font-size: 200%;
+}
