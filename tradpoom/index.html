@@ -48,20 +48,20 @@
                 </select>
             </fieldset>
             <br/><br/><br/>
-            <button id="submitscore" class="btn btn-success" type="submit" data-toggle="modal" data-target="#finalscorescreen">Submit</button>
+            <button id="submitscore" class="btn btn-success" type="submit" data-toggle="modal" data-target="#finalscorescreen" disabled>Submit</button>
 
         <div id="finalscorescreen" class="modal fade" role="dialog" aria-labelledby="finalscorescreen" aria-hidden="true">
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
+            <div class="modal-dialog modal-lg scorescreen">
+                <div class="modal-content scorebox">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4>FINAL SCORE</h4>
                     </div>
-                    <div class="modal-body"></div>
+                    <div class="modal-body scorebody"></div>
                     	<h1 id="finalscore">0.0</h1>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Reset Player</button>
+                        <button type="button" id="resetbutton" c:lass="btn btn-primary">Reset Player</button>
                     </div>
                 </div>
             </div>

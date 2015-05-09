@@ -41,6 +41,36 @@
     font-size: 200%;
 }
 
+.tradpoom .scorebox
+{
+    background: #00003F;
+    color: #FFD700;
+}
+
+.tradpoom #finalscorescreen
+{
+    margin-top: 3px;
+    width: 100%;
+    font-size: 300%;
+}
+
+.tradpoom .scorescreen
+{
+    width: 98%;
+    height: 92%;
+    padding: 0;
+}
+
+.everything .scorebody
+{
+    height: 99%;
+}
+
+.tradpoom #finalscore
+{
+    font-size: 1000%;
+}
+
 .tradpoom .cpyrght
 {
     font-size: 50%;

@@ -12,6 +12,8 @@ var scoreinfo = (function()
                 }
                 $(".tradpoom .formtitle span").html(score);
                 $(".tradpoom #finalscorescreen #finalscore").html(score);
+
+                $(".tradpoom #submitscore").removeAttr("disabled");
             };
 
             return {
@@ -22,6 +24,15 @@ var scoreinfo = (function()
                 updateDecs: function(d) {
                     decimal = d;
                     scoreupdate();
+                },
+                resetScore: function() {
+                    decimal = 0;
+                    integer = 0;
+                    scoreupdate();
+                    $(".tradpoom #integer option:selected").removeAttr("selected");
+                    $(".tradpoom #decimal option:selected").removeAttr("selected");
+                    $(".tradpoom #submitscore").attr("disabled", true);
+                    $(".tradpoom #finalscorescreen").modal("hide");
                 }
             }
         })();
@@ -30,11 +41,13 @@ $(document).ready(function()
         {
             $(".tradpoom #integer").change(function()
                 {
-                    scoreinfo.updateInts($(this).val());
+                    that.scoreinfo.updateInts($(this).val());
                 });
             $(".tradpoom #decimal").change(function()
                 {
-                    scoreinfo.updateDecs($(this).val());
+                    that.scoreinfo.updateDecs($(this).val());
                 });
+            
+            $(".tradpoom #resetbutton").click(that.scoreinfo.resetScore);
 
         });
