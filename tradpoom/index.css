@@ -19,6 +19,11 @@
     font-size: 200%;
 }
 
+.tradpoom #decimalpoint
+{
+    font-size: 1000%;
+}
+
 .tradpoom #submitscore
 {
     width: 50%;
