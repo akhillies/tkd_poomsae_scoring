@@ -2,7 +2,6 @@
 <html lang="en-us">
     <head>
         <link rel="stylesheet" href="../lib/bootstrap-3.3.4-dist/css/bootstrap.min.css">
-        <!-- <link rel="stylesheet" href="../lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" /> -->
         <link rel="stylesheet" href="../lib/font-awesome-4.3.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="./index.css">
 
@@ -10,48 +9,67 @@
         <meta name="viewport" content="width=device-width, user-scalable=no" />
 
         <script src="../lib/jquery-2.1.3-dist/jquery-2.1.3.min.js" defer></script>
-        <!-- <script src="../lib/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js" defer></script> -->
         <script src="../lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" defer></script>
-        <!-- <script src="./tradscor.js" defer></script> -->
+        <script src="./index.js" defer></script>
     </head>
     <body class="tradpoom">
-        <form>
+            <h1 id="pagetitle">Traditional Poomsae</h1>
+            <br/><br/>
             <fieldset data-role="controlgroup" data-type="horizontal" class="numberoptions">
                 <div role="heading" class="ui-controlgroup-label">
-                    <legend class="formtitle">Score:</legend>
+                    <legend class="formtitle">Score: <span>0.0</span></legend>
                 </div>
-                <select name="tensplace" id="tensplace" size=2>
-                    <option value="1">0</option>
-                    <option value="2">1</option>
-                </select>
-                <select name="onesplace" id="onesplace" size=2>
-                    <option value="#">0</option>
-                    <option value="#">1</option>
-                    <option value="#">2</option>
-                    <option value="#">3</option>
-                    <option value="#">4</option>
-                    <option value="#">5</option>
-                    <option value="#">6</option>
-                    <option value="#">7</option>
-                    <option value="#">8</option>
-                    <option value="#">9</option>
+                <br/>
+                <select name="integer" id="integer" size=2>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
                 </select>
                 <span id="decimalpoint">.</span>
-                <select name="tenthsplace" id="tenthsplace" size=2>
-                    <option value="#">0</option>
-                    <option value="#">1</option>
-                    <option value="#">2</option>
-                    <option value="#">3</option>
-                    <option value="#">4</option>
-                    <option value="#">5</option>
-                    <option value="#">6</option>
-                    <option value="#">7</option>
-                    <option value="#">8</option>
-                    <option value="#">9</option>
+                <select name="decimal" id="decimal" size=2>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
                 </select>
             </fieldset>
             <br/><br/><br/>
-            <button id="submitscore" class="btn btn-success" type="submit">Submit</button>
-        </form>
+            <button id="submitscore" class="btn btn-success" type="submit" data-toggle="modal" data-target="#finalscorescreen">Submit</button>
+
+        <div id="finalscorescreen" class="modal fade" role="dialog" aria-labelledby="finalscorescreen" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4>FINAL SCORE</h4>
+                    </div>
+                    <div class="modal-body"></div>
+                    	<h1 id="finalscore">0.0</h1>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Reset Player</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br/><br/><br/>
+        <div class="row cpyrght">
+            <span class="glyphicon glyphicon-copyright-mark"></span> 2015 by Akhil Batra, Melvin Huang, and Michael Cho<br/>All work done and owned by Akhil Batra, Melvin Huang, and Michael Cho<br/>This software may not be sold in any country unless given explicit permission from developers
+        </div>
+
     </body>
 </html>

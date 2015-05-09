@@ -1,16 +1,25 @@
 .tradpoom
 {
     text-align: center;
+    height: 100%;
+    overflow: hidden;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+.tradpoom #pagetitle
+{
+    font-size: 500%;
 }
 
 .tradpoom .formtitle
 {
-    font-size: 750%;
+    font-size: 450%;
 }
 
 .tradpoom .numberoptions select
 {
     width: 25%;
+    height: 50%;
     font-size: 200%;
 }
 
@@ -21,7 +30,7 @@
 
 .tradpoom #decimalpoint
 {
-    font-size: 1000%;
+    font-size: 500%;
 }
 
 .tradpoom #submitscore
@@ -30,4 +39,12 @@
     padding: 20px;
     margin: auto;
     font-size: 200%;
+}
+
+.tradpoom .cpyrght
+{
+    font-size: 50%;
+    text-shadow: none;
+    color: black;
+    padding-top: 12px;
 }
