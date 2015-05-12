@@ -4,7 +4,7 @@ body {
 
 }
 
-.everything
+.sportpoom
 {
     text-align: center;
     font-family: Verdana, Geneva, sans-serif;
@@ -25,12 +25,12 @@ body {
     right: 0;
 }
 
-/*.everything .container-fluid
+/*.sportpoom .container-fluid
 {   
     background: radial-gradient(#FFFFEE, #CCFFFF);
 }*/
 
-.everything .mistakebutton
+.sportpoom .mistakebutton
 {
     width: 100%;
     height: 100%;
@@ -39,24 +39,24 @@ body {
     border-radius: 5%;
 }
 
-.everything .scoringstuff div:first-child
+.sportpoom .scoringstuff div:first-child
 {
     padding-right: 0;
 }
 
-.everything .scoringstuff div:last-child
+.sportpoom .scoringstuff div:last-child
 {
     padding-left: 0;
 }
 
-.everything .btn-radio
+.sportpoom .btn-radio
 {
     background: #CCCCDD;
     border: 1px solid #999999;
     font-size: 115%;
 }
 
-.everything .toprow label
+.sportpoom .toprow label
 {
     border-top-left-radius: 25%;
     border-top-right-radius: 25%;
@@ -66,7 +66,7 @@ body {
 }
 
 
-.everything .botrow label
+.sportpoom .botrow label
 {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -76,17 +76,17 @@ body {
     border-bottom: none;
 }
 
-.everything .pressiestuff .active
+.sportpoom .pressiestuff .active
 {
     background: #999999;
 }
 
-.everything .pressiestuff .pwrspd h2
+.sportpoom .pressiestuff .pwrspd h2
 {
     margin-top: 0;
 }
 
-.everything .undobutton
+.sportpoom .undobutton
 {
     font-size: 150%;
     background: #FF8888;
@@ -94,35 +94,35 @@ body {
     padding: 17px;
 }
 
-.everything .pressibuttons, .everything .pressibuttons [class*="col-"]
+.sportpoom .pressibuttons, .sportpoom .pressibuttons [class*="col-"]
 {
     padding: none;
     margin: none;
 }
 
-.everything .scorescreen
+.sportpoom .scorescreen
 {
     width: 98%;
     height: 92%;
     padding: 0;
 }
 
-.everything .scorebody
+.sportpoom .scorebody
 {
     height: 99%;
 }
 
-.everything #finalscore
+.sportpoom #finalscore
 {
     font-size: 3000%;
 }
 
-.everything .scoringstuff
+.sportpoom .scoringstuff
 {
     display: table;
 }
 
-.everything .scoringstuff [class*="col-"]
+.sportpoom .scoringstuff [class*="col-"]
 {   
     height: 100%;
     float: none;
@@ -130,31 +130,31 @@ body {
     vertical-align: top;
 }
 
-.everything .undobutton
+.sportpoom .undobutton
 {
     width: 100%;
 }
 
-.everything .miscounts div h2
+.sportpoom .miscounts div h2
 {
     margin-top: 0;
     padding-top: 0;
 }
 
-.everything .scorebox
+.sportpoom .scorebox
 {
     background: #00003F;
     color: #FFD700;
 }
 
-.everything #scoresubmit
+.sportpoom #scoresubmit
 {
     margin-top: 35px;
     width: 100%;
     font-size: 300%;
 }
 
-.everything .cpyrght
+.sportpoom .cpyrght
 {
     font-size: 50%;
     text-shadow: none;
@@ -162,32 +162,32 @@ body {
     padding-top: 12px;
 }
 
-.everything .poorpressie
+.sportpoom .poorpressie
 {
     color: #FF0000;
 }
 
-.everything .fairpressie
+.sportpoom .fairpressie
 {
     color: #FF7700;
 }
 
-.everything .goodpressie
+.sportpoom .goodpressie
 {
     color: #FFFF00;
 }
 
-.everything .verygoodpressie
+.sportpoom .verygoodpressie
 {
     color: #006400;
 }
 
-.everything .excellentpressie
+.sportpoom .excellentpressie
 {
     color: #339900;
 }
 
-.everything .prefectpressie
+.sportpoom .prefectpressie
 {
     color: #77FF00;
 }
