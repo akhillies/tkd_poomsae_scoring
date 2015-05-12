@@ -1,0 +1,3 @@
+Added traditional poomsae scorer base (so everything really except colors)
+Reorganized a little so there is a sport poomsae link and a traditional poomsae link
+Getting ready for adding a home page to send metadata as to which poomsae scorer they want to use

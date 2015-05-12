@@ -2,6 +2,8 @@ To Do..... by the next UC Open:
 
 COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
 
+make options and some sort of home page to pick the link to go to (using meta data, this should also eventually allow connection to the google doc and pull info from it)
+
 Adapt for any mobile screen size
 Add key supports (f and j keys, with g and h as undo) 
 Change to updateAll function
@@ -12,3 +14,10 @@ have option for 3 and 6 options for presentation scoring
 Get rid of blue rectangle button outline on computer
 
 Undo major/minor buttons turn yellow when you can't undo anymore and still selected.... doesn't look right
+
+
+look into storing stuff on google excel sheet so no server is needed
+
+have a 6 presentation option
+
+add a view port that also connects to the google doc to show final stuff that the judges did
