@@ -99,8 +99,10 @@ body {
     font-size: 250%;
 }
 
-.sportpoom .option6 .row
+.sportpoom .option6
 {
+    padding-top: 2em;
+    padding-bottom: 2em;
 }
 
 .sportpoom .option6 .pleft
@@ -118,6 +120,14 @@ body {
 {
     margin-left: .5em;
     margin-right: .5em;
+    margin-top: .3em;
+    margin-bottom: .3em;
+
+.sportpoom .option6 .pright
+{
+    float: left;
+}
+
 }
 
 .sportpoom .scorescreen
