@@ -18,6 +18,6 @@ Undo major/minor buttons turn yellow when you can't undo anymore and still selec
 
 look into storing stuff on google excel sheet so no server is needed
 
-have a 6 presentation option
+make the 6 presentation option actually work with page (currently no js interaction built yet)
 
 add a view port that also connects to the google doc to show final stuff that the judges did
