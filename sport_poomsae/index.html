@@ -41,7 +41,7 @@
                     <button id="majorbutton" class="btn btn-danger mistakebutton">Major<br/>Deduction<br/>(-0.3)</button>
                 </div>
                 <div class="col-xs-6 pressiestuff">
-                    <div class="3option" hidden>
+                    <div class="option3" hidden>
                         <div class="row pwrspd">
                             <h2>Power and Speed: <span id="speednum">0.0</span></h2>
                             <div class="btn-group toprow" data-toggle="buttons">
@@ -211,95 +211,112 @@
                             </div>
                         </div>
                     </div>
-                    <div class="6option">
-                        <fieldset class="numberoptions">
-                            <label class="formtitle" for="pwr">Power: <span>0.0</span></label>
-                            <select id="pwr" name="pwr">
-                                <option value="0">0.0</option>
-                                <option value="1">0.1</option>
-                                <option value="2">0.2</option>
-                                <option value="3">0.3</option>
-                                <option value="4">0.4</option>
-                                <option value="5">0.5</option>
-                                <option value="6">0.6</option>
-                                <option value="7">0.7</option>
-                                <option value="8">0.8</option>
-                                <option value="9">0.9</option>
-                                <option value="10">1.0</option>
-                            </select>
-                            <label class="formtitle" for="spd">Speed: <span>0.0</span></label>
-                            <select id="spd" name="spd">
-                                <option value="0">0.0</option>
-                                <option value="1">0.1</option>
-                                <option value="2">0.2</option>
-                                <option value="3">0.3</option>
-                                <option value="4">0.4</option>
-                                <option value="5">0.5</option>
-                                <option value="6">0.6</option>
-                                <option value="7">0.7</option>
-                                <option value="8">0.8</option>
-                                <option value="9">0.9</option>
-                                <option value="10">1.0</option>
-                            </select>
+                    <div class="option6">
+                        <div class="row">
+                            <div class="col-xs-6 pressieselector pleft">
+                                <label class="formtitle" for="pwr">Power: </label>
+                                <select id="pwr" name="pwr" size=2>
+                                    <option value="0">0.0</option>
+                                    <option value="1">0.1</option>
+                                    <option value="2">0.2</option>
+                                    <option value="3">0.3</option>
+                                    <option value="4">0.4</option>
+                                    <option value="5">0.5</option>
+                                    <option value="6">0.6</option>
+                                    <option value="7">0.7</option>
+                                    <option value="8">0.8</option>
+                                    <option value="9">0.9</option>
+                                    <option value="10">1.0</option>
+                                </select>
+                            </div>
+                            
+                            <div class="col-xs-6 pressieselector pright">
+                                <select id="spd" name="spd" size=2>
+                                    <option value="0">0.0</option>
+                                    <option value="1">0.1</option>
+                                    <option value="2">0.2</option>
+                                    <option value="3">0.3</option>
+                                    <option value="4">0.4</option>
+                                    <option value="5">0.5</option>
+                                    <option value="6">0.6</option>
+                                    <option value="7">0.7</option>
+                                    <option value="8">0.8</option>
+                                    <option value="9">0.9</option>
+                                    <option value="10">1.0</option>
+                                </select>
+                                <label class="formtitle" for="spd"> :Speed</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 pressieselector pleft">
+                                <label class="formtitle" for="rhm">Rhythm: </label>
+                                <select id="rhm" name="rhm" size=2>
+                                    <option value="0">0.0</option>
+                                    <option value="1">0.1</option>
+                                    <option value="2">0.2</option>
+                                    <option value="3">0.3</option>
+                                    <option value="4">0.4</option>
+                                    <option value="5">0.5</option>
+                                    <option value="6">0.6</option>
+                                    <option value="7">0.7</option>
+                                    <option value="8">0.8</option>
+                                    <option value="9">0.9</option>
+                                    <option value="10">1.0</option>
+                                </select>
+                            </div>
                             <br/>
-                            <label class="formtitle" for="rhm">Rhythm: <span>0.0</span></label>
-                            <select id="rhm" name="rhm">
-                                <option value="0">0.0</option>
-                                <option value="1">0.1</option>
-                                <option value="2">0.2</option>
-                                <option value="3">0.3</option>
-                                <option value="4">0.4</option>
-                                <option value="5">0.5</option>
-                                <option value="6">0.6</option>
-                                <option value="7">0.7</option>
-                                <option value="8">0.8</option>
-                                <option value="9">0.9</option>
-                                <option value="10">1.0</option>
-                            </select>
-                            <label class="formtitle" for="str">Strength: <span>0.0</span></label>
-                            <select id="str" name="str">
-                                <option value="0">0.0</option>
-                                <option value="1">0.1</option>
-                                <option value="2">0.2</option>
-                                <option value="3">0.3</option>
-                                <option value="4">0.4</option>
-                                <option value="5">0.5</option>
-                                <option value="6">0.6</option>
-                                <option value="7">0.7</option>
-                                <option value="8">0.8</option>
-                                <option value="9">0.9</option>
-                                <option value="10">1.0</option>
-                            </select>
-                            <br/>
-                            <label class="formtitle" for="spt">Spirit: <span>0.0</span></label>
-                            <select id="spt" name="spt">
-                                <option value="0">0.0</option>
-                                <option value="1">0.1</option>
-                                <option value="2">0.2</option>
-                                <option value="3">0.3</option>
-                                <option value="4">0.4</option>
-                                <option value="5">0.5</option>
-                                <option value="6">0.6</option>
-                                <option value="7">0.7</option>
-                                <option value="8">0.8</option>
-                                <option value="9">0.9</option>
-                                <option value="10">1.0</option>
-                            </select>
-                            <label class="formtitle" for="eng">Energy: <span>0.0</span></label>
-                            <select id="eng" name="eng" size=2>
-                                <option value="0">0.0</option>
-                                <option value="1">0.1</option>
-                                <option value="2">0.2</option>
-                                <option value="3">0.3</option>
-                                <option value="4">0.4</option>
-                                <option value="5">0.5</option>
-                                <option value="6">0.6</option>
-                                <option value="7">0.7</option>
-                                <option value="8">0.8</option>
-                                <option value="9">0.9</option>
-                                <option value="10">1.0</option>
-                            </select>
-                        </fieldset>
+                            <div class="col-xs-6 pressieselector pright">
+                                <select id="str" name="str" size=2>
+                                    <option value="0">0.0</option>
+                                    <option value="1">0.1</option>
+                                    <option value="2">0.2</option>
+                                    <option value="3">0.3</option>
+                                    <option value="4">0.4</option>
+                                    <option value="5">0.5</option>
+                                    <option value="6">0.6</option>
+                                    <option value="7">0.7</option>
+                                    <option value="8">0.8</option>
+                                    <option value="9">0.9</option>
+                                    <option value="10">1.0</option>
+                                </select>
+                                <label class="formtitle" for="str"> :Strength</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6 pressieselector pleft">
+                                <label class="formtitle" for="spt">Spirit: </label>
+                                <select id="spt" name="spt" size=2>
+                                    <option value="0">0.0</option>
+                                    <option value="1">0.1</option>
+                                    <option value="2">0.2</option>
+                                    <option value="3">0.3</option>
+                                    <option value="4">0.4</option>
+                                    <option value="5">0.5</option>
+                                    <option value="6">0.6</option>
+                                    <option value="7">0.7</option>
+                                    <option value="8">0.8</option>
+                                    <option value="9">0.9</option>
+                                    <option value="10">1.0</option>
+                                </select>
+                            </div>
+                            <br/><br/>
+                            <div class="col-xs-6 pressieselector pright">
+                                <select id="eng" name="eng" size=2>
+                                    <option value="0">0.0</option>
+                                    <option value="1">0.1</option>
+                                    <option value="2">0.2</option>
+                                    <option value="3">0.3</option>
+                                    <option value="4">0.4</option>
+                                    <option value="5">0.5</option>
+                                    <option value="6">0.6</option>
+                                    <option value="7">0.7</option>
+                                    <option value="8">0.8</option>
+                                    <option value="9">0.9</option>
+                                    <option value="10">1.0</option>
+                                </select>
+                                <label class="formtitle" for="eng"> :Energy</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-xs-3 deductButton">

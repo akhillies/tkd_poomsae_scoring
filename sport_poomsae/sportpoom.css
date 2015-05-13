@@ -76,12 +76,12 @@ body {
     border-bottom: none;
 }
 
-.sportpoom .pressiestuff .active
+.sportpoom .pressiestuff .option3 .active
 {
     background: #999999;
 }
 
-.sportpoom .pressiestuff .pwrspd h2
+.sportpoom .pressiestuff .option3 .pwrspd h2
 {
     margin-top: 0;
 }
@@ -94,10 +94,32 @@ body {
     padding: 17px;
 }
 
-.sportpoom .pressibuttons, .sportpoom .pressibuttons [class*="col-"]
+.sportpoom .option6 .formtitle
 {
-    padding: none;
-    margin: none;
+    font-size: 250%;
+}
+
+.sportpoom .option6 .row
+{
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+.sportpoom .option6 .pleft
+{
+    text-align: right;
+}
+
+
+.sportpoom .option6 .pright
+{
+    text-align: left;
+}
+
+.sportpoom .option6 select
+{
+    margin-left: .5em;
+    margin-right: .5em;
 }
 
 .sportpoom .scorescreen
@@ -122,7 +144,7 @@ body {
     display: table;
 }
 
-.sportpoom .scoringstuff [class*="col-"]
+.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff
 {   
     height: 100%;
     float: none;
