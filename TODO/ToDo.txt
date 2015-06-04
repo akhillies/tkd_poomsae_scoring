@@ -1,39 +1,60 @@
 To Do..... by the next UC Open:
 
-Change to updateAll function
-code cleanup with selectors - https://learn.jquery.com/performance/optimize-selectors/
-big fix: modal still come up after alert for not entering presentation score
-	just disable pressing submit until after all scores have been selected
+Akhil: by june 8
+0) small updates
+	Change to updateAll function
+	code cleanup with selectors - https://learn.jquery.com/performance/optimize-selectors/
+	big fix: modal still come up after alert for not entering presentation score
+		just disable pressing submit until after all scores have been selected
 
 
-add competitor name, poomsae, and timer to scoring page
+Michael: by june 15
+1) add competitor name, poomsae, and timer to scoring page
 	-) name and poomsae can go to the top left while 3 scores are pushed to the right side
 	-) timer replaces submit button
 		originally, green button is "start", then shows <time> (left side) and "stop" (right side), and finally shows <time> (left side) and "submit" (right side)
-	
 
-screen size - should scale / work for all mobile screens
+
+Melvin: by june 15
+2) screen size - should scale / work for all mobile screens
 	-) what we have currently MUST work on phone
-	-) whatever new we make does not have to work on phone
+	-) whatever new we make does not have to work on phone but does on ALL tablets
 
+
+Akhil: by june 15
+3) backend schema
+	needs to be able to take input 
+		individual adding through forms and csv option for bulk upload for competitors
+		add divisions and assign to rings
+	1-2 tables to have info, need competitor ID (we generate, 1, 2, ...) along with division and scores/times by judges
+
+
+
+
+
+4) make a homepage with metadata to direct which poomsae scoring screen with what names and such comes up. options are:
+	-) indivudual/tournament
+		-) if tourney, then pick table/judge/display
+			-) if judge, pick ring/judge# and enter simple pin to authenticate
+			-) if table, pick ring and enter passcode. table can:
+				set pin for judges to enter
+				pick which division/round (can chose division from another ring)
+				change person if out of order
+			-) if display, just show stuff, test to see if we can leave open for everyone
+				no continuous updating - only show after submissions were made
+				table decides when to show (by refreshing)
+		
+
+
+
+
+
+
+traditional poomsae backend support
+	do this after testing sport poomsae
 
 
 make the 6 presentation option actually work with page (currently no js interaction built yet) and needs to look better
-
-make a home page with metadata to direct which poomsae scoring screen with what names and such comes up
-	-) make options and some sort of home page to pick the link to go to (using meta data, this should also eventually allow connection to the database and pull info from it)
-	-) add server support (in addition to no-server option)
-	-) has timer, start/stopped by person behind desk
-
-add a view port that also connects to the backend to show final results
-
-
-
-
-
-
-
-
 
 
 COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
