@@ -1,23 +1,39 @@
 To Do..... by the next UC Open:
 
-COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
-
-make options and some sort of home page to pick the link to go to (using meta data, this should also eventually allow connection to the google doc and pull info from it)
-
-Adapt for any mobile screen size
-Add key supports (f and j keys, with g and h as undo) 
 Change to updateAll function
-
-add server support (in addition to no-server option)
-have option for 3 and 6 options for presentation scoring
-
-Get rid of blue rectangle button outline on computer
-
-Undo major/minor buttons turn yellow when you can't undo anymore and still selected.... doesn't look right
+code cleanup with selectors - https://learn.jquery.com/performance/optimize-selectors/
+big fix: modal still come up after alert for not entering presentation score
+	just disable pressing submit until after all scores have been selected
 
 
-look into storing stuff on google excel sheet so no server is needed
+add competitor name, poomsae, and timer to scoring page
+	-) name and poomsae can go to the top left while 3 scores are pushed to the right side
+	-) timer replaces submit button
+		originally, green button is "start", then shows <time> (left side) and "stop" (right side), and finally shows <time> (left side) and "submit" (right side)
+	
 
-make the 6 presentation option actually work with page (currently no js interaction built yet)
+screen size - should scale / work for all mobile screens
+	-) what we have currently MUST work on phone
+	-) whatever new we make does not have to work on phone
 
-add a view port that also connects to the google doc to show final stuff that the judges did
+
+
+make the 6 presentation option actually work with page (currently no js interaction built yet) and needs to look better
+
+make a home page with metadata to direct which poomsae scoring screen with what names and such comes up
+	-) make options and some sort of home page to pick the link to go to (using meta data, this should also eventually allow connection to the database and pull info from it)
+	-) add server support (in addition to no-server option)
+	-) has timer, start/stopped by person behind desk
+
+add a view port that also connects to the backend to show final results
+
+
+
+
+
+
+
+
+
+
+COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
