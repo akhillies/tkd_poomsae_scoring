@@ -1,6 +1,5 @@
 var that = this;
 
-
 var updater = (function()
         {
             var minor = 0;
@@ -20,26 +19,52 @@ var updater = (function()
             }
 			
 
-            var updateMajorDisp = function()
+            var updateMajorDisp = function(i)
             {
                 //console.log("updated major disp");
-                $(".sportpoom #majorcount").html(major);
+                major = Math.max(major + i, 0);
+                $("#majorcount").html(major);
+                if(major <= 0)
+                {
+                    $("#undomajorbutton").attr("disabled", true);
+                }
+                else
+                {
+                    $("#undomajorbutton").removeAttr("disabled");
+                }
+
+                updateAccScore();
             }
 
-            var updateMinorDisp = function()
+            var updateMinorDisp = function(i)
             {
                 //console.log("updated minor disp")
-                $(".sportpoom #minorcount").html(minor); 
+                minor = Math.max(minor + i, 0);
+                $("#minorcount").html(minor); 
+                if(minor <= 0)
+                {
+                    $("#undominorbutton").attr("disabled", true);
+                }
+                else
+                {
+                    $("#undominorbutton").removeAttr("disabled");
+                }
+
+                updateAccScore();
             }
 
             var updatePres = function()
             {
                 presScore = (spd + str + eng);
-                $(".sportpoom #presscore").html(presScore.toFixed(1));
+                $("#presscore").html(presScore.toFixed(1));
                 updateTotal();
                 if(presScore >= 1.5 && spd >= 0.5 && str >= 0.5 && eng >= 0.5)
                 {
-                    $(".sportpoom #scoresubmit").removeAttr("disabled");
+                    $("#scoresubmit").removeAttr("disabled");
+                }
+                else
+                {
+                    $("#scoresubmit").attr("disabled", true);
                 }
             }
 
@@ -47,15 +72,15 @@ var updater = (function()
             {
                 //console.log("updated acc score");
                 accScore = Math.max(0, 4 - 0.1 * minor - 0.3 * major);
-                $(".sportpoom #accscore").html(accScore.toFixed(1)); 
+                $("#accscore").html(accScore.toFixed(1)); 
                 updateTotal();
             }
 
             var updateTotal = function()
             {
                 totalScore = presScore + accScore;
-                $(".sportpoom #totalscore").html(totalScore.toFixed(1));
-                $(".sportpoom #finalscore").html(totalScore.toFixed(1));
+                $("#totalscore").html(totalScore.toFixed(1));
+                $("#finalscore").html(totalScore.toFixed(1));
             }
 			
 
@@ -63,93 +88,69 @@ var updater = (function()
                 addMinor: function() 
                 {
                     //console.log("added minor");
-                	minor += 1;
-                	updateAccScore();
-                    updateMinorDisp();
-                    $(".sportpoom #undominorbutton").removeAttr("disabled");
+                    updateMinorDisp(1);
                 },
                 subMinor: function()
                 {
                     //console.log("subbed minor");
-                    if (minor > 0) {
-                        minor -= 1;
-                        updateAccScore();
-                        updateMinorDisp();
-                    }
-                    if(minor <= 0)
-                    {
-                        $(".sportpoom #undominorbutton").attr("disabled", true);
-                    }
+                    updateMinorDisp(-1);
                 },
                 addMajor: function() 
                 {
                     //console.log("added Major");
-                	major += 1;
-                    updateAccScore();
-                    updateMajorDisp();
-                    $(".sportpoom #undomajorbutton").removeAttr("disabled");
+                    updateMajorDisp(1);
                 },
                 subMajor: function()
                 {
                     //console.log("subbed Major");
-                    if (major > 0) {
-                        major -= 1;
-                        updateAccScore();
-                        updateMajorDisp();
-                    }
-                    if(major <= 0)
-                    {
-                        $(".sportpoom #undomajorbutton").attr("disabled", true);
-                    }
+                    updateMajorDisp(-1);
                 },
                 updateSpeed: function(dombutton)
                 {
                     var id = "speed" + (spd*10).toString();
-                    $(".sportpoom #" + id).removeClass("active");
+                    $("#" + id).removeClass("active");
                     spd = parseFloat(grabValue(dombutton.innerHTML));
-                    $(".sportpoom #speednum").html(spd.toFixed(1));
+                    $("#speednum").html(spd.toFixed(1));
                     updatePres();
                 },
                 updateStrength: function(dombutton)
                 {
                     var id = "strength" + (str*10).toString();
-                    $(".sportpoom #" + id).removeClass("active");
+                    $("#" + id).removeClass("active");
                     str = parseFloat(grabValue(dombutton.innerHTML));
-                    $(".sportpoom #strengthnum").html(str.toFixed(1));
+                    $("#strengthnum").html(str.toFixed(1));
                     updatePres();
                 },
                 updateEnergy: function(dombutton)
                 {
                     var id = "energy" + (eng*10).toString();
-                    $(".sportpoom #" + id).removeClass("active");
+                    $("#" + id).removeClass("active");
                     eng = parseFloat(grabValue(dombutton.innerHTML));
-                    $(".sportpoom #energynum").html(eng.toFixed(1));
+                    $("#energynum").html(eng.toFixed(1));
                     updatePres();
                 },
 				resetScore: function()
 				{
 					minor = 0;
             		major = 0;
-                    updateMajorDisp();
-					updateMinorDisp();
+                    updateMajorDisp(0);
+					updateMinorDisp(0);
 
                     var id = "speed" + (spd*10).toString();
-                    $(".sportpoom #" + id).removeClass("active");
+                    $("#" + id).removeClass("active");
                     spd = 0.0;
-                    $(".sportpoom #speednum").html(spd.toFixed(1));
+                    $("#speednum").html(spd.toFixed(1));
                     id = "strength" + (str*10).toString();
-                    $(".sportpoom #" + id).removeClass("active");
+                    $("#" + id).removeClass("active");
                     str = 0.0;
-                    $(".sportpoom #strengthnum").html(str.toFixed(1));
+                    $("#strengthnum").html(str.toFixed(1));
                     id = "energy" + (eng*10).toString();
-                    $(".sportpoom #" + id).removeClass("active");
+                    $("#" + id).removeClass("active");
                     eng = 0.0;
-                    $(".sportpoom #energynum").html(eng.toFixed(1));
-
-					updateAccScore();
+                    $("#energynum").html(eng.toFixed(1));
 					updatePres();
 
-                    $(".sportpoom #submitscore").modal("hide");
+                    $("#submitscore").modal("hide");
 
                     //location.reload();
 				},
@@ -158,7 +159,6 @@ var updater = (function()
                     if(presScore < 1.5 || spd < 0.5 || str < 0.5 || eng < 0.5)
                     {
                         alert("Please enter a valid Presentation score");
-                        $(".sportpoom #submitscore").modal("hide");
                     }
                 }
             };
@@ -168,24 +168,24 @@ var updater = (function()
 $(document).ready(function()
         {
         
-            $(".sportpoom #majorbutton").click(that.updater.addMajor);
-            $(".sportpoom #minorbutton").click(that.updater.addMinor);
-            $(".sportpoom #undomajorbutton").click(that.updater.subMajor);
-            $(".sportpoom #undominorbutton").click(that.updater.subMinor);
-			$(".sportpoom #resetbutton").click(that.updater.resetScore);
+            $("#majorbutton").click(that.updater.addMajor);
+            $("#minorbutton").click(that.updater.addMinor);
+            $("#undomajorbutton").click(that.updater.subMajor);
+            $("#undominorbutton").click(that.updater.subMinor);
+			$("#resetbutton").click(that.updater.resetScore);
             
-            $(".sportpoom .speedin").click(function()
+            $(".speedin").click(function()
 			{
 				that.updater.updateSpeed(this);
 			});
-            $(".sportpoom .strengthin").click(function()
+            $(".strengthin").click(function()
 			{
 				that.updater.updateStrength(this);
 			});
-            $(".sportpoom .energyin").click(function()
+            $(".energyin").click(function()
 			{
 				that.updater.updateEnergy(this);
 			});
 
-            $(".sportpoom #scoresubmit").click(that.updater.updateSubmit);
+            $("#scoresubmit").click(that.updater.updateSubmit);
         });

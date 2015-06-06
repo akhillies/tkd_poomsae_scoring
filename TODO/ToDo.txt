@@ -1,12 +1,5 @@
 To Do..... by the next UC Open:
 
-Akhil: by june 8
-0) small updates
-	Change to updateAll function
-	code cleanup with selectors - https://learn.jquery.com/performance/optimize-selectors/
-	big fix: modal still come up after alert for not entering presentation score
-		just disable pressing submit until after all scores have been selected
-
 
 Michael: by june 15
 1) add competitor name, poomsae, and timer to scoring page
