@@ -10,10 +10,10 @@ var scoreinfo = (function()
                 if(integer >= 10) {
                     score = integer + ".0";
                 }
-                $(".tradpoom .formtitle span").html(score);
-                $(".tradpoom #finalscorescreen #finalscore").html(score);
+                $(".formtitle span").html(score);
+                $("#finalscorescreen #finalscore").html(score);
 
-                $(".tradpoom #submitscore").removeAttr("disabled");
+                $("#submitscore").removeAttr("disabled");
             };
 
             return {
@@ -39,15 +39,15 @@ var scoreinfo = (function()
         
 $(document).ready(function()
         {
-            $(".tradpoom #integer").change(function()
+            $("#integer").change(function()
                 {
                     that.scoreinfo.updateInts($(this).val());
                 });
-            $(".tradpoom #decimal").change(function()
+            $("#decimal").change(function()
                 {
                     that.scoreinfo.updateDecs($(this).val());
                 });
             
-            $(".tradpoom #resetbutton").click(that.scoreinfo.resetScore);
+            $("#resetbutton").click(that.scoreinfo.resetScore);
 
         });
