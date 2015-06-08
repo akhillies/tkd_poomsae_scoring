@@ -82,7 +82,6 @@ var updater = (function()
                 $("#totalscore").html(totalScore.toFixed(1));
                 $("#finalscore").html(totalScore.toFixed(1));
             }
-			
 
             return {
                 addMinor: function() 
@@ -129,6 +128,13 @@ var updater = (function()
                     $("#energynum").html(eng.toFixed(1));
                     updatePres();
                 },
+
+
+                updatePoomName: function(dombutton)
+                {
+                    $("#poomsae-name").html(dombutton.innerHTML);
+                },
+            
 				resetScore: function()
 				{
 					minor = 0;
@@ -173,6 +179,9 @@ $(document).ready(function()
             $("#undomajorbutton").click(that.updater.subMajor);
             $("#undominorbutton").click(that.updater.subMinor);
 			$("#resetbutton").click(that.updater.resetScore);
+
+            $("#scoresubmit").click(that.updater.updateSubmit);
+
             
             $(".speedin").click(function()
 			{
@@ -187,5 +196,10 @@ $(document).ready(function()
 				that.updater.updateEnergy(this);
 			});
 
-            $("#scoresubmit").click(that.updater.updateSubmit);
+            $(".poom-names").click(function()
+            {
+                that.updater.updatePoomName(this);
+            });
+
+
         });

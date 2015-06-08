@@ -4,6 +4,23 @@ body {
 
 }
 
+.dropdown
+{
+    padding-top: 15%;
+}
+
+.dropdown-toggle 
+{   
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+}
+.dropdown-menu
+{
+    width: 100%;
+    padding-left: 14% /* Optional for caret */;
+}
+
 .sportpoom
 {
     text-align: center;
