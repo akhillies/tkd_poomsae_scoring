@@ -11,6 +11,7 @@
         <script src="../../lib/jquery-2.1.3-dist/jquery-2.1.3.min.js" defer></script>
         <script src="../../lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" defer></script>
         <script src="./TournSport.js" defer></script>
+        <script src="./stopwatch.js" defer></script>
     </head>
     <body class="sportpoom">
         <div class="container-fluid">
@@ -22,6 +23,10 @@
                         </button>
                         <ul class="dropdown-menu">
                             <li class="poom-names"><a>Select Poomsae</a></li>
+                            <li class="poom-names"><a>Taeguk 1</a></li>
+                            <li class="poom-names"><a>Taeguk 2</a></li>
+                            <li class="poom-names"><a>Taeguk 3</a></li>
+                            <li class="poom-names"><a>Taeguk 4</a></li>
                             <li class="poom-names"><a>Taeguk 5</a></li>
                             <li class="poom-names"><a>Taeguk 6</a></li>
                             <li class="poom-names"><a>Taeguk 7</a></li>
@@ -32,8 +37,11 @@
                             <li class="poom-names"><a>Pyongwon</a></li>
                             <li class="poom-names"><a>Sipjin</a></li>
                             <li class="poom-names"><a>Cheonkwon</a></li>
+                            <li class="poom-names"><a>Hansu</a></li>
+
                         </ul></div>
-                        <h4 id="competitor-name">Competitor Name</h4>
+                        <h4 id="competitor-name">Athlete Name</h4>
+
 <!--                     <form>
                         <input type="text" value="Competitor Name" width:"100%"> 
                     </form> -->
@@ -57,7 +65,12 @@
             
             <div class="row miscounts">
                 <div class="col-xs-3"><h2 id="majorcount" class="mistakecount">0</h2></div>
-                <div class="col-xs-3 col-xs-offset-6"><h2 id="minorcount" class="mistakecount">0</h2></div>
+                <div class="col-xs-4 col-xs-offset-1"> 
+                    <p>Time: <span id="time"></span></p>
+                    <button id="button-start" onclick="startstop();">Start/Stop</button>
+                    <button id="button-reset" onclick="reset();">Reset</button>
+                </div>
+                <div class="col-xs-3 col-xs-offset-1"><h2 id="minorcount" class="mistakecount">0</h2></div>
             </div>
 
             <div class="row scoringstuff">
@@ -66,7 +79,7 @@
                 </div>
                 <div class="col-xs-6 pressiestuff">
                     <div class="option3">
-                        <div class="row pwrspd">
+                        <div class="row">
                             <h2>Power and Speed: <span id="speednum">0.0</span></h2>
                             <div class="btn-group toprow" data-toggle="buttons">
                                 <label class="btn btn-radio speedin poorpressie" id="speed5">
@@ -232,117 +245,6 @@
                                 <label class="btn btn-radio energyin prefectpressie" id="energy20">
                                     <input type="radio" name="energy20" autocomplete="off"> 2.0
                                 </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="option6" hidden>
-                        <div class="row">
-                            <div class="col-xs-6 pressieselector pleft">
-                                <label class="formtitle" for="pwr">Power: </label>
-                                <select id="pwr" name="pwr" size=2>
-                                    <option value="0">0.0</option>
-                                    <option value="1">0.1</option>
-                                    <option value="2">0.2</option>
-                                    <option value="3">0.3</option>
-                                    <option value="4">0.4</option>
-                                    <option value="5">0.5</option>
-                                    <option value="6">0.6</option>
-                                    <option value="7">0.7</option>
-                                    <option value="8">0.8</option>
-                                    <option value="9">0.9</option>
-                                    <option value="10">1.0</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-xs-offset-5 pressieselector pright">
-                                <select id="rhm" name="rhm" size=2>
-                                    <option value="0">0.0</option>
-                                    <option value="1">0.1</option>
-                                    <option value="2">0.2</option>
-                                    <option value="3">0.3</option>
-                                    <option value="4">0.4</option>
-                                    <option value="5">0.5</option>
-                                    <option value="6">0.6</option>
-                                    <option value="7">0.7</option>
-                                    <option value="8">0.8</option>
-                                    <option value="9">0.9</option>
-                                    <option value="10">1.0</option>
-                                </select>
-                                <label class="formtitle" for="rhm"> :Rhythm</label>
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-xs-6 pressieselector pleft">
-                                <label class="formtitle" for="spd">Speed: </label>
-                                <select id="spd" name="spd" size=2>
-                                    <option value="0">0.0</option>
-                                    <option value="1">0.1</option>
-                                    <option value="2">0.2</option>
-                                    <option value="3">0.3</option>
-                                    <option value="4">0.4</option>
-                                    <option value="5">0.5</option>
-                                    <option value="6">0.6</option>
-                                    <option value="7">0.7</option>
-                                    <option value="8">0.8</option>
-                                    <option value="9">0.9</option>
-                                    <option value="10">1.0</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-xs-offset-5 pressieselector pright">
-                                <select id="str" name="str" size=2>
-                                    <option value="0">0.0</option>
-                                    <option value="1">0.1</option>
-                                    <option value="2">0.2</option>
-                                    <option value="3">0.3</option>
-                                    <option value="4">0.4</option>
-                                    <option value="5">0.5</option>
-                                    <option value="6">0.6</option>
-                                    <option value="7">0.7</option>
-                                    <option value="8">0.8</option>
-                                    <option value="9">0.9</option>
-                                    <option value="10">1.0</option>
-                                </select>
-                                <label class="formtitle" for="str"> :Strength</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 pressieselector pleft">
-                                <label class="formtitle" for="spt">Spirit: </label>
-                                <select id="spt" name="spt" size=2>
-                                    <option value="0">0.0</option>
-                                    <option value="1">0.1</option>
-                                    <option value="2">0.2</option>
-                                    <option value="3">0.3</option>
-                                    <option value="4">0.4</option>
-                                    <option value="5">0.5</option>
-                                    <option value="6">0.6</option>
-                                    <option value="7">0.7</option>
-                                    <option value="8">0.8</option>
-                                    <option value="9">0.9</option>
-                                    <option value="10">1.0</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-xs-offset-5 pressieselector pright">
-                                <select id="eng" name="eng" size=2>
-                                    <option value="0">0.0</option>
-                                    <option value="1">0.1</option>
-                                    <option value="2">0.2</option>
-                                    <option value="3">0.3</option>
-                                    <option value="4">0.4</option>
-                                    <option value="5">0.5</option>
-                                    <option value="6">0.6</option>
-                                    <option value="7">0.7</option>
-                                    <option value="8">0.8</option>
-                                    <option value="9">0.9</option>
-                                    <option value="10">1.0</option>
-                                </select>
-                                <label class="formtitle" for="eng"> :Energy</label>
                             </div>
                         </div>
                     </div>
