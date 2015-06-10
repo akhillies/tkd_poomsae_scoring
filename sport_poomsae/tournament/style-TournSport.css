@@ -255,3 +255,8 @@ body {
 {
     color: #77FF00;
 }
+
+#master_wrapper
+{
+    overflow: auto;
+}
