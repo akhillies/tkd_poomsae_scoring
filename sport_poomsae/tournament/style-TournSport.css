@@ -213,9 +213,9 @@ body {
 
 .sportpoom #scoresubmit
 {
-    margin-top: 35px;
-    width: 100%;
-    font-size: 300%;
+    margin-top: 25px;
+    width: 90%;
+    font-size: 220%;
 }
 
 .sportpoom .cpyrght
@@ -223,7 +223,7 @@ body {
     font-size: 50%;
     text-shadow: none;
     color: black;
-    padding-top: 12px;
+    padding-top: 7px;
 }
 
 .sportpoom .poorpressie
