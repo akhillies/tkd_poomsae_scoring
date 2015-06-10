@@ -174,6 +174,15 @@ var updater = (function ()
         $(document).ready(function()
         {
 
+            // should prevent enter from submitting athlete name
+          $(window).keydown(function(event){
+            if(event.keyCode == 13) {
+              event.preventDefault();
+              return false;
+            }
+          });
+
+
             $("#majorbutton").click(that.updater.addMajor);
             $("#minorbutton").click(that.updater.addMinor);
             $("#undomajorbutton").click(that.updater.subMajor);

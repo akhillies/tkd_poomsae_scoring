@@ -4,13 +4,13 @@ body {
     overflow: hidden;
 }
 
-@media (max-width: @screen-xs) {
+/*@media (max-width: @screen-xs) {
   .btn-group-responsive {
     .btn {
-      btn-xs;
+      .btn-xs();
     }
   }
-}
+}*/
 
 .all-content 
 {
