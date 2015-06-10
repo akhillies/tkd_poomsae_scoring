@@ -1,6 +1,6 @@
 var that = this;
 
-var updater = (function()
+var updater = (function ()
 {
     var minor = 0;
     var major = 0;
