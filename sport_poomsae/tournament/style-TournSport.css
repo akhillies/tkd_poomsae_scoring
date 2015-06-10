@@ -4,6 +4,14 @@ body {
     overflow: hidden;
 }
 
+@media (max-width: @screen-xs) {
+  .btn-group-responsive {
+    .btn {
+      btn-xs;
+    }
+  }
+}
+
 .all-content 
 {
     height: 100%
@@ -39,6 +47,12 @@ body {
 
 .stopwatch
 {
+    align-content: center;
+}
+
+.stopwatch .btn
+{
+    text-align: center;
     font-size: 128%;
 }
 

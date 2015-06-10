@@ -64,8 +64,11 @@
                 
                 <div class="row miscounts">
                     <div class="col-xs-3"><h2 id="majorcount" class="mistakecount">0</h2></div>
-                    <div class="col-xs-6 stopwatch"> 
-                    <button class="stopwatch" id="time" onclick="start()">Start/Resume<button class="stopwatch" id="button-stopreset" onclick="stopreset()">Reset</button></button>
+                    <div class="col-xs-6"> 
+                    <div class="stopwatch btn-group"> 
+                        <label class="stopwatch btn" id="time" onclick="start()">Start/Resume</label>
+                        <label class="stopwatch btn" id="button-stopreset" onclick="stopreset()">Reset</label>
+                    </div>
                     </div>
                     <div class="col-xs-3"><h2 id="minorcount" class="mistakecount">0</h2></div>
                 </div>
