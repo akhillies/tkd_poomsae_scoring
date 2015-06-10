@@ -38,13 +38,14 @@
                             <li class="poom-names"><a>Sipjin</a></li>
                             <li class="poom-names"><a>Cheonkwon</a></li>
                             <li class="poom-names"><a>Hansu</a></li>
+                            <li class="poom-names"><a>Ilyo</a></li>
 
                         </ul></div>
-                        <h4 id="competitor-name">Athlete Name</h4>
+<!--                         <h4 id="competitor-name">Athlete Name</h4> -->
 
-<!--                     <form>
-                        <input type="text" value="Competitor Name" width:"100%"> 
-                    </form> -->
+                    <form>
+                        <input class="athlete-name" type="text" value="Athlete Name" width:"100%"> 
+                    </form>
 
                 </div>
                <div class="col-xs-3">
@@ -65,10 +66,12 @@
             
             <div class="row miscounts">
                 <div class="col-xs-3"><h2 id="majorcount" class="mistakecount">0</h2></div>
-                <div class="col-xs-4 col-xs-offset-1"> 
-                    <p>Time: <span id="time"></span></p>
+                <div class="col-xs-4 col-xs-offset-1 stopwatch"> 
+                <button class="stopwatch" id="time" onclick="start()">START TIME<button class="stopwatch" id="button-stopreset" onclick="stopreset()">Reset</button></button>
+
+<!--                     <p>Time: <span id="time"></span></p>
                     <button id="button-start" onclick="startstop();">Start/Stop</button>
-                    <button id="button-reset" onclick="reset();">Reset</button>
+                    <button id="button-reset" onclick="reset();">Reset</button> -->
                 </div>
                 <div class="col-xs-3 col-xs-offset-1"><h2 id="minorcount" class="mistakecount">0</h2></div>
             </div>

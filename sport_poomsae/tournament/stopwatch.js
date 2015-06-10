@@ -1,6 +1,6 @@
-window.onload = function() {
-  this.show();
-};
+// window.onload = function() {
+//   this.show();
+// };
 
 var that = this;
 
@@ -40,6 +40,8 @@ var clsStopwatch = function() {
  
 var x = new clsStopwatch();
 var $time;
+var $stopreset = document.getElementById("button-stopreset");
+
 var clocktimer;
 var started = false;
  
@@ -52,14 +54,16 @@ function formatTime(time) {
   var h = m = s = ms = 0;
   var newTime = '';
  
-  h = Math.floor( time / (60 * 60 * 1000) );
+  // h = Math.floor( time / (60 * 60 * 1000) );
   time = time % (60 * 60 * 1000);
   m = Math.floor( time / (60 * 1000) );
   time = time % (60 * 1000);
   s = Math.floor( time / 1000 );
   ms = time % 1000;
  
-  newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
+  // newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
+  newTime = pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
+
   return newTime;
 }
  
@@ -71,32 +75,39 @@ function show() {
  
 function update() {
   // document.getElementById("time").innerHTML = formatTime(x.watchtime());
+  console.log("hello" + "\n" + "line 2");
   $time.innerHTML = formatTime(x.time());
 }
 
-function startstop() {
+function stopreset() {
   if (started) {
     stop();
+    $stopreset.innerHTML="Reset";
+
   } else {
-    start();
+    reset();
   }
-  started = !started;
 }
 
 function start() {
-  console.log("starting");
+  show();
   clocktimer = setInterval("update()", 1);
   x.start();
+  $stopreset.innerHTML="Stop";
+  started=true;
+
 }
 
 function stop() {
   x.stop();
   clearInterval(clocktimer);
+  started=false;
 }
 
 function reset() {
   stop();
   x.reset();
-  update();
+  $time.innerHTML="START TIME";
+  started=false;
 }
 

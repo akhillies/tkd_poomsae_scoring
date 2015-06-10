@@ -4,6 +4,16 @@ body {
 
 }
 
+.athlete-name
+{
+    text-align: center;
+    font-size: 130%;
+    margin-top: 5%;
+
+}
+
+
+
 .dropdown
 {
     padding-top: 15%;
@@ -14,11 +24,18 @@ body {
     overflow: hidden;
     text-align: center;
     width: 100%;
+    font-size: 130%;
 }
 .dropdown-menu
 {
     width: 100%;
-    padding-left: 14% /* Optional for caret */;
+    padding-left: 14%;
+    font-size: 130%;
+}
+
+.stopwatch
+{
+    font-size: 150%;
 }
 
 .sportpoom
