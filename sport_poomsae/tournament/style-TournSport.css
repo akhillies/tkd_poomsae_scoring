@@ -7,9 +7,9 @@ body {
 .athlete-name
 {
     text-align: center;
-    font-size: 130%;
+    font-size: 100%;
     margin-top: 5%;
-    width:100%;
+    width:90%;
 
 }
 
@@ -23,19 +23,19 @@ body {
 {   
     overflow: hidden;
     text-align: center;
-    width: 100%;
-    font-size: 130%;
+    width: 90%;
+    font-size: 110%;
 }
 .dropdown-menu
 {
-    width: 100%;
+    width: 90%;
     padding-left: 14%;
     font-size: 130%;
 }
 
 .stopwatch
 {
-    font-size: 130%;
+    font-size: 128%;
 }
 
 .sportpoom
@@ -66,28 +66,28 @@ body {
 
 .sportpoom .mistakebutton
 {
-    width: 100%;
-    height: 100%;
-    font-size: 250%;
-    padding: 0;
+    width: 90%;
+    height: 90%;
+    font-size: 200%;
+    padding: 10;
     border-radius: 5%;
 }
 
 .sportpoom .scoringstuff div:first-child
 {
-    padding-right: 0;
+    padding-right: 10;
 }
 
 .sportpoom .scoringstuff div:last-child
 {
-    padding-left: 0;
+    padding-left: 10;
 }
 
 .sportpoom .btn-radio
 {
     background: #CCCCDD;
     border: 1px solid #999999;
-    font-size: 115%;
+    font-size: 100%;
 }
 
 .sportpoom .toprow label
@@ -122,10 +122,10 @@ body {
 
 .sportpoom .undobutton
 {
-    font-size: 150%;
+    font-size: 110%;
     background: #FF8888;
-    margin-top: 25px;
-    padding: 17px;
+    margin-top: 15px;
+    padding: 15px;
 }
 
 .sportpoom .option6 .formtitle
@@ -213,9 +213,9 @@ body {
 
 .sportpoom #scoresubmit
 {
-    margin-top: 35px;
-    width: 100%;
-    font-size: 300%;
+    margin-top: 25px;
+    width: 90%;
+    font-size: 220%;
 }
 
 .sportpoom .cpyrght
@@ -223,7 +223,7 @@ body {
     font-size: 50%;
     text-shadow: none;
     color: black;
-    padding-top: 12px;
+    padding-top: 7px;
 }
 
 .sportpoom .poorpressie
