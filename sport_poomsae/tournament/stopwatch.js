@@ -107,7 +107,7 @@ function stop() {
 function reset() {
   stop();
   x.reset();
-  $time.innerHTML="Start Timer";
+  $time.innerHTML="Start/Resume";
   started=false;
 }
 
