@@ -23,6 +23,7 @@ body {
     font-size: 100%;
     margin-top: 5%;
     width:90%;
+    
 
 }
 
@@ -47,7 +48,9 @@ body {
 
 .stopwatch
 {
-    align-content: center;
+    background:#CCCCDD;
+    border: 1px solid #999999;
+
 }
 
 .stopwatch .btn
