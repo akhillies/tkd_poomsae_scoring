@@ -1,3 +1,7 @@
+window.onload=$(function() {
+    FastClick.attach(document.body);
+});
+
 var that = this;
 
 var updater = (function ()
@@ -174,10 +178,11 @@ var updater = (function ()
         $(document).ready(function()
         {
 
-            // should prevent enter from submitting athlete name
+            // Enter key now removes focus from athlete-name box
           $(window).keydown(function(event){
             if(event.keyCode == 13) {
               event.preventDefault();
+               $('.athlete-name').blur();
               return false;
             }
           });
