@@ -2,6 +2,14 @@ window.onload=$(function() {
     FastClick.attach(document.body);
 });
 
+//$( document ).ready(function() {      
+  //  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+    //if (isMobile.matches) {
+        //Conditional script here
+    //}
+ //});
+
 var that = this;
 
 var updater = (function ()
