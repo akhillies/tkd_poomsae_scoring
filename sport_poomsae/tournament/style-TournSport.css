@@ -145,7 +145,7 @@ body {
 {
     font-size: 110%;
     background: #FF8888;
-    margin-top: 15px;
+    margin-top: 0px;
     padding: 15px;
 }
 
@@ -234,7 +234,7 @@ body {
 
 .sportpoom #scoresubmit
 {
-    margin-top: 25px;
+    margin-top: 15px;
     width: 90%;
     font-size: 220%;
 }
