@@ -4,13 +4,24 @@ body {
     overflow: hidden;
 }
 
-/*@media (max-width: @screen-xs) {
-  .btn-group-responsive {
-    .btn {
-      .btn-xs();
-    }
-  }
-}*/
+/* iPad-specific instructions */
+@media only screen 
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (orientation : landscape)
+{
+    font-size : 100%
+}
+
+/* this only applies to the Nexus 4 */
+@media only screen 
+    and (device-width: 384px) 
+    and (device-height: 592px) 
+    and (-webkit-device-pixel-ratio : 2)
+{
+    font-size : 80%   
+}
+
 
 .all-content 
 {
