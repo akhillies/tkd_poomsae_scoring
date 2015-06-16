@@ -88,7 +88,7 @@ body {
     background: radial-gradient(#FFFFEE, #CCFFFF);
 }*/
 
-.sportpoom .mistakebutton .mobile
+.sportpoom .mistakebutton
 @media screen 
   and (device-width: 360px) 
   and (device-height: 640px) 
