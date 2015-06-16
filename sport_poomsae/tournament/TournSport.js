@@ -2,14 +2,6 @@ window.onload=$(function() {
     FastClick.attach(document.body);
 });
 
-//$( document ).ready(function() {      
-  //  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
-
-    //if (isMobile.matches) {
-        //Conditional script here
-    //}
- //});
-
 var that = this;
 
 var updater = (function ()
@@ -185,7 +177,8 @@ var updater = (function ()
 
         $(document).ready(function()
         {
-
+            //provision for a window.matchMedia method here; no need for it at this moment
+            
             // Enter key now removes focus from athlete-name box
           $(window).keydown(function(event){
             if(event.keyCode == 13) {
@@ -225,6 +218,15 @@ var updater = (function ()
 
 
         });
+
+//$( document ).ready(function() {      
+  //  var isMobile = window.matchMedia("only screen and (max-width: 760px)");
+
+    //if (isMobile.matches) {
+        //Conditional script here
+    //}
+ //});
+
 
 
 
