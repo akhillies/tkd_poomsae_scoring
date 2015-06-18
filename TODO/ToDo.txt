@@ -2,10 +2,7 @@ To Do..... by the next UC Open:
 
 
 Michael: by june 15
-1) add competitor name, poomsae, and timer to scoring page
-	-) name and poomsae can go to the top left while 3 scores are pushed to the right side
-	-) timer replaces submit button
-		originally, green button is "start", then shows <time> (left side) and "stop" (right side), and finally shows <time> (left side) and "submit" (right side)
+
 
 
 Melvin: by june 15
