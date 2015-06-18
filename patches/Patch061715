@@ -1,0 +1,10 @@
+1) add competitor name, poomsae, and timer to scoring page
+	-) name and poomsae can go to the top left while 3 scores are pushed to the right side
+    -) add a timer with controls
+    -) no scroll
+
+
+2) has a new version
+    -) screen size - should scale / work for all mobile screens
+	-) what we have currently MUST work on phone
+	-) whatever new we make does not have to work on phone but does on ALL tablets

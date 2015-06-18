@@ -1,39 +1,46 @@
 To Do..... by the next UC Open:
 
 
-Michael: by june 15
+Michael: checkin june 25
+make individual also have timer
+make a homepage with metadata to direct which poomsae scoring screen with what names and such comes up. options are:
+	-) individual/tournament
+	-) if tourney, then pick table/judge/display
+		-) judge, pick ring/judge# and enter simple pin to authenticate
+		-) table, pick ring and enter passcode. table can:
+			set pin for judges to enter
+			pick which division/round (can chose division from another ring)
+			change person if out of order
+		-) display, just show stuff, test to see if we can leave open for everyone
 
 
-
-Melvin: by june 15
-2) screen size - should scale / work for all mobile screens
+Melvin: by june 25
+Convert all CSS to SCSS
+	-) screen size - should scale / work for all mobile screens
 	-) what we have currently MUST work on phone
 	-) whatever new we make does not have to work on phone but does on ALL tablets
+move all scss so only 1 file has to be compiled and have it added by each page
+	-) all sport poomsae options (tablet and mobile) works from 1 stylesheet
 
 
-Akhil: by june 15
-3) backend schema
-	needs to be able to take input 
-		individual adding through forms and csv option for bulk upload for competitors
-		add divisions and assign to rings
-	1-2 tables to have info, need competitor ID (we generate, 1, 2, ...) along with division and scores/times by judges
+Akhil: checkin on june 25
+Data storage for individual (persistent info)
+Move all JS to 1 file
+make simple script to compile all scss files (windows is same as osx!!)
+
+HTTP Request with parameters for which person/division/etc.
+	work with finding out how to access stuff and save it to browser
+Work on getting the judge page to have the same look each refresh (so scores, times, etc. stay the same) PERSISTENCE
+	test this by having your own apache server with the data to be sent out
+look into Dreamhost and find out what we can do with it
 
 
 
 
+NEXT TIME: ask people to test, SHIP IT OUT
+	ask for name suggestions
 
-4) make a homepage with metadata to direct which poomsae scoring screen with what names and such comes up. options are:
-	-) indivudual/tournament
-		-) if tourney, then pick table/judge/display
-			-) if judge, pick ring/judge# and enter simple pin to authenticate
-			-) if table, pick ring and enter passcode. table can:
-				set pin for judges to enter
-				pick which division/round (can chose division from another ring)
-				change person if out of order
-			-) if display, just show stuff, test to see if we can leave open for everyone
-				no continuous updating - only show after submissions were made
-				table decides when to show (by refreshing)
-		
+
 
 
 
@@ -43,8 +50,5 @@ Akhil: by june 15
 traditional poomsae backend support
 	do this after testing sport poomsae
 
-
-make the 6 presentation option actually work with page (currently no js interaction built yet) and needs to look better
-
-
 COME UP WITH A BETTER NAME!!!! and some sort of logo/symbol
+
