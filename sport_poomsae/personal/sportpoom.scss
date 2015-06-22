@@ -21,7 +21,6 @@ $font_2: sans-serif;
 
 //urls
 $url_0: url("../../images/bgnoise_lg/bgnoise_lg.png");
-//$url_1: url(./images/retina_wood/retina_wood.png);
 
 //@extend-elements
 //original selectors
@@ -90,26 +89,6 @@ body {
 		padding: 17px;
 		width: 100%;
 	}
-	.option6 {
-		padding-top: 2em;
-		padding-bottom: 2em;
-		.formtitle {
-			font-size: 250%;
-		}
-		.pleft {
-			text-align: right;
-		}
-		.pright {
-			text-align: left;
-		}
-		select {
-			margin-left: .5em;
-			margin-right: .5em;
-			margin-top: .3em;
-			margin-bottom: .3em;
-			.sportpoom .option6 .pright: ;
-		}
-	}
 	.scorescreen {
 		width: 98%;
 		height: 92%;
@@ -126,8 +105,8 @@ body {
 		color: $gold;
 	}
 	#scoresubmit {
-		margin-top: 35px;
-		width: 100%;
+		margin-top: 40px;
+		width: 300%;
 		font-size: 300%;
 	}
 	.cpyrght {
