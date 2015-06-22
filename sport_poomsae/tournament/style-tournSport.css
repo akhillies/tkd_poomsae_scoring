@@ -1,0 +1,128 @@
+.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff {
+  height: 100%;
+  float: none;
+  display: table-cell;
+  vertical-align: top; }
+
+body {
+  background-image: url(../../images/bgnoise_lg/bgnoise_lg.png); }
+
+.all-content {
+  height: 100%; }
+
+.athlete-name {
+  text-align: center;
+  font-size: 100%;
+  margin-top: 5%;
+  width: 90%; }
+
+.dropdown {
+  padding-top: 15%; }
+
+.dropdown-toggle {
+  overflow: hidden;
+  text-align: center;
+  width: 90%;
+  font-size: 110%; }
+
+.dropdown-menu {
+  width: 90%;
+  padding-left: 14%;
+  font-size: 130%; }
+
+.stopwatch {
+  background: #ccccdd;
+  border: 1px solid #999999; }
+  .stopwatch .btn {
+    text-align: center;
+    font-size: 128%; }
+
+.sportpoom {
+  text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
+  color: #00008f;
+  text-shadow: 0 0 2px #e5c100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; }
+  .sportpoom .mistakebutton {
+    width: 50%;
+    height: 10%;
+    font-size: 100%;
+    padding: 5;
+    width: 90%;
+    height: 90%;
+    font-size: 200%;
+    padding: 10;
+    border-radius: 5%; }
+  .sportpoom .scoringstuff {
+    display: table; }
+    .sportpoom .scoringstuff div:first-child {
+      padding-right: 10; }
+    .sportpoom .scoringstuff div:last-child {
+      padding-left: 10; }
+  .sportpoom .btn-radio {
+    background: #ccccdd;
+    border: 1px solid #999999;
+    font-size: 100%; }
+  .sportpoom .undobutton {
+    font-size: 110%;
+    background: #ff8888;
+    margin-top: 0;
+    padding: 15px;
+    width: 90%; }
+  .sportpoom .scorescreen {
+    width: 98%;
+    height: 92%;
+    padding: 0; }
+  .sportpoom .scorebody {
+    height: 99%; }
+  .sportpoom #finalscore {
+    font-size: 3000%; }
+  .sportpoom .scorebox {
+    background: #00003f;
+    color: #ffd700; }
+  .sportpoom #scoresubmit {
+    margin-top: 15px;
+    width: 90%;
+    font-size: 220%; }
+  .sportpoom .cpyrght {
+    font-size: 50%;
+    text-shadow: none;
+    color: black;
+    padding-top: 7px; }
+  .sportpoom .poorpressie {
+    color: #ff0000; }
+  .sportpoom .fairpressie {
+    color: #ff7700; }
+  .sportpoom .goodpressie {
+    color: #ffff00; }
+  .sportpoom .verygoodpressie {
+    color: #006400; }
+  .sportpoom .excellentpressie {
+    color: #339900; }
+  .sportpoom .perfectpressie {
+    color: #77ff00; }
+  .sportpoom .toprow label {
+    border-top-left-radius: 25%;
+    border-top-right-radius: 25%;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top: none; }
+  .sportpoom .botrow label {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 25%;
+    border-bottom-right-radius: 25%;
+    border-top: none;
+    border-bottom: none; }
+  .sportpoom .pressiestuff .option3 .active {
+    background: #999999; }
+  .sportpoom .pressiestuff .option3 .pwrspd h2 {
+    margin-top: 0; }
+  .sportpoom .miscounts div h2 {
+    margin-top: 0;
+    padding-top: 0; }
+
+/*# sourceMappingURL=style-tournSport.css.map */
