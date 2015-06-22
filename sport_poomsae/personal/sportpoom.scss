@@ -20,8 +20,8 @@ $font_1: Geneva;
 $font_2: sans-serif;
 
 //urls
-$url_0: url(../../images/bgnoise_lg/bgnoise_lg.png);
-$url_1: url(./images/retina_wood/retina_wood.png);
+$url_0: url("../../images/bgnoise_lg/bgnoise_lg.png");
+//$url_1: url(./images/retina_wood/retina_wood.png);
 
 //@extend-elements
 //original selectors
@@ -36,7 +36,6 @@ $url_1: url(./images/retina_wood/retina_wood.png);
 
 body {
 	background-image: $url_0;
-	overflow: hidden;
 }
 .stopwatch {
 	background: $color_mischka_approx;
@@ -56,8 +55,8 @@ body {
 	left: 0;
 	right: 0;
 	.mistakebutton {
-		width: 100%;
-		height: 100%;
+		width: 150%;
+		height: 200%;
 		font-size: 250%;
 		padding: 0;
 		border-radius: 5%;
