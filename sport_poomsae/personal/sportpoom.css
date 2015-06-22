@@ -3,6 +3,19 @@ body {
     /*background-image: url("./images/retina_wood/retina_wood.png");*/
     overflow: hidden;
 }
+.stopwatch
+{
+    background:#CCCCDD;
+    border: 1px solid #999999;
+
+}
+
+.stopwatch .btn
+{
+    text-align: center;
+    font-size: 128%;
+}
+
 
 .sportpoom
 {
