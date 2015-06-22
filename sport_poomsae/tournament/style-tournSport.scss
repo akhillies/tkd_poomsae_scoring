@@ -1,0 +1,192 @@
+//colors
+$color_mischka_approx: #ccccdd;
+$color_mountain_mist_approx: #999999;
+$color_navy_blue_approx: #00008f;
+$color_corn_approx: #e5c100;
+$color_geraldine_approx: #ff8888;
+$color_stratos_approx: #00003f;
+$gold: #ffd700;
+$black: black;
+$red: #ff0000;
+$color_flush_orange_approx: #ff7700;
+$yellow: #ffff00;
+$color_japanese_laurel_approx: #006400;
+$color_la_palma_approx: #339900;
+$color_chartreuse_approx: #77ff00;
+
+//fonts
+$font_0: Verdana;
+$font_1: Geneva;
+$font_2: sans-serif;
+
+//urls
+$url_0: url(../../images/bgnoise_lg/bgnoise_lg.png);
+$url_1: url(./images/retina_wood/retina_wood.png);
+
+//@extend-elements
+//original selectors
+//.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff
+%extend_1 {
+	height: 100%;
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+}
+
+
+body {
+	background-image: $url_0;
+}
+.all-content {
+	height: 100%;
+}
+.athlete-name {
+	text-align: center;
+	font-size: 100%;
+	margin-top: 5%;
+	width: 90%;
+}
+.dropdown {
+	padding-top: 15%;
+}
+.dropdown-toggle {
+	overflow: hidden;
+	text-align: center;
+	width: 90%;
+	font-size: 110%;
+}
+.dropdown-menu {
+	width: 90%;
+	padding-left: 14%;
+	font-size: 130%;
+}
+.stopwatch {
+	background: $color_mischka_approx;
+	border: 1px solid $color_mountain_mist_approx;
+	.btn {
+		text-align: center;
+		font-size: 128%;
+	}
+}
+.sportpoom {
+	text-align: center;
+	font-family: $font_0, $font_1, $font_2;
+	color: $color_navy_blue_approx;
+	text-shadow: 0 0 2px $color_corn_approx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	.mistakebutton {
+		width: 50%;
+		height: 10%;
+		font-size: 100%;
+		padding: 5;
+		width: 90%;
+		height: 90%;
+		font-size: 200%;
+		padding: 10;
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 5%;
+	}
+	.scoringstuff {
+		display: table;
+		div {
+			&:first-child {
+				padding-right: 10;
+			}
+			&:last-child {
+				padding-left: 10;
+			}
+		}
+		.deductButton {
+			@extend %extend_1;
+		}
+		.pressiestuff {
+			@extend %extend_1;
+		}
+	}
+	.btn-radio {
+		background: $color_mischka_approx;
+		border: 1px solid $color_mountain_mist_approx;
+		font-size: 100%;
+	}
+	.undobutton {
+		font-size: 110%;
+		background: $color_geraldine_approx;
+		margin-top: 0;
+		padding: 15px;
+		width: 90%;
+	}
+	.scorescreen {
+		width: 98%;
+		height: 92%;
+		padding: 0;
+	}
+	.scorebody {
+		height: 99%;
+	}
+	#finalscore {
+		font-size: 3000%;
+	}
+	.scorebox {
+		background: $color_stratos_approx;
+		color: $gold;
+	}
+	#scoresubmit {
+		margin-top: 15px;
+		width: 90%;
+		font-size: 220%;
+	}
+	.cpyrght {
+		font-size: 50%;
+		text-shadow: none;
+		color: $black;
+		padding-top: 7px;
+	}
+	.poorpressie {
+		color: $red;
+	}
+	.fairpressie {
+		color: $color_flush_orange_approx;
+	}
+	.goodpressie {
+		color: $yellow;
+	}
+	.verygoodpressie {
+		color: $color_japanese_laurel_approx;
+	}
+	.excellentpressie {
+		color: $color_la_palma_approx;
+	}
+	.perfectpressie {
+		color: $color_chartreuse_approx;
+	}
+	.toprow label {
+		border-top-left-radius: 25%;
+		border-top-right-radius: 25%;
+		border-bottom-left-radius: 0;
+		border-bottom-right-radius: 0;
+		border-top: none;
+	}
+	.botrow label {
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+		border-bottom-left-radius: 25%;
+		border-bottom-right-radius: 25%;
+		border-top: none;
+		border-bottom: none;
+	}
+	.pressiestuff .option3 {
+		.active {
+			background: $color_mountain_mist_approx;
+		}
+		.pwrspd h2 {
+			margin-top: 0;
+		}
+	}
+	.miscounts div h2 {
+		margin-top: 0;
+		padding-top: 0;
+	}
+}
