@@ -87,7 +87,7 @@ var updater = (function ()
         that.scores.totalScore = that.scores.presScore + that.scores.accScore;
         $("#totalscore").html(that.scores.totalScore.toFixed(1));
         $("#finalscore").html(that.scores.totalScore.toFixed(1));
-        localStorage.setItem('scores', JSON.stringify(that.scores));
+        sessionStorage.setItem('scores', JSON.stringify(that.scores));
     }
 
     return {
