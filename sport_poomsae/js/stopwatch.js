@@ -8,7 +8,8 @@ var clsStopwatch = function()
 {
     // Private vars
     var startAt = 0;  // Time of last start / resume. (0 if not running)
-    var lapTime = parseInt(sessionStorage.getItem('time'));  // Time on the clock when last stopped in milliseconds
+    var lapTime = parseInt(sessionStorage.getItem('time')); 
+    lapTime = lapTime ? lapTime : 0; // Time on the clock when last stopped in milliseconds
  
     var now = function()
     {
