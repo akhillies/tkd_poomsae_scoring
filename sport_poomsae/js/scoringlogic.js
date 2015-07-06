@@ -179,7 +179,7 @@ var updater = (function ()
             $("#energynum").html(that.scores.eng.toFixed(1));
             updatePres();
             
-            localStorage.setItem('scores', JSON.stringify(that.scores));
+            sessionStorage.setItem('scores', JSON.stringify(that.scores));
 
             $("#submitscore").modal("hide");
 
@@ -198,7 +198,7 @@ var updater = (function ()
 
 $(document).ready(function()
 {
-    var scor = localStorage.getItem('scores');
+    var scor = sessionStorage.getItem('scores');
     if(scor)
     {
         that.scores = JSON.parse(scor);
@@ -206,7 +206,7 @@ $(document).ready(function()
     }
     else
     {
-        localStorage.setItem('scores', JSON.stringify(that.scores));
+        sessionStorage.setItem('scores', JSON.stringify(that.scores));
     }
     //provision for a window.matchMedia method here; no need for it at this moment
     
