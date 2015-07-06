@@ -8,7 +8,7 @@ var clsStopwatch = function()
 {
     // Private vars
     var startAt = 0;  // Time of last start / resume. (0 if not running)
-    var lapTime = 0;  // Time on the clock when last stopped in milliseconds
+    var lapTime = parseInt(sessionStorage.getItem('time'));  // Time on the clock when last stopped in milliseconds
  
     var now = function()
     {
@@ -19,7 +19,7 @@ var clsStopwatch = function()
     // Start or resume
     this.start = function()
     {
-        console.log("watchstart");
+        // console.log("watchstart");
         startAt = startAt ? startAt : now();
     };
  
@@ -35,6 +35,7 @@ var clsStopwatch = function()
     this.reset = function() 
     {
         lapTime = startAt = 0;
+        sessionStorage.setItem('time', 0);
     };
  
     // Duration
@@ -78,15 +79,16 @@ function formatTime(time)
 function show()
 {
     $time = document.getElementById("time");
-    console.log($time);
+    // console.log($time);
     update();
 }
  
 function update()
 {
     // document.getElementById("time").innerHTML = formatTime(x.watchtime());
-    console.log("hello" + "\n" + "line 2");
+    // console.log("hello" + "\n" + "line 2");
     $time.innerHTML = formatTime(x.time());
+    sessionStorage.setItem('time', x.time());
 }
 
 function stopreset()
