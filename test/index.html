@@ -6,11 +6,11 @@
     <script>
         $.ajax({
             type: "GET",
-            dataType: "text",
+            dataType: "json",
             url: "http://127.0.0.1/~akhilbatra/write.php",
            // data: data,
             success: function(data) {
-                alert("Form submitted successfully.\nReturned json: " + data);
+                $("#a").html(data);
             }
         });
     </script>
