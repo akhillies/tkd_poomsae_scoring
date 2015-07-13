@@ -4,13 +4,14 @@
 <body>
     <div id="a"></div>
     <script>
+        var data = {file: 'im-s-2016.json'};
         $.ajax({
-            type: "GET",
+            type: "POST",
             dataType: "json",
-            url: "http://127.0.0.1/~akhilbatra/write.php",
-           // data: data,
+            url: "http://127.0.0.1/~akhilbatra/read.php",
+            data: data,
             success: function(data) {
-                $("#a").html(data);
+                $("#a").html(JSON.stringify(data));
             }
         });
     </script>
