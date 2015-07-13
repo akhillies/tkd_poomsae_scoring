@@ -10,19 +10,8 @@
             url: "http://127.0.0.1/~akhilbatra/write.php",
            // data: data,
             success: function(data) {
-                alert("Form submitted successfully.\nReturned json: " + data["json"]);
+                alert("Form submitted successfully.\nReturned json: " + data);
             }
         });
-        var obj;
-
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                obj = JSON.parse(xmlhttp.responseText);
-                console.log(obj);
-            }
-        }
-        xmlhttp.open("GET", "http://127.0.0.1/~akhilbatra/write.php");
-        xmlhttp.send();
     </script>
 </body>
