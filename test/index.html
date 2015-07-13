@@ -4,7 +4,7 @@
 <body>
     <div id="a"></div>
     <script>
-        var data = {file: 'im-s-2016.json'};
+        var data = {division: 'im-s-2016'};
         $.ajax({
             type: "POST",
             dataType: "json",
@@ -12,6 +12,9 @@
             data: data,
             success: function(data) {
                 $("#a").html(JSON.stringify(data));
+            },
+            error: function(e) {
+                alert("Failed to do something with ajax:  " + e);
             }
         });
     </script>
