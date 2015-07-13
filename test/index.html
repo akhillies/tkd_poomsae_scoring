@@ -4,6 +4,15 @@
 <body>
     <div id="a"></div>
     <script>
+        $.ajax({
+            type: "GET",
+            dataType: "text",
+            url: "http://127.0.0.1/~akhilbatra/write.php",
+           // data: data,
+            success: function(data) {
+                alert("Form submitted successfully.\nReturned json: " + data["json"]);
+            }
+        });
         var obj;
 
         var xmlhttp = new XMLHttpRequest();
