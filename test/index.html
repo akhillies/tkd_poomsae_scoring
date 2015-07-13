@@ -1,0 +1,19 @@
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+    <div id="a"></div>
+    <script>
+        var obj;
+
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                obj = JSON.parse(xmlhttp.responseText);
+                console.log(obj);
+            }
+        }
+        xmlhttp.open("GET", "write.php");
+        xmlhttp.send();
+    </script>
+</body>
