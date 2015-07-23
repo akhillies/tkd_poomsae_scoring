@@ -1,0 +1,80 @@
+/* Colors */
+$blue_med: #335CAD;
+$gray_dark: #89898B;
+$white: #FFFFFF;
+$gray_light: #E6E6E6;
+$bg_image: url("./images/kody_pair_frontkick.jpg");
+
+body { 
+	padding-top: 50px; 
+}
+
+
+// header {
+// 	background: $bg_image;
+// 	background-repeat: no-repeat;
+// 	background-size: cover;
+// 	// position: relative;
+// 	width:100%;
+// 	height: 560px;
+// }
+
+header {
+    width: 100%;
+    height: 100vh;
+    background: $bg_image no-repeat center center fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    background-size: cover;
+    // -o-background-size: cover;
+	position: fixed;
+	max-height: 800px;
+	display: block;
+}
+
+.landing-img {
+	max-height:800px;
+}
+
+.choose-scorer {
+	background:$gray_dark;
+	vertical-align: middle;
+	height:100%;
+	margin-top:50px;
+}
+
+.scorer-btn {
+	height:100%;
+	width:100%;
+	color:$white;
+	background:transparent;
+	border:3px solid $gray_dark;
+	padding:5px;
+}
+
+.landing-content {
+	margin-top: 100px;
+}
+
+#help {
+	position:relative;
+}
+
+h1 {
+	color:$blue_med;
+}
+
+/* Navbar */
+
+.navbar {
+	background:$blue_med;
+}
+
+.navbar-default {
+	.navbar-nav>li>a{
+		color:$gray_light;
+	}
+	.navbar-brand {
+		color:$white;
+	}
+}
