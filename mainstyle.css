@@ -7,14 +7,15 @@ div {
 
 header {
   width: 100%;
-  height: 100vh;
+  height: 150vh;
   background: url("./images/kody_pair_frontkick.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
-  max-height: 800px; }
+  min-height: 400px; }
 
 .landing-img {
-  max-height: 800px; }
+  max-height: 800px;
+  min-height: 1000px; }
 
 .choose-scorer {
   background: #89898B;
