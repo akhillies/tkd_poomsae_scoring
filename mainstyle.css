@@ -2,14 +2,16 @@
 body {
   padding-top: 50px; }
 
+div {
+  display: block; }
+
 header {
   width: 100%;
   height: 100vh;
   background: url("./images/kody_pair_frontkick.jpg") no-repeat center center fixed;
   background-size: cover;
-  position: fixed;
-  max-height: 800px;
-  display: block; }
+  position: relative;
+  max-height: 800px; }
 
 .landing-img {
   max-height: 800px; }
