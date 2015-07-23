@@ -11,23 +11,14 @@ header {
   background: url("./images/kody_pair_frontkick.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
-  min-height: 400px; }
-
-.landing-img {
   max-height: 800px;
-  min-height: 1000px; }
-
-.choose-scorer {
-  background: #89898B;
-  vertical-align: middle;
-  height: 100%;
-  margin-top: 50px; }
+  min-height: 400px; }
 
 .scorer-btn {
   height: 100%;
   width: 100%;
   color: #FFFFFF;
-  background: transparent;
+  background: rgba(137, 137, 139, 0.6);
   border: 3px solid #89898B;
   padding: 5px; }
 
