@@ -52,10 +52,12 @@ header {
 	background:$rgba_gray_dark_6;
 	border:3px solid $hex_gray_dark;
 	padding:5px;
+	vertical-align: middle;
 }
 
 .landing-content {
 	margin-top: 100px;
+	vertical-align: middle;
 }
 
 #help {

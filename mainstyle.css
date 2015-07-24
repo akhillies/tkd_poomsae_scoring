@@ -20,10 +20,12 @@ header {
   color: #FFFFFF;
   background: rgba(137, 137, 139, 0.6);
   border: 3px solid #89898B;
-  padding: 5px; }
+  padding: 5px;
+  vertical-align: middle; }
 
 .landing-content {
-  margin-top: 100px; }
+  margin-top: 100px;
+  vertical-align: middle; }
 
 #help {
   position: relative; }
