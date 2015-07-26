@@ -4,7 +4,10 @@
 	<link rel="stylesheet" href="./lib/bootstrap-3.3.4-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./lib/font-awesome-4.3.0/css/font-awesome.min.css">
 
-	<link rel="stylesheet" href="./mainstyle.css">
+	<link rel="stylesheet" href="./style/mainstyle.css">
+	<!-- <link rel="stylesheet" href="./style/login-structure.css"> -->
+	<!-- <link rel="stylesheet" href="./style/login-reset.css"> -->
+
 
 	<title>UCMAP Sport Poomsae Scorer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
@@ -15,74 +18,153 @@
 <body>
 	<!-- Navigation Bar -->
 	<nav class="navbar navbar-default navbar-fixed-top">
-	  <div class="container-fluid">
-	    <!-- Brand and toggle get grouped for better mobile display -->
-	    <div class="navbar-header">
-	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-	        <span class="sr-only">Toggle navigation</span> <!-- Accessibility -->
-	        <span class="icon-bar"></span> <!-- Triple bar icon -->
-	        <span class="icon-bar"></span> 
-	        <span class="icon-bar"></span>
-	      </button>
-	      <a class="navbar-brand" href="#">UCMAP</a>
-	    </div>
-	    <!-- Collect the nav links, forms, and other content for toggling -->
-	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-	      <ul class="nav navbar-nav">
-	        <li><a href="#Features">Features</a></li>
-	        <li><a href="#Tournaments">Tournaments </a></li>
-	        <li><a href="#Help">Help </a></li>
-	        <li><a href="#Contact">Contact</a></li>
-	        <li><a href="http://www.akhilbatra.com/tkd_poomsae_scoring/sport_poomsae/personal/index.html">Scorer</a></li>
-	      </ul>
-	    </div><!-- /.navbar-collapse -->
-	  </div><!-- /.container-fluid -->
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <!-- Accessibility -->
+					<span class="icon-bar"></span> <!-- Triple bar icon -->
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">UCMAP</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="#features">Features</a></li>
+					<li><a href="#tournaments">Tournaments </a></li>
+					<li><a href="http://www.akhilbatra.com/tkd_poomsae_scoring/sport_poomsae/personal/index.html">Scorer</a></li>
+					<li><a href="#contact">Contact</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
 	</nav>
-<!-- Navigation Bar End -->
+	<!-- Navigation Bar End -->
 
-<!-- Landing Area -->
+	<!-- Landing Area -->
 	<header id="landing">
 		<div class="container">
 			<div class="row landing-content">
 
 				<div class="col-sm-offset-1 col-sm-5">
-						<a href="http://www.akhilbatra.com/tkd_poomsae_scoring/sport_poomsae/personal/index.html"><div class="panel panel-default scorer-btn">
-						<h1>Training Scorer</h1>
+					<a href="http://www.akhilbatra.com/tkd_poomsae_scoring/sport_poomsae/personal/index.html"><div class="panel panel-default scorer-btn">
+						<h1>Scorer</h1>
 						Perfect for training or small competitions, Training Scorer is equipped with all the tools necessary to score Sport Poomsae by World Taekwondo Federation standards. **Should i say "click here"?**
-						</div></a>
+					</div></a>
 				</div>
 
 				<div class="col-sm-5">
-				<a href="#"><div class="panel panel-default scorer-btn">
-					<h1>Tournaments</h1>
-					<p> If you are a judge at a tournament we are providing scoring services for, click here.</p>
-				</div></a>
+					<a href="#"><div class="panel panel-default scorer-btn">
+						<h1>Tournaments</h1>
+						<p> Click here to view scores or to sign in as a judge at one of our tournaments!</p>
+					</div></a>
 				</div>
 			</div> <!-- /.row choose-scorer-->
 		</div> <!-- /.container-->
 	</header>
-<!-- Landing Area End -->
+	<!-- Landing Area End -->
 
-<!-- Features-->
+
+<!-- Features
+	Major and minor deductions
+	Presentation scoring categories divided into three sections
+	Final score display
+
+-->
 <div id="features">
 	<div class="container">
 		<h1>Features <br>
-		<small> The scorer contains all the tools necessary to score Sport Poomsae by World Taekwondo Federation regulations. </small></h1>
+			<small> The scorer contains all the tools necessary to score Sport Poomsae according to World Taekwondo Federation regulations. </small></h1>
 			<div class="row"> 
-				<div class="col-lg-12">
-					<h2> "text"</h2>
+				<div class="col-sm-4">
+					<img src="./images/scorer.png" width="25%" height="25%">
+				</div>
+				<div class="col-sm-8">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="col-md-6">
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<div class="col-md-6">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /.container -->
+	</div> <!-- /features-->
+
+	<!-- Features End -->
+
+	<!-- Tournaments-->
+	<div id="tournament">
+		<div class="container">
+			<h1>Tournaments</h1>
+			<div class="row"> 
+				<div class="col-sm-6">
+					<h2>Use Scorer at your tournament!</h2>
+					<p> We offer tournament support for our scorer! Scorer will automatically compile the scores of each ring's judges and can display the scores for the audience. </p>
+					<a href="#contact">Contact us</a> for more information!
+				</div>
+				<!-- Login -->
+				<div class="col-sm-6">
+					<div id="login">
+					<h2> At a tournament? <br><small> Enter the Tournament Key here to view scores or sign in as a judge. </small></h2>
+						<form action="javascript:void(0);" method="POST">
+							<fieldset>
+
+								<p><label for="password">Tournament Key</label></p>
+								<p><input type="password" id="password" value="password" onBlur="if(this.value=='')this.value='password'" onFocus="if(this.value=='password')this.value=''"></p> <!-- JS because of IE support; better: placeholder="password" -->
+
+								<p><input type="submit" value="Sign In"></p>
+
+							</fieldset>
+
+						</form>
+					</div>
+				</div>
+				<!-- Login End -->
+
+			</div> <!--/row-->
+		</div> <!--/container-->
+	</div>
+		<!-- Tournaments End-->
+
+		<!-- Contact-->
+		<div id="contact">
+			<div class="container">
+				<h1>Contact Us</h1>
+				<div class="row"> 
+					<div class="col-lg-12">
+						<h2> "text"</h2>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-</body>
-</html>
 
 
 
-<!-- NOTES -->
+		<footer>
+			<div class="container text-center">
+				&copy; 2015 by Akhil Batra, Melvin Huang, and Michael Cho<br>
+				All work done and owned by Akhil Batra, Melvin Huang, and Michael Cho<br>
+				This software may not be sold in any country unless given explicit permission from developers
+			</div>
+		</footer>
 
-<!-- We need to come up with a name for the poomsae scorer!!
-replace Training Scorer/App/whatever with the name -->
+
+	</body>
+	</html>
+
+
+
+	<!-- NOTES -->
+
+<!-- Once we come up with a name for the Scorer,
+	replace Training Scorer/App/whatever with the name -->
 
 
