@@ -6,10 +6,8 @@ body {
   padding-top: 50px;
   font-size: 14pt; }
 
-#tournament {
-  background-color: #89898B; }
-  #tournament h2 small {
-    color: #333; }
+#tournaments h2 small {
+  color: #333; }
 
 #login {
   padding: 10px; }
