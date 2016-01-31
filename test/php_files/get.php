@@ -9,7 +9,7 @@
 
     if ($result=mysqli_query($link,$sql))
     {
-        $row = $result->fetch_row();
+        $row = $result->fetch_assoc();
         echo implode(", ", $row);
     }
 ?>

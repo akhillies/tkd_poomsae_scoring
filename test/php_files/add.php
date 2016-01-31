@@ -6,7 +6,7 @@
 
     $link = (include 'connect.php');
 
-    $first_name = (!array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
+    $first_name = (array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
     $last_name = (array_key_exists('last_name', $_POST) ? $_POST['last_name'] : "unknown");
     $middle_name = (array_key_exists('middle_name', $_POST) ? $_POST['middle_name'] : '');
     $player_id = (array_key_exists('player_id', $_POST) ? $_POST['player_id'] : 0);
