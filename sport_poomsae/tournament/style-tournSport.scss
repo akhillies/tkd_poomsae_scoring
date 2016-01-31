@@ -14,6 +14,7 @@ $color_japanese_laurel_approx: #006400;
 $color_la_palma_approx: #339900;
 $color_chartreuse_approx: #77ff00;
 
+$text-color: $color_navy_blue_approx;
 //fonts
 $font_0: Verdana;
 $font_1: Geneva;
@@ -33,9 +34,12 @@ $url_1: url(./images/retina_wood/retina_wood.png);
 	vertical-align: top;
 }
 
+* {
+  border-radius: 0 !important;
+}
 
 body {
-	background-image: $url_0;
+	background-image: $url_1;
 }
 .all-content {
 	height: 100%;
@@ -71,8 +75,8 @@ body {
 .sportpoom {
 	text-align: center;
 	font-family: $font_0, $font_1, $font_2;
-	color: $color_navy_blue_approx;
-	text-shadow: 0 0 2px $color_corn_approx;
+	color: $text-color;
+	// text-shadow: 0 0 2px $color_corn_approx;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -106,11 +110,39 @@ body {
 			@extend %extend_1;
 		}
 	}
+
+
+
+//-----------BUTTONS-------------------
 	.btn-radio {
-		background: $color_mischka_approx;
+		// background: $color_mischka_approx;
 		border: 1px solid $color_mountain_mist_approx;
-		font-size: 100%;
+		font-size:5 100%;
 	}
+	.btn.outline {
+	    background: none;
+	    padding: 12px 22px;
+	}
+	.presbtn {
+		color: $text-color;;
+	}
+	// .toprow label {
+	// 	border-top-left-radius: 25%;
+	// 	border-top-right-radius: 25%;
+	// 	border-bottom-left-radius: 0;
+	// 	border-bottom-right-radius: 0;
+	// 	border-top: none;
+	// }
+	// .botrow label {
+	// 	border-top-left-radius: 0;
+	// 	border-top-right-radius: 0;
+	// 	border-bottom-left-radius: 25%;
+	// 	border-bottom-right-radius: 25%;
+	// 	border-top: none;
+	// 	border-bottom: none;
+	// }
+
+
 	.undobutton {
 		font-size: 110%;
 		background: $color_geraldine_approx;
@@ -144,42 +176,29 @@ body {
 		color: $black;
 		padding-top: 7px;
 	}
-	.poorpressie {
-		color: $red;
-	}
-	.fairpressie {
-		color: $color_flush_orange_approx;
-	}
-	.goodpressie {
-		color: $yellow;
-	}
-	.verygoodpressie {
-		color: $color_japanese_laurel_approx;
-	}
-	.excellentpressie {
-		color: $color_la_palma_approx;
-	}
-	.perfectpressie {
-		color: $color_chartreuse_approx;
-	}
-	.toprow label {
-		border-top-left-radius: 25%;
-		border-top-right-radius: 25%;
-		border-bottom-left-radius: 0;
-		border-bottom-right-radius: 0;
-		border-top: none;
-	}
-	.botrow label {
-		border-top-left-radius: 0;
-		border-top-right-radius: 0;
-		border-bottom-left-radius: 25%;
-		border-bottom-right-radius: 25%;
-		border-top: none;
-		border-bottom: none;
-	}
+
+	// .poorpressie {
+	// 	color: $red;
+	// }
+	// .fairpressie {
+	// 	color: $color_flush_orange_approx;
+	// }
+	// .goodpressie {
+	// 	color: $yellow;
+	// }
+	// .verygoodpressie {
+	// 	color: $color_japanese_laurel_approx;
+	// }
+	// .excellentpressie {
+	// 	color: $color_la_palma_approx;
+	// }
+	// .perfectpressie {
+	// 	color: $color_chartreuse_approx;
+	// }
+
 	.pressiestuff .option3 {
 		.active {
-			background: $color_mountain_mist_approx;
+			// background: $color_mountain_mist_approx;
 		}
 		.pwrspd h2 {
 			margin-top: 0;

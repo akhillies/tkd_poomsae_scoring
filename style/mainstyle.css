@@ -2,15 +2,12 @@
 /* Colors */
 /* Image URLs */
 /* End Variables */
+h1 {
+  color: #335CAD; }
+
 body {
   padding-top: 50px;
   font-size: 14pt; }
-
-#tournaments h2 small {
-  color: #333; }
-
-#login {
-  padding: 10px; }
 
 header {
   width: 100%;
@@ -56,11 +53,16 @@ a:active {
   text-align: center; }
 
 /* End Landing */
+#tournaments {
+  background-color: #335CAD;
+  color: #FFFFFF; }
+  #tournaments h2 small {
+    color: #FFFFFF; }
+  #tournaments h1 {
+    color: #FFFFFF; }
+
 #help {
   position: relative; }
-
-h1 {
-  color: #335CAD; }
 
 /* Navbar */
 .navbar {
@@ -90,7 +92,8 @@ input {
 /* ---------- LOGIN ---------- */
 #login {
   margin: 50px auto;
-  width: 400px; }
+  width: 400px;
+  padding: 10px; }
 
 #login h2 span[class*="fontawesome-"] {
   margin-right: 14px; }
