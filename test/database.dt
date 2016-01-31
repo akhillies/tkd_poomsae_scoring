@@ -1,0 +1,55 @@
+-- phpMyAdmin SQL Dump
+-- version 4.4.10
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Jan 31, 2016 at 03:33 AM
+-- Server version: 5.5.42
+-- PHP Version: 7.0.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `ucmap_tkd_scoring`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sport_poomsae`
+--
+
+CREATE TABLE `sport_poomsae` (
+  `First_Name` text NOT NULL,
+  `Last_Name` text NOT NULL,
+  `Middle_Name` text,
+  `Player_Id` int(11) NOT NULL DEFAULT '0',
+  `Age` int(11) NOT NULL,
+  `Belt` text NOT NULL,
+  `Division` text NOT NULL,
+  `Ring` int(11) NOT NULL,
+  `Score_1` float NOT NULL DEFAULT '0',
+  `Score_2` float NOT NULL DEFAULT '0',
+  `Score_3` float NOT NULL DEFAULT '0',
+  `Score_4` float NOT NULL DEFAULT '0',
+  `Score_5` float NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `sport_poomsae`
+--
+
+INSERT INTO `sport_poomsae` (`First_Name`, `Last_Name`, `Middle_Name`, `Player_Id`, `Age`, `Belt`, `Division`, `Ring`, `Score_1`, `Score_2`, `Score_3`, `Score_4`, `Score_5`) VALUES
+('UCMAP', 'TKD', '', 0, 0, 'BLACK', 'MASTER_4', 0, 0, 0, 0, 0, 0);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `sport_poomsae`
+--
+ALTER TABLE `sport_poomsae`
+  ADD PRIMARY KEY (`Player_Id`);
+
