@@ -4,11 +4,11 @@
 <body>
     <div id="a"></div>
     <script>
-        var data = {player_id: 0};
+        var data = {player_id: 0, first_name: "mike", last_name: "fu", age: 37, ring: 7};
         $.ajax({
             type: "POST",
             dataType: "text",
-            url: "http://127.0.0.1:8888/tourny_test/sql.php",
+            url: "http://127.0.0.1:8888/php_files/sql.php",
             data: data,
             success: function(data) {
                 $("#a").html(data);

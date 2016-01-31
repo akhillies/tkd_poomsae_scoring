@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jan 31, 2016 at 03:33 AM
+-- Generation Time: Jan 31, 2016 at 05:21 AM
 -- Server version: 5.5.42
 -- PHP Version: 7.0.0
 
@@ -41,7 +41,9 @@ CREATE TABLE `sport_poomsae` (
 --
 
 INSERT INTO `sport_poomsae` (`First_Name`, `Last_Name`, `Middle_Name`, `Player_Id`, `Age`, `Belt`, `Division`, `Ring`, `Score_1`, `Score_2`, `Score_3`, `Score_4`, `Score_5`) VALUES
-('UCMAP', 'TKD', '', 0, 0, 'BLACK', 'MASTER_4', 0, 0, 0, 0, 0, 0);
+('unknown', 'fu', '', 0, 37, 'unknown', 'unknown', 7, 0, 0, 0, 0, 0),
+('first_name', 'last_name', 'middle_name', 1, 0, 'belt', 'division', 0, 0, 0, 0, 0, 0),
+('UCMAP', 'TKD', '', 2, 0, 'BLACK', 'MASTER_4', 0, 0, 0, 0, 0, 0);
 
 --
 -- Indexes for dumped tables
@@ -52,4 +54,3 @@ INSERT INTO `sport_poomsae` (`First_Name`, `Last_Name`, `Middle_Name`, `Player_I
 --
 ALTER TABLE `sport_poomsae`
   ADD PRIMARY KEY (`Player_Id`);
-
