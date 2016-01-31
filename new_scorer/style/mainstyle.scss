@@ -21,8 +21,8 @@ $font_1: Geneva;
 $font_2: sans-serif;
 
 //urls
-$url_0: url(../../images/bgnoise_lg/bgnoise_lg.png);
-$url_1: url(../../images/retina_wood/retina_wood.png);
+$url_0: url(../images/bgnoise_lg/bgnoise_lg.png);
+$url_1: url(../images/retina_wood/retina_wood.png);
 
 //@extend-elements
 //original selectors
@@ -40,29 +40,17 @@ $url_1: url(../../images/retina_wood/retina_wood.png);
 
 body {
 	background-image: $url_1;
+	h3 {
+	}
 }
+
 .all-content {
 	height: 100%;
 }
-.athlete-name {
-	text-align: center;
-	font-size: 100%;
-	margin-top: 5%;
-	width: 90%;
-}
-.dropdown {
-	padding-top: 15%;
-}
-.dropdown-toggle {
-	overflow: hidden;
-	text-align: center;
-	width: 90%;
-	font-size: 110%;
-}
-.dropdown-menu {
-	width: 90%;
-	padding-left: 14%;
-	font-size: 130%;
+
+.miscounts div h2 {
+	margin-top: 0;
+	padding-top: 0;
 }
 .stopwatch {
 	background: $color_mischka_approx;
@@ -124,24 +112,8 @@ body {
 	    padding: 12px 22px;
 	}
 	.presbtn {
-		color: $text-color;;
+		color: $text-color;
 	}
-	// .toprow label {
-	// 	border-top-left-radius: 25%;
-	// 	border-top-right-radius: 25%;
-	// 	border-bottom-left-radius: 0;
-	// 	border-bottom-right-radius: 0;
-	// 	border-top: none;
-	// }
-	// .botrow label {
-	// 	border-top-left-radius: 0;
-	// 	border-top-right-radius: 0;
-	// 	border-bottom-left-radius: 25%;
-	// 	border-bottom-right-radius: 25%;
-	// 	border-top: none;
-	// 	border-bottom: none;
-	// }
-
 
 	.undobutton {
 		font-size: 110%;
@@ -149,7 +121,16 @@ body {
 		margin-top: 0;
 		padding: 15px;
 		width: 90%;
+		border:none;
 	}
+	
+	#scoresubmit {
+		// margin-top: 15px;
+		// width: 90%;
+		// font-size: 220%;
+	}
+
+//---------------SUBMITSCREEN-------------
 	.scorescreen {
 		width: 98%;
 		height: 92%;
@@ -165,11 +146,9 @@ body {
 		background: $color_stratos_approx;
 		color: $gold;
 	}
-	#scoresubmit {
-		margin-top: 15px;
-		width: 90%;
-		font-size: 220%;
-	}
+
+
+//------------------COPYRIGHT---------------
 	.cpyrght {
 		font-size: 50%;
 		text-shadow: none;
@@ -185,9 +164,5 @@ body {
 		.pwrspd h2 {
 			margin-top: 0;
 		}
-	}
-	.miscounts div h2 {
-		margin-top: 0;
-		padding-top: 0;
 	}
 }
