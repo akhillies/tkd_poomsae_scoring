@@ -22,7 +22,7 @@ $font_2: sans-serif;
 
 //urls
 $url_0: url(../../images/bgnoise_lg/bgnoise_lg.png);
-$url_1: url(./images/retina_wood/retina_wood.png);
+$url_1: url(../../images/retina_wood/retina_wood.png);
 
 //@extend-elements
 //original selectors
@@ -177,24 +177,6 @@ body {
 		padding-top: 7px;
 	}
 
-	// .poorpressie {
-	// 	color: $red;
-	// }
-	// .fairpressie {
-	// 	color: $color_flush_orange_approx;
-	// }
-	// .goodpressie {
-	// 	color: $yellow;
-	// }
-	// .verygoodpressie {
-	// 	color: $color_japanese_laurel_approx;
-	// }
-	// .excellentpressie {
-	// 	color: $color_la_palma_approx;
-	// }
-	// .perfectpressie {
-	// 	color: $color_chartreuse_approx;
-	// }
 
 	.pressiestuff .option3 {
 		.active {
