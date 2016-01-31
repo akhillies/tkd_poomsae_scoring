@@ -4,17 +4,18 @@
 <body>
     <div id="a"></div>
     <script>
-        var data = {division: 'im-s-2016'};
+        var data = {division: 'players'};
         $.ajax({
             type: "POST",
-            dataType: "json",
-            url: "http://127.0.0.1/~akhilbatra/read.php",
+            dataType: "text",
+            url: "http://127.0.0.1:8888/tourny_test/sql.php",
             data: data,
             success: function(data) {
-                $("#a").html(JSON.stringify(data));
+                $("#a").html(data);
             },
             error: function(e) {
                 alert("Failed to do something with ajax:  " + e);
+                console.log(e);
             }
         });
     </script>
