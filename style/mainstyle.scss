@@ -15,21 +15,14 @@ $rgba_blue_med_9: rgba(51, 92, 173, 0.9);
 $bg_image: url("../images/kody_pair_frontkick.jpg");
 
 /* End Variables */
+h1 {
+	color:$hex_blue_med;
+}
+
 
 body { 
 	padding-top: 50px; 
 	font-size:14pt;
-}
-
-#tournaments {
-	// background-color: $hex_gray_dark;
-	h2 small {
-		color:#333;
-	}
-}
-
-#login {
-	padding:10px;
 }
 
 header {
@@ -89,16 +82,24 @@ a:active {
 }
 /* End Landing */
 
+#tournaments {
+	
+	background-color: $hex_blue_med;
 
+	
+	// h2 small {
+	// 	color:$hex_white;
+	// }	
+	// color: $hex_white;
+	// h1 {
+	// 	color: $hex_white;
+	// }
+}
 
 #help {
 	position:relative;
 }
 
-
-h1 {
-	color:$hex_blue_med;
-}
 
 /* Navbar */
 
@@ -138,9 +139,11 @@ input {
 
 /* ---------- LOGIN ---------- */
 
+
 #login {
 	margin: 50px auto;
 	width: 400px;
+	padding:10px;
 }
 
 

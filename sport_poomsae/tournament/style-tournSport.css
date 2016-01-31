@@ -4,8 +4,11 @@
   display: table-cell;
   vertical-align: top; }
 
+* {
+  border-radius: 0 !important; }
+
 body {
-  background-image: url(../../images/bgnoise_lg/bgnoise_lg.png); }
+  background-image: url(./images/retina_wood/retina_wood.png); }
 
 .all-content {
   height: 100%; }
@@ -41,7 +44,6 @@ body {
   text-align: center;
   font-family: Verdana, Geneva, sans-serif;
   color: #00008f;
-  text-shadow: 0 0 2px #e5c100;
   position: absolute;
   top: 0;
   left: 0;
@@ -63,9 +65,13 @@ body {
     .sportpoom .scoringstuff div:last-child {
       padding-left: 10; }
   .sportpoom .btn-radio {
-    background: #ccccdd;
     border: 1px solid #999999;
     font-size: 100%; }
+  .sportpoom .btn.outline {
+    background: none;
+    padding: 12px 22px; }
+  .sportpoom .presbtn {
+    color: #00008f; }
   .sportpoom .undobutton {
     font-size: 110%;
     background: #ff8888;
@@ -92,33 +98,6 @@ body {
     text-shadow: none;
     color: black;
     padding-top: 7px; }
-  .sportpoom .poorpressie {
-    color: #ff0000; }
-  .sportpoom .fairpressie {
-    color: #ff7700; }
-  .sportpoom .goodpressie {
-    color: #ffff00; }
-  .sportpoom .verygoodpressie {
-    color: #006400; }
-  .sportpoom .excellentpressie {
-    color: #339900; }
-  .sportpoom .perfectpressie {
-    color: #77ff00; }
-  .sportpoom .toprow label {
-    border-top-left-radius: 25%;
-    border-top-right-radius: 25%;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
-    border-top: none; }
-  .sportpoom .botrow label {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%;
-    border-top: none;
-    border-bottom: none; }
-  .sportpoom .pressiestuff .option3 .active {
-    background: #999999; }
   .sportpoom .pressiestuff .option3 .pwrspd h2 {
     margin-top: 0; }
   .sportpoom .miscounts div h2 {
