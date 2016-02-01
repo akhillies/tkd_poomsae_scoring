@@ -69,18 +69,6 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
-	.mistakebutton {
-		width: 50%;
-		height: 10%;
-		font-size: 100%;
-		padding: 5;
-		width: 90%;
-		height: 90%;
-		font-size: 200%;
-		padding: 10;
-		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
-		border-radius: 5%;
-	}
 	.scoringstuff {
 		display: table;
 		div {
@@ -114,17 +102,31 @@ body {
 	.presbtn {
 		color: $text-color;
 	}
-
+	.mistakebutton {
+		height: 100%;
+		width: 100%;
+		font-size: 100%;
+		padding: 5;
+		font-size: 200%;
+		padding: 10;
+		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+		border-radius: 5%;
+	}
 	.undobutton {
-		font-size: 110%;
+		font-size: 100%;
+		height:50%;
 		background: $color_geraldine_approx;
 		margin-top: 0;
 		padding: 15px;
-		width: 90%;
+		width: 70%;
 		border:none;
 	}
-	
+	.deductionbtn {
+		height:00%;
+	}
+
 	#scoresubmit {
+		height:100%;
 		// margin-top: 15px;
 		// width: 90%;
 		// font-size: 220%;

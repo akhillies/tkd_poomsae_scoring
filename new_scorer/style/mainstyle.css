@@ -32,16 +32,6 @@ body {
   top: 0;
   left: 0;
   right: 0; }
-  .sportpoom .mistakebutton {
-    width: 50%;
-    height: 10%;
-    font-size: 100%;
-    padding: 5;
-    width: 90%;
-    height: 90%;
-    font-size: 200%;
-    padding: 10;
-    border-radius: 5%; }
   .sportpoom .scoringstuff {
     display: table; }
     .sportpoom .scoringstuff div:first-child {
@@ -56,13 +46,26 @@ body {
     padding: 12px 22px; }
   .sportpoom .presbtn {
     color: #00008f; }
+  .sportpoom .mistakebutton {
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    padding: 5;
+    font-size: 200%;
+    padding: 10;
+    border-radius: 5%; }
   .sportpoom .undobutton {
-    font-size: 110%;
+    font-size: 100%;
+    height: 50%;
     background: #ff8888;
     margin-top: 0;
     padding: 15px;
-    width: 90%;
+    width: 70%;
     border: none; }
+  .sportpoom .deductionbtn {
+    height: 200%; }
+  .sportpoom #scoresubmit {
+    height: 100%; }
   .sportpoom .scorescreen {
     width: 98%;
     height: 92%;
