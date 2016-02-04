@@ -38,15 +38,24 @@ $url_1: url(../images/retina_wood/retina_wood.png);
   border-radius: 0 !important;
 }
 
+.row [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.row{
+  overflow: hidden; 
+}
+
 body {
 	background-image: $url_1;
 	h3 {
 	}
 }
 
-.all-content {
-	height: 100%;
-}
+// .all-content {
+// 	height: 100%;
+// }
 
 .miscounts div h2 {
 	margin-top: 0;
@@ -55,12 +64,14 @@ body {
 .stopwatch {
 	background: $color_mischka_approx;
 	border: 1px solid $color_mountain_mist_approx;
-	.btn {
+	.btn-lg {
 		text-align: center;
 		font-size: 128%;
+		border:none;
 	}
 }
 .sportpoom {
+	height:100%;
 	text-align: center;
 	font-family: $font_0, $font_1, $font_2;
 	color: $text-color;
@@ -69,22 +80,17 @@ body {
 	top: 0;
 	left: 0;
 	right: 0;
-	.scoringstuff {
-		display: table;
-		div {
-			&:first-child {
-				padding-right: 10;
-			}
-			&:last-child {
-				padding-left: 10;
-			}
-		}
-		.deductButton {
-			@extend %extend_1;
-		}
-		.pressiestuff {
-			@extend %extend_1;
-		}
+	bottom:0;
+	.buttonrow {
+		height:100%;
+		position: relative;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.majorcol {
+		background:$gold;
 	}
 
 
@@ -102,15 +108,14 @@ body {
 	.presbtn {
 		color: $text-color;
 	}
-	.mistakebutton {
-		height: 100%;
+	.deductbutton {
+		// position:relative;
 		width: 100%;
-		font-size: 100%;
-		padding: 5;
-		font-size: 200%;
+		// font-size: 200%;
+		// top:0;
+		// bottom:0;
 		padding: 10;
-		//Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
-		border-radius: 5%;
+		height: 100%;
 	}
 	.undobutton {
 		font-size: 100%;
@@ -121,8 +126,9 @@ body {
 		width: 70%;
 		border:none;
 	}
-	.deductionbtn {
-		height:00%;
+
+	.undorow {
+		vertical-align: bottom;
 	}
 
 	#scoresubmit {
@@ -168,3 +174,4 @@ body {
 		}
 	}
 }
+

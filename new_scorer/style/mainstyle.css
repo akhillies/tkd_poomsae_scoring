@@ -1,17 +1,15 @@
-.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff {
-  height: 100%;
-  float: none;
-  display: table-cell;
-  vertical-align: top; }
-
 * {
   border-radius: 0 !important; }
 
+.row [class*="col-"] {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px; }
+
+.row {
+  overflow: hidden; }
+
 body {
   background-image: url(../images/retina_wood/retina_wood.png); }
-
-.all-content {
-  height: 100%; }
 
 .miscounts div h2 {
   margin-top: 0;
@@ -20,24 +18,30 @@ body {
 .stopwatch {
   background: #ccccdd;
   border: 1px solid #999999; }
-  .stopwatch .btn {
+  .stopwatch .btn-lg {
     text-align: center;
-    font-size: 128%; }
+    font-size: 128%;
+    border: none; }
 
 .sportpoom {
+  height: 100%;
   text-align: center;
   font-family: Verdana, Geneva, sans-serif;
   color: #00008f;
   position: absolute;
   top: 0;
   left: 0;
-  right: 0; }
-  .sportpoom .scoringstuff {
-    display: table; }
-    .sportpoom .scoringstuff div:first-child {
-      padding-right: 10; }
-    .sportpoom .scoringstuff div:last-child {
-      padding-left: 10; }
+  right: 0;
+  bottom: 0; }
+  .sportpoom .buttonrow {
+    height: 100%;
+    position: relative;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0; }
+  .sportpoom .majorcol {
+    background: #ffd700; }
   .sportpoom .btn-radio {
     border: 1px solid #999999;
     font-size: 5 100%; }
@@ -46,14 +50,10 @@ body {
     padding: 12px 22px; }
   .sportpoom .presbtn {
     color: #00008f; }
-  .sportpoom .mistakebutton {
-    height: 100%;
+  .sportpoom .deductbutton {
     width: 100%;
-    font-size: 100%;
-    padding: 5;
-    font-size: 200%;
     padding: 10;
-    border-radius: 5%; }
+    height: 100%; }
   .sportpoom .undobutton {
     font-size: 100%;
     height: 50%;
@@ -62,8 +62,8 @@ body {
     padding: 15px;
     width: 70%;
     border: none; }
-  .sportpoom .deductionbtn {
-    height: 200%; }
+  .sportpoom .undorow {
+    vertical-align: bottom; }
   .sportpoom #scoresubmit {
     height: 100%; }
   .sportpoom .scorescreen {

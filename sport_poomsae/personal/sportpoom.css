@@ -31,10 +31,6 @@ body {
     border-radius: 5%; }
   .sportpoom .scoringstuff {
     display: table; }
-    .sportpoom .scoringstuff div:first-child {
-      padding-right: 0; }
-    .sportpoom .scoringstuff div:last-child {
-      padding-left: 0; }
   .sportpoom .btn-radio {
     background: #ccccdd;
     border: 1px solid #999999;
