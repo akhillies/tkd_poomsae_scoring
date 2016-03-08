@@ -5,28 +5,65 @@
     header('Access-Control-Allow-Origin: *');
 
     $link = (include 'connect.php');
-    $sql = "SELECT * FROM sport_poomsae WHERE Player_Id={$_POST['player_id']}";
+    $sql = "SELECT * FROM competitors WHERE id={$_POST['id']}";
 
-    if ($result=mysqli_query($link,$sql))
-    {
+    if ($result=mysqli_query($link,$sql)) {
         $row = $result->fetch_assoc();
-    }
+
+        $first_name = (array_key_exists('first_name', $_POST) ? $_POST['first_name'] : $row['first_name']);
+        $last_name = (array_key_exists('last_name', $_POST) ? $_POST['last_name'] : $row['last_name']);
+        $middle_name = (array_key_exists('middle_name', $_POST) ? $_POST['middle_name'] : $row['middle_name']);
+        $player_id = (array_key_exists('id', $_POST) ? $_POST['id'] : $row['id']);
+        /* $age = (array_key_exists('age', $_POST) ? $_POST['age'] : $row['age']); */
+        /* $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : $row['gender']); */
+        /* $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : $row['belt']); */
+        /* $school = (array_key_exists('school', $_POST) ? $_POST['school'] : $row['school']); */
+        /* $division = (array_key_exists('division', $_POST) ? $_POST['division'] : $row['division']); */
+        /* $round = (array_key_exists('round', $_POST) ? $_POST['round'] : $row['round']); */
+
+
 
     $first_name = (array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
     $last_name = (array_key_exists('last_name', $_POST) ? $_POST['last_name'] : "unknown");
     $middle_name = (array_key_exists('middle_name', $_POST) ? $_POST['middle_name'] : '');
-    $player_id = (array_key_exists('player_id', $_POST) ? $_POST['player_id'] : 0);
+    $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $age = (array_key_exists('age', $_POST) ? $_POST['age'] : 0);
-    $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : "unknown");
+    $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : "black");
     $division = (array_key_exists('division', $_POST) ? $_POST['division'] : "unknown");
-    $ring = (array_key_exists('ring', $_POST) ? $_POST['ring'] : 0);
+    $round = (array_key_exists('round', $_POST) ? $_POST['round'] : "preliminary");
+    $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : 0);
+    $school = (array_key_exists('school', $_POST) ? $_POST['school'] : "unknown");
         
-    $sql = "UPDATE sport_poomsae SET First_Name='$first_name', Last_Name='$last_name', Middle_Name='$middle_name', Player_Id=$player_id, Age=$age, Belt='$belt', Division='$division', Ring=$ring WHERE Player_Id={$_POST['player_id']}";
-    
-    if (mysqli_query($link,$sql))
-    {
-        $row = "{$first_name}, {$last_name}, {$middle_name}, {$player_id}, {$age}, {$belt}, {$division}, {$ring}";
-        echo $row;
+        $sql = "UPDATE competitors SET fname='$first_name', lname='$last_name', mname='$middle_name', id=$id, age=$age, belt='$belt',school='$school', division='$division', round='$round' WHERE id={$_POST['id']}";
+        
+        if ($result=mysqli_query($link,$sql)) {
+            if($row != null) {
+                $response_array['status'] = 'success';  
+                $response_array['message'] = "YAY :D";
+                $response_array['info']['id'] = $id;
+                $response_array['info']['fname'] = $first_name;
+                $response_array['info']['mname'] = $middle_name;
+                $response_array['info']['lname'] = $last_name;
+                $response_array['info']['age'] = $age;
+                $response_array['info']['belt'] = $belt;
+                $response_array['info']['division'] = $division;
+                $response_array['info']['round'] = $round;
+                $response_array['info']['gender'] = $gender;
+                $response_array['info']['school'] = $school;
+            } else {
+                $response_array['status'] = 'nosuchelement';  
+                $response_array['message'] = "awww :/";
+            }
+        } else {
+            $response_array['status'] = 'failed';  
+            $response_array['message'] = "Unable to update player - were inputs correct?";
+        }
+    } else {
+        $response_array['status'] = 'failed';  
+        $response_array['message'] = "Unable to get player - maybe Player does not exist?";
     }
+
+    header('Content-type: application/json');
+    echo json_encode($response_array);
 ?>
 

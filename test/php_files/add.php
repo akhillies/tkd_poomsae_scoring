@@ -9,16 +9,35 @@
     $first_name = (array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
     $last_name = (array_key_exists('last_name', $_POST) ? $_POST['last_name'] : "unknown");
     $middle_name = (array_key_exists('middle_name', $_POST) ? $_POST['middle_name'] : '');
-    $player_id = (array_key_exists('player_id', $_POST) ? $_POST['player_id'] : 0);
+    $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $age = (array_key_exists('age', $_POST) ? $_POST['age'] : 0);
-    $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : "unknown");
+    $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : "black");
     $division = (array_key_exists('division', $_POST) ? $_POST['division'] : "unknown");
-    $ring = (array_key_exists('ring', $_POST) ? $_POST['ring'] : 0);
+    $round = (array_key_exists('round', $_POST) ? $_POST['round'] : "preliminary");
+    $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : 0);
+    $school = (array_key_exists('school', $_POST) ? $_POST['school'] : "unknown");
         
-    $sql = "INSERT INTO sport_poomsae (First_Name, Last_Name, Middle_Name, Player_Id, Age, Belt, Division, Ring, Score_1, Score_2, Score_3, Score_4, Score_5) VALUES ('$first_name', '$last_name', '$middle_name', $player_id, $age, '$belt', '$division', $ring, 0, 0, 0, 0, 0)";
+    $sql = "INSERT INTO competitors (fname, lname, mname, id, age, belt, division, gender, round, school) VALUES ('$first_name', '$last_name', '$middle_name', $id, $age, '$belt', '$division', $gender, '$round', '$school')";
     if (mysqli_query($link,$sql))
     {
-        $row = "{$first_name}, {$last_name}, {$middle_name}, {$player_id}, {$age}, {$belt}, {$division}, {$ring}";
-        echo $row;
+        $response_array['status'] = 'success';  
+        $response_array['message'] = "YAY :D";
+        $response_array['info']['id'] = $id;
+        $response_array['info']['fname'] = $first_name;
+        $response_array['info']['mname'] = $middle_name;
+        $response_array['info']['lname'] = $last_name;
+        $response_array['info']['age'] = $age;
+        $response_array['info']['belt'] = $belt;
+        $response_array['info']['division'] = $division;
+        $response_array['info']['round'] = $round;
+        $response_array['info']['gender'] = $gender;
+        $response_array['info']['school'] = $school;
     }
+    else
+    {
+        $response_array['status'] = 'failed';  
+        $response_array['message'] = "Unable to add player - maybe Player's ID was already taken?";  
+    }
+    header('Content-type: application/json');
+    echo json_encode($response_array);
 ?>
