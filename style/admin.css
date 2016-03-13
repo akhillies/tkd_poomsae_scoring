@@ -1,0 +1,17 @@
+.panel-group {
+    width: 90%;
+    margin: auto;
+}
+
+.panel-title {
+    text-align: center;
+}
+
+.panel-title a {
+    text-decoration: none;
+    width: 100%;
+}
+
+.panel-collapse {
+    padding: 10px;
+}

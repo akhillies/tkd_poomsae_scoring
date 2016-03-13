@@ -12,8 +12,8 @@
     $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $age = (array_key_exists('age', $_POST) ? $_POST['age'] : 0);
     $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : "black");
-    $division = (array_key_exists('division', $_POST) ? $_POST['division'] : "unknown");
-    $round = (array_key_exists('round', $_POST) ? $_POST['round'] : "preliminary");
+    $division = (array_key_exists('division', $_POST) ? $_POST['division'] : 0);
+    $round = (array_key_exists('round', $_POST) ? $_POST['round'] : 0);
     $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : 0);
     $school = (array_key_exists('school', $_POST) ? $_POST['school'] : "unknown");
         
