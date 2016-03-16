@@ -5,6 +5,7 @@
     $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $round = (array_key_exists('round', $_POST) ? $_POST['round'] : 0);
     $score = (array_key_exists('score', $_POST) ? $_POST['score'] : 0);
+    $response_array['test'][0] = $score;
     $judge = (array_key_exists('judge', $_POST) ? $_POST['judge'] : 0);
     $poomsae = (array_key_exists('poomsae', $_POST) ? $_POST['poomsae'] : 0);
     $sql = "SELECT * FROM competitors WHERE id=$id"; 
@@ -14,7 +15,7 @@
         $row = $result->fetch_assoc();
         if($row != null)
         {
-            $sql2 = "INSERT INTO scores (id, division, round, gender, judge, poomsae, score) VALUES ($id, {$row['division']}, '$round', {$row['gender']}, $judge, $poomsae, $score)";
+            $sql2 = "INSERT INTO scores (id, division, round, gender, judge, poomsae, score) VALUES ($id, {$row['division']}, '$round', {$row['gender']}, $judge, $poomsae, '$score')";
             if ($result2=mysqli_query($link,$sql2))
             {
                 $response_array['status'] = 'success';
