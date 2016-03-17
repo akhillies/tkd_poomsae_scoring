@@ -1,4 +1,9 @@
-var link = 'http://127.0.0.1:8888/php_files/';
+if(sessionStorage.allowed != "./admin.html") {
+    sessionStorage.removeItem("allowed");
+    window.location.replace("./home.html");
+}
+
+var link = localStorage.link;
 var ajaxFail = function(e) {
                 alert("Failed to add with ajax:  " + e);
                 console.log(e);
@@ -238,7 +243,11 @@ $(function() {
                         $('form[name="add-division"]')[0].reset();
                     }, 1500);
                     
-
+                } else if(dt.status == 'noplayers') {
+                    $('#add-division').text("Division has no competitors!!!").removeClass("btn-primary").addClass("btn-failure");
+                    setTimeout(function () {
+                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure")
+                    }, 2500);
                 } else if(dt.status == 'failed') {
                     $('#add-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
                     setTimeout(function () {

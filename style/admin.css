@@ -3,6 +3,10 @@
     margin: auto;
 }
 
+.panel-heading {
+    padding: 0;
+}
+
 .panel-title {
     text-align: center;
 }
@@ -10,6 +14,12 @@
 .panel-title a {
     text-decoration: none;
     width: 100%;
+}
+
+.panel-title a h2{
+    margin: 0;
+    padding: 25px;
+    padding-bottom: 20px;
 }
 
 .panel-collapse {
