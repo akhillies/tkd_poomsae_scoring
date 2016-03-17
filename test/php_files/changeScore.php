@@ -38,30 +38,6 @@
         $response_array['status'] = 'failed';  
         $response_array['message'] = "Unable to change score - the player does not exist?";
     }
-        
-        if ($result=mysqli_query($link,$sql)) {
-            if($row != null) {
-                $response_array['status'] = 'success';  
-                $response_array['message'] = "YAY :D";
-                $response_array['info']['id'] = $id;
-                $response_array['info']['fname'] = $first_name;
-                $response_array['info']['mname'] = $middle_name;
-                $response_array['info']['lname'] = $last_name;
-                $response_array['info']['age'] = $age;
-                $response_array['info']['belt'] = $belt;
-                $response_array['info']['division'] = $division;
-                $response_array['info']['round'] = $round;
-                $response_array['info']['gender'] = $gender;
-                $response_array['info']['school'] = $school;
-            } else {
-                $response_array['status'] = 'nosuchelement';  
-                $response_array['message'] = "awww :/";
-            }
-        } else {
-            $response_array['status'] = 'failed';  
-            $response_array['message'] = "Unable to update player - were inputs correct?";
-        }
-
     header('Content-type: application/json');
     echo json_encode($response_array);
 ?>

@@ -11,10 +11,10 @@ var ajaxFail = function(e) {
 
 var gender = function(int) {
     switch(int) {
-        case '0':
-            return "Female";
         case '1':
             return "Male";
+        case '2':
+            return "Female";
         default:
             return "";
     }
@@ -343,44 +343,7 @@ $(function() {
             });
         }
     });
-    
-    $('form[name="add-division"]').submit(function(event) {
-        var formElems = $('form[name="add-division"]')[0].elements;        
-        event.preventDefault();
-        $.ajax({
-            type: 'POST',
-            dataType: "text",
-            url: link + "assignDivision.php",
-            data: {
-                ring: formElems.ring.value,
-                division: formElems.division.value,
-                round: formElems.round.value,
-                gender: formElems.gender.value,
-                priority: formElems.priority.value
-            },
-            success: function(data) {
-                var dt = JSON.parse(data);
-                if(dt.status == 'success') {
-                    $('#add-division').text("Success!").removeClass("btn-primary").addClass("btn-success");
-                    setTimeout(function () {
-                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-success")
-                        $('form[name="add-division"]')[0].reset();
-                    }, 1500);
-                    
 
-                } else if(dt.status == 'failed') {
-                    $('#add-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
-                    setTimeout(function () {
-                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure")
-                    }, 1500);
-                } else {
-                    alert("add went seriously wrong, got a bad response: " + data);
-                }
-            },
-            error: ajaxFail
-        });
-        return false;
-    });
 
     $('form[name="move-division"]').submit(function(event) {
         var searchFormElems = $('form[name="search-division"]')[0].elements;        
@@ -406,6 +369,11 @@ $(function() {
                         $('form[name="search-division"]')[0].reset();
                         $('form[name="move-division"]').fadeOut(500)[0].reset();
                         $('#athleteDivision').fadeOut(500);
+                        $('#find-division').text("Find Division");
+                        searchFormElems.division.disabled = false;
+                        searchFormElems.round.disabled = false;
+                        searchFormElems.genderMale.disabled = false;
+                        searchFormElems.genderFemale.disabled = false;
                     }, 1500);
                 } else if(dt.status == 'failed') {
                     $('#move-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
@@ -467,7 +435,6 @@ $(function() {
             url: link + "recordScore.php",
             data: {
                 id: formElems.id.value,
-                round: formElems.round.value,
                 judge: formElems.judge.value,
                 poomsae: formElems.poomsae.value,
                 score: formElems.score.value,
@@ -552,9 +519,11 @@ $(function() {
             data: {
                 gender: $('form[name="find-score-by-division"]')[0].elements.gender.value,
                 division: $('form[name="find-score-by-division"]')[0].elements.division.value,
+                round: $('form[name="find-score-by-division"]')[0].elements.round.value,
             },
             success: function(data) {
                 var dt = JSON.parse(data);
+                console.log(dt.sql);
                 if(dt.status == 'success') {
                     $('#score-by-division').text("Success!").removeClass("btn-primary").addClass("btn-success");
                     setTimeout(function () {

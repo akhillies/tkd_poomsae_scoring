@@ -87,7 +87,7 @@
                                                 <input type="radio" name="gender" id="genderMale" value=1 required> Male
                                             </label>
                                             <label class="radio-inline">
-                                                <input type="radio" name="gender" id="genderFemale" value=2 required> Female
+                                                <input type="radio" name="gender" id="genderFemale" value=0 required> Female
                                             </label>
                                         </div>
                                     </div>
@@ -188,7 +188,7 @@
                                                         <input type="radio" name="gender" id="genderMale" value=1 required> Male
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" name="gender" id="genderFemale" value=2 required> Female
+                                                        <input type="radio" name="gender" id="genderFemale" value=0 required> Female
                                                     </label>
                                                 </div>
                                             </div>
@@ -303,7 +303,7 @@
                                             <input type="radio" name="gender" id="genderMale" value=1 required> Male
                                         </label>
                                         <label class="radio-inline">
-                                            <input type="radio" name="gender" id="genderFemale" value=2 required> Female
+                                            <input type="radio" name="gender" id="genderFemale" value=0 required> Female
                                         </label>
                                     </div>
                                 </div>
@@ -362,7 +362,7 @@
                                                     <input type="radio" name="gender" id="genderMale" value=1 required> Male
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="gender" id="genderFemale" value=2 required> Female
+                                                    <input type="radio" name="gender" id="genderFemale" value=0 required> Female
                                                 </label>
                                             </div>
                                         </div>
@@ -501,6 +501,17 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label class="col-md-4 control-label" for="round">Round</label>
+                                        <div class="col-md-4 col-lg-7">
+                                            <select class="form-control" name="round" required>
+                                                <option value="" selected disabled>Select One</option>
+                                                <option value="1">Preliminary</option>
+                                                <option value="2">Semi-Finals</option>
+                                                <option value="3">Finals</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
                                         <label class="col-md-4 control-label" for="judge">Judge</label>
                                         <div class="col-md-4 col-lg-7">
                                             <select class="form-control" name="judge" required>
@@ -565,7 +576,7 @@
                                                     <input type="radio" name="gender" id="genderMale" value=1 required> Male
                                                 </label>
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="gender" id="genderFemale" value=2 required> Female
+                                                    <input type="radio" name="gender" id="genderFemale" value=0 required> Female
                                                 </label>
                                             </div>
                                         </div>
@@ -582,17 +593,6 @@
                                                     <option value="6">Master 1</option>
                                                     <option value="7">Master 2</option>
                                                     <option value="8">Master 3</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group col-md-6 col-lg-6">
-                                            <label class="col-md-4 control-label" for="round">Round</label>
-                                            <div class="col-md-4 col-lg-7">
-                                                <select class="form-control" name="round" required>
-                                                    <option value="" selected disabled>Select One</option>
-                                                    <option value="1">Preliminary</option>
-                                                    <option value="2">Semi-Finals</option>
-                                                    <option value="3">Finals</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -706,3 +706,4 @@
     </div>
 </body>
 </html>
+

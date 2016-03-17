@@ -9,63 +9,41 @@
     $priority = (array_key_exists('priority', $_POST) ? $_POST['priority'] : 0);
     $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : 0);
 
-    $sql = "INSERT INTO rings (ring, division, round, priority, gender) VALUES ('$ring', '$division', '$round', '$priority', '$gender')";
+    $sql = "SELECT COUNT(*) AS count FROM competitors WHERE division='{$division}' AND gender='{$gender}'";
     if ($result=mysqli_query($link,$sql))
     {
-        $response_array['status'] = 'success-ish';  
-        $response_array['message'] = "started i guess"; 
-        $response_array['info']['ring'] = $ring;
-        $response_array['info']['division'] = $division;
-        $response_array['info']['round'] = $round;
-        $response_array['info']['priority'] = $priority;
-        $response_array['info']['gender'] = $gender;
-
-        $sql2 = "SELECT COUNT(*) AS count FROM competitors WHERE division='{$division}' AND gender='{$gender}'";
-        if ($result2=mysqli_query($link,$sql2))
-        {
-            $index = $result2->fetch_assoc()['count'];
-            if($index > 0) {
-                if($index <= 4) {
-                    $curr_round = 3;
-                } else if ($index <= 8) {
-                    $curr_round = 2;
-                } else {
-                    $curr_round = 1;
-                }
-                $sql3 = "UPDATE division SET current_round='$curr_round', num_competitors='$index' WHERE division='$division' AND gender='$gender'";
-                if ($result3=mysqli_query($link,$sql3))
-                {
-                    $sql4 = "UPDATE competitors SET round='$curr_round' WHERE division='$division' AND gender='$gender'";
-                    if ($result4=mysqli_query($link,$sql4))
-                    {
-                        $response_array['status'] = 'success';  
-                        $response_array['message'] = "ALL OF IT WORKED :D"; 
-                    } else {
-                        $response_array['message'] = "Unable to update players with new round";
-                    }
-                } else {
-                    $response_array['message'] = "Unable to create division";
-                
-                }
+        $index = $result->fetch_assoc()['count'];
+        if($index > 0) {
+            if($index <= 4) {
+                $curr_round = 3;
+            } else if ($index <= 8) {
+                $curr_round = 2;
             } else {
-                $sql5 = "DELETE FROM `rings` WHERE ring='$ring' AND division='$division' AND round='$round' AND gender='$gender'";
-                if ($result5=mysqli_query($link,$sql5))
-                {
-                    $response_array['status'] = 'noplayers';  
-                    $response_array['message'] = "no players in division, do not bother adding"; 
-                } else {
-                    $response_array['status'] = 'failed';  
-                    $response_array['message'] = "added division to ring but could not remove it...";
-                }
+                $curr_round = 1;
+            }
+            $sql2 = "UPDATE division SET current_round='$curr_round', num_competitors='$index' WHERE division='$division' AND gender='$gender'; ";
+            $sql2 .= "SET @i:=0; UPDATE competitors SET round='$curr_round', priority=@i:=@i+1 WHERE division='$division' AND gender='$gender'; ";
+            $sql2 .= "INSERT INTO rings (ring, division, round, priority, gender) VALUES ('$ring', '$division', '$round', '$priority', '$gender'); ";
+            if ($result2=mysqli_multi_query($link,$sql2))
+            {
+                $response_array['status'] = 'success';  
+                $response_array['message'] = "ALL OF IT WORKED :D"; 
+                $response_array['info']['ring'] = $ring;
+                $response_array['info']['division'] = $division;
+                $response_array['info']['round'] = $round;
+                $response_array['info']['priority'] = $priority;
+                $response_array['info']['gender'] = $gender;
+            } else {
+                $response_array['message'] = "Unable update or insert stuff";
+            
             }
         } else {
-            $response_array['message'] = "Unable to find competitors in division";
+            $response_array['status'] = 'noplayers';
+            $response_array['message'] = "no players in division, do not bother adding"; 
         }
     } else {
-        $response_array['status'] = 'failed';  
-        $response_array['message'] = "Unable to add division - maybe division was already added?";
+        $response_array['message'] = "Unable to find competitors in division";
     }
-
 
     header('Content-type: application/json');
     echo json_encode($response_array);
