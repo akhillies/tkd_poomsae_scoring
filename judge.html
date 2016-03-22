@@ -27,87 +27,46 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="text-justify col-sm-9 col-lg-9">
+            <div class="text-justify col-sm-10 col-lg-10">
                 <form name="select-group" class="form-horizontal">
 
                     <fieldset>
                         <legend>Select Group</legend>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="ring">Ring</label>
-                            <div class="col-md-4 col-lg-7">
-                                <select class="form-control" name="ring" required>
-                                    <option value="" selected disabled>Select One</option>
-                                    <option value="1">Ring 1</option>
-                                    <option value="2">Ring 2</option>
-                                    <option value="3">Ring 3</option>
-                                    <option value="4">Ring 4</option>
-                                    <option value="5">Ring 5</option>
-                                    <option value="6">Ring 6</option>
-                                </select>
+                        <div class="row">
+                            <div class="form-group col-md-5">
+                                <label class="col-md-3 control-label" for="ring">Ring</label>
+                                <div class="col-md-9 col-lg-9">
+                                    <select class="form-control" name="ring" required>
+                                        <option value="" selected disabled>Select One</option>
+                                        <option value="1">Ring 1</option>
+                                        <option value="2">Ring 2</option>
+                                        <option value="3">Ring 3</option>
+                                        <option value="4">Ring 4</option>
+                                        <option value="5">Ring 5</option>
+                                        <option value="6">Ring 6</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-1"> </div>
+                            <div class="form-group col-md-5">
+                                <label class="col-md-3 control-label" for="judge">Judge Number</label>
+                                <div class="col-md-9 col-lg-9">
+                                    <select class="form-control" name="judge" required>
+                                        <option value="" selected disabled>Select One</option>
+                                        <option value="1">Judge 1</option>
+                                        <option value="2">Judge 2</option>
+                                        <option value="3">Judge 3</option>
+                                        <option value="4">Judge 4</option>
+                                        <option value="5">Judge 5</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="division">Division</label>
-                            <div class="col-md-4 col-lg-7">
-                                <select class="form-control" name="division" required>
-                                    <option value="" selected disabled>Select One</option>
-                                    <option value="1">Youth</option>
-                                    <option value="2">Cadet</option>
-                                    <option value="3">Junior</option>
-                                    <option value="4">Senior 1</option>
-                                    <option value="5">Senior 2</option>
-                                    <option value="6">Master 1</option>
-                                    <option value="7">Master 2</option>
-                                    <option value="8">Master 3</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="gender">Gender</label>
-                            <div class="col-md-4 col-lg-7">
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" id="genderMale" value=1 required> Male
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" id="genderFemale" value=0 required> Female
-                                </label>
-                            </div>
-                        </div>                        
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="round">Round</label>
-                            <div class="col-md-4 col-lg-7">
-                                <select class="form-control" name="round">
-                                    <option value="" selected disabled>Select One</option>
-                                    <option value="1">Preliminary</option>
-                                    <option value="2">Semi-Finals</option>
-                                    <option value="3">Finals</option>
-                                </select>
-                            </div>
-                        </div>    
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="judge">Judge Number</label>
-                            <div class="col-md-5 col-lg-8">
-                                <label class="radio-inline">
-                                    <input type="radio" name="judge" id="judge1" value=1 required>Judge 1
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="judge" id="judge2" value=2 required>Judge 2
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="judge" id="judge3" value=3 required>Judge 3
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="judge" id="judge4" value=4 required>Judge 4
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="judge" id="judge5" value=5 required>Judge 5
-                                </label>
-                            </div>
-                        </div>
+                        <br>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="poomsae">Poomsae</label>
-                            <div class="col-md-5 col-lg-8">
-                                <label class="radio-inline">
+                            <div class="col-md-6 col-lg-8">
+                                <label class="radio-inline col-md-5">
                                     <input type="radio" name="poomsae" id="poomsae1" value=1 required>Poomsae 1
                                 </label>
                                 <label class="radio-inline">
@@ -115,7 +74,7 @@
                                 </label>
                             </div>
                         </div>
-                        <br>
+                        <br><br>
                         <div class="form-group">
                             <label class="col-md-4 control-label" for="submit"></label>
                             <div class="col-md-4">

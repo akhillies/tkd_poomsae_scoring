@@ -6,8 +6,8 @@
     $ring = (array_key_exists('ring', $_POST) ? $_POST['ring'] : 0);
     $division = (array_key_exists('division', $_POST) ? $_POST['division'] : 0);
     $round = (array_key_exists('round', $_POST) ? $_POST['round'] : 0);
-    $priority = (array_key_exists('priority', $_POST) ? $_POST['priority'] : 0);
     $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : 0);
+    $next = 0;
 
     $sql = "SELECT COUNT(*) AS count FROM competitors WHERE division='{$division}' AND gender='{$gender}'";
     if ($result=mysqli_query($link,$sql))
@@ -22,8 +22,8 @@
                 $curr_round = 1;
             }
             $sql2 = "UPDATE division SET current_round='$curr_round', num_competitors='$index' WHERE division='$division' AND gender='$gender'; ";
-            $sql2 .= "SET @i:=0; UPDATE competitors SET round='$curr_round', priority=@i:=@i+1 WHERE division='$division' AND gender='$gender'; ";
-            $sql2 .= "INSERT INTO rings (ring, division, round, priority, gender) VALUES ('$ring', '$division', '$round', '$priority', '$gender'); ";
+            $sql2 .= "UPDATE competitors SET round='$curr_round', next='$next' WHERE division='$division' AND gender='$gender'; ";
+            $sql2 .= "INSERT INTO rings (ring, division, round, next, gender) VALUES ('$ring', '$division', '$round', '$next', '$gender'); ";
             if ($result2=mysqli_multi_query($link,$sql2))
             {
                 $response_array['status'] = 'success';  
@@ -31,7 +31,7 @@
                 $response_array['info']['ring'] = $ring;
                 $response_array['info']['division'] = $division;
                 $response_array['info']['round'] = $round;
-                $response_array['info']['priority'] = $priority;
+                $response_array['info']['next'] = $next;
                 $response_array['info']['gender'] = $gender;
             } else {
                 $response_array['message'] = "Unable update or insert stuff";

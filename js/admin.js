@@ -232,7 +232,6 @@ $(function() {
                 division: formElems.division.value,
                 round: formElems.round.value,
                 gender: formElems.gender.value,
-                priority: formElems.priority.value
             },
             success: function(data) {
                 var dt = JSON.parse(data);
@@ -300,7 +299,6 @@ $(function() {
                         searchFormElems.genderFemale.disabled = true;
                         var moveFormElems = $moveForm[0].elements;
                         moveFormElems.ring.value = info.ring;
-                        moveFormElems.priority.value = info.priority;
                         $('#find-division').text("Find Another Division");
                         if(info.athletes) {
                             moveFormElems.numplay.value = info.athletes.length;
@@ -358,7 +356,6 @@ $(function() {
                 division: searchFormElems.division.value,
                 round: searchFormElems.round.value,
                 gender: searchFormElems.gender.value,
-                priority: moveFormElems.priority.value
             },
             success: function(data) {
                 var dt = JSON.parse(data);
@@ -368,7 +365,9 @@ $(function() {
                         $('#move-division').text("Move Division").addClass("btn-primary").removeClass("btn-success")
                         $('form[name="search-division"]')[0].reset();
                         $('form[name="move-division"]').fadeOut(500)[0].reset();
-                        $('#athleteDivision').fadeOut(500);
+                        $('#athleteDivision').fadeOut(500, function() {
+                            $('#divisionTable').html("");
+                        });
                         $('#find-division').text("Find Division");
                         searchFormElems.division.disabled = false;
                         searchFormElems.round.disabled = false;
@@ -463,6 +462,7 @@ $(function() {
 
     $('form[name="find-score-by-id"]').submit(function(event) {
         event.preventDefault();
+        $("#athleteScores").fadeOut(500);
         $.ajax({
             type: 'POST',
             dataType: "text",
@@ -512,6 +512,7 @@ $(function() {
 
     $('form[name="find-score-by-division"]').submit(function(event) {
         event.preventDefault();
+        $("#athleteScores").fadeOut(500);
         $.ajax({
             type: 'POST',
             dataType: "text",

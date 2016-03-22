@@ -13,15 +13,13 @@ $(function() {
     $('form[name="select-group"]').submit(function(event) {
         event.preventDefault();
         var formElems = $('form[name="select-group"]')[0].elements;
-        $('#select-group').text("Gathering data...").removeClass("btn-primary").addClass("btn-success");
+        $('#select-group').text("Gathering data...").removeClass("btn-primary").addClass("btn-info");
         $.ajax({
             type: 'POST',
             dataType: "text",
-            url: link + "lookupDivision.php",
+            url: link + "grabDivision.php",
             data: {
-                gender: formElems.gender.value,
-                round: formElems.round.value,
-                division: formElems.division.value
+                ring: formElems.ring.value
             },
             success: function(data) {
                 var dt = JSON.parse(data);
@@ -29,12 +27,11 @@ $(function() {
                     dt.info.judge = formElems.judge.value;
                     dt.info.poomsae = formElems.poomsae.value;
                     localStorage.info = JSON.stringify(dt.info);
-                    test = dt.info;
                     window.location.replace("./sport_poomsae/personal/index.html");
                 } else if(dt.status == 'failed') {
-                    $('#select-group').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
+                    $('#select-group').text("Failed!").removeClass("btn-info").addClass("btn-failure");
                     setTimeout(function () {
-                        $('#add-athlete').text("Select Group").addClass("btn-primary").removeClass("btn-failure")
+                        $('#select-group').text("Select Group").addClass("btn-primary").removeClass("btn-failure")
                     }, 1500);
                 } else {
                     alert("add went seriously wrong, got a bad response: " + data);
