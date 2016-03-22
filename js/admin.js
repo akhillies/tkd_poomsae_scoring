@@ -222,6 +222,7 @@ $(function() {
 
     $('form[name="add-division"]').submit(function(event) {
         var formElems = $('form[name="add-division"]')[0].elements;        
+        $('#impossible-division').fadeOut(500);
         event.preventDefault();
         $.ajax({
             type: 'POST',
@@ -235,6 +236,7 @@ $(function() {
             },
             success: function(data) {
                 var dt = JSON.parse(data);
+                console.log(dt.sql);
                 if(dt.status == 'success') {
                     $('#add-division').text("Success!").removeClass("btn-primary").addClass("btn-success");
                     setTimeout(function () {
@@ -247,10 +249,16 @@ $(function() {
                     setTimeout(function () {
                         $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure")
                     }, 2500);
+                } else if(dt.status == 'badround') {
+                    $('#impossible-division').fadeIn(500);
+                    $('#add-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
+                    setTimeout(function () {
+                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure");
+                    }, 2500);
                 } else if(dt.status == 'failed') {
                     $('#add-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
                     setTimeout(function () {
-                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure")
+                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure");
                     }, 1500);
                 } else {
                     alert("add went seriously wrong, got a bad response: " + data);

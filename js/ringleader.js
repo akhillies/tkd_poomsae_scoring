@@ -102,46 +102,84 @@ $(function() {
 
     });
 
+    $('form[name="select-ring"]').submit(function(event) {
+        event.preventDefault();
+        if($('#select-ring').text() == "Select Another Ring") {
+            $('#select-ring').text("Select Ring");
+            $('form[name="select-ring"]')[0].elements.ring.disabled = false;
+            $('form[name="select-ring"]')[0].reset();
+            $('#selectDivision').fadeOut(500);
+        } else {
+            $('#selectDivision').fadeOut(500);
+            $.ajax({
+                type: 'POST',
+                dataType: "text",
+                url: link + "viewRing.php",
+                data: {
+                    ring: $('form[name="select-ring"]')[0].elements.ring.value,
+                },
+                success: function(data) {
+                    var dt = JSON.parse(data);
+                    if(dt.status == 'success') {
+                        $('form[name="select-ring"]')[0].elements.ring.disabled = true;
+                        // $("#athlete-division").fadeOut(500);
+                        var info = dt.info;
+                        $('#select-ring').text("Select Another Ring");
+                        if(info.divisions) {
+                            var tablebody = "";
+                            info.divisions.forEach(function(divis, index, array) {
+                                tablebody += '<tr>';
+                                tablebody += '<td>' + division(divis.division) + "</td>";
+                                tablebody += '<td>' + gender(divis.gender) + "</td>";
+                                tablebody += '<td>' + round(divis.round) + "</td>";
+
+                                var id = "division" + index;
+                                tablebody += '<td>' + '<label class="radio-inline"><input type="radio" name="division" id="' + id + '" value="' + (divis.division + '-' + divis.gender + '-' + divis.round) + '" required></label>' + '</td>';
+                            
+                                tablebody += '</tr>';
+                            });
+                            $("#divisionTable").html(tablebody);
+                        } else {
+                            $("#divisionTable").html("<h2>No Divisions in this Ring</h2>");
+                        }
+                        $('#selectDivision').fadeIn(500);
+                    } else if(dt.status == 'failed') {
+                        $('#selectDivision').fadeOut(500);
+                    } else {
+                        alert("get went seriously wrong, got a bad response: " + data);
+                    }
+
+                },
+                error: ajaxFail
+            });
+        }
+    });
     $('form[name="select-division"]').submit(function(event) {
         event.preventDefault();
-        var searchFormElems = $('form[name="select-division"]')[0].elements;        
-        if($('#select-division').text() == "Select Another Division") {
-            $('#select-division').text("Select Division");
-            searchFormElems.ring.disabled = false;
-            searchFormElems.division.disabled = false;
-            searchFormElems.round.disabled = false;
-            searchFormElems.genderMale.disabled = false;
-            searchFormElems.genderFemale.disabled = false;
+        if($('#select-division').text() == "Choose Another Division") {
+            $('#select-division').text("Choose Division");
+            $('form[name="select-division"]')[0].elements.division.disabled = false;
             $('form[name="select-division"]')[0].reset();
-            $("#division-no-added").fadeOut(500);
-            $("#division-no-found").fadeOut(500);
             $('#athleteDivision').fadeOut(500);
         } else {
-            $("#division-no-added").fadeOut(500);
-            $("#division-no-found").fadeOut(500);
             $('#athleteDivision').fadeOut(500);
+            var items = $('form[name="select-division"]')[0].elements.division.value.split('-');
             $.ajax({
                 type: 'POST',
                 dataType: "text",
                 url: link + "lookupDivision.php",
                 data: {
-                    division: searchFormElems.division.value,
-                    round: searchFormElems.round.value,
-                    gender: searchFormElems.gender.value,
+                    division: items[0],
+                    gender: items[1],
+                    round: items[2],
                 },
                 success: function(data) {
                     var dt = JSON.parse(data);
                     if(dt.status == 'success') {
-                        searchFormElems.ring.disabled = true;
-                        searchFormElems.division.disabled = true;
-                        searchFormElems.round.disabled = true;
-                        searchFormElems.genderMale.disabled = true;
-                        searchFormElems.genderFemale.disabled = true;
-                        $("#division-no-added").fadeOut(500);
-                        $("#division-no-found").fadeOut(500);
+                        $('form[name="select-division"]')[0].elements.division.disabled = true;
                         $("#athlete-division").fadeOut(500);
                         var info = dt.info;
-                        $('#select-division').text("Select Another Division");
+                        $('#select-division').text("Choose Another Division");
                         if(info.athletes) {
                             var tablebody = "";
                             info.athletes.forEach(function(athlete, index, array) {
@@ -154,16 +192,15 @@ $(function() {
                                 tablebody += '<td>' + athlete.age + "</td>";
                                 tablebody += '<td>' + division(athlete.division) + "</td>";
                                 tablebody += '<td>' + round(athlete.round) + "</td>";
-                                tablebody += '<td>' + athlete.school + "</td>";
 
                                 var id = "ordering" + index;
-                                tablebody += '<td>' + '<div class="form-group"><label class="sr-only" for="' + id + '">Order</label><input id="' + id + '" name="' + athlete.id + '" type="number" class="form-control input-sm priority" value=' + athlete.priority + ' placeholder=0 required></div>' + "</td>";
+                                tablebody += '<td>' + '<div class="form-group"><label class="sr-only" for="' + id + '">Order</label><input id="' + id + '" name="' + athlete.id + '" type="number" class="form-control input-sm priority" value=' + (index+1) + ' placeholder=0 required></div>' + "</td>";
                             
                                 tablebody += '</tr>';
                             });
-                            $("#divisionTable").html(tablebody);
+                            $("#atheleteTable").html(tablebody);
                         } else {
-                            $("#divisionTable").html("<h2>No Athletes in this Division</h2>");
+                            $("#atheleteTable").html("<h2>No Athletes in this Division</h2>");
                         }
                         $('#athleteDivision').fadeIn(500);
                     } else if(dt.status == 'nosuchelement') {
@@ -194,16 +231,16 @@ $(function() {
             ids.add(order.name);
         });
         if(orderings.size == $(".priority").size()) {
-            var formElems = $('form[name="select-division"]')[0].elements;
+            var items = $('form[name="select-division"]')[0].elements.division.value.split('-');
             $.ajax({
                 type: 'POST',
                 dataType: "text",
                 url: link + "setNextDivision.php",
                 data: {
-                    ring: formElems.ring.value,
-                    division: formElems.division.value,
-                    round: formElems.round.value,
-                    gender: formElems.gender.value,
+                    ring: $('form[name="select-ring"]')[0].elements.ring.value,
+                    division: items[0],
+                    gender: items[1],
+                    round: items[2],
                     orderings: Array.from(orderings),
                     ids: Array.from(ids)
                 },
@@ -215,17 +252,14 @@ $(function() {
                             $('#select-division').text("Select Division");
                             $('#set-division').text("Set as next Division").addClass("btn-warning").removeClass("btn-success")
                             $('form[name="select-division"]')[0].reset();
+                            $('#selectDivision').fadeOut(500);
                             $('#athleteDivision').fadeOut(500, function() {
-                                $('#divisionTable').html("");
+                                $('#athleteTable').html("");
                             });
                         }, 1500);
-                        var searchForm = $('form[name="select-division"]')[0];        
-                        searchForm.elements.ring.disabled = false;
-                        searchForm.elements.division.disabled = false;
-                        searchForm.elements.round.disabled = false;
-                        searchForm.elements.genderMale.disabled = false;
-                        searchForm.elements.genderFemale.disabled = false;
-                        searchForm.reset();
+                        $('#select-ring').text("Select Ring");
+                        $('form[name="select-ring"]')[0].elements.ring.disabled = false;
+                        $('form[name="select-ring"]')[0].reset();
                     } else if(dt.status == 'failed') {
                         $('#set-division').text("Failed!").removeClass("btn-warning").addClass("btn-failure");
                         setTimeout(function () {

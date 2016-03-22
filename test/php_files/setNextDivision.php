@@ -28,7 +28,7 @@
             $response_array['info']['round'] = $round;
             $response_array['info']['gender'] = $gender;
         } else {
-            $response_array['status'] = 'failure';  
+            $response_array['status'] = 'failed';  
             $response_array['message'] = "Failed to update the ring/competitors with lineup";
         }
     } else {
