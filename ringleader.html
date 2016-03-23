@@ -22,7 +22,7 @@
     <script src="js/ringleader.js" defer></script>
 </head>
 
-<body>
+<body hidden>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="btn-toolbar" role="toolbar">
@@ -230,6 +230,7 @@
                                                             <th>Gender</th>
                                                             <th>Round</th>
                                                             <th>Set Next</th>
+                                                            <th>Mark Finished</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="divisionTable"></tbody>
@@ -272,7 +273,37 @@
                                 <div class="form-group center-block">
                                     <label class="col-md-10 control-label" for="submit"></label>
                                     <div class="col-md-2">
-                                        <button id="set-division" name="submit" class="btn btn-warning">Set as next Division</button>
+                                        <button id="set-division" name="submit" class="btn btn-primary">Confirm next Division</button>
+                                    </div>   
+                                </div>
+                            </fieldset>                            
+                        </form>
+                    </div>
+                    <div id="scoreDivision" class="row" hidden>
+                        <form name="set-division" class="form-horizontal">
+                            <fieldset>                            
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>First Name</th>
+                                                <th>Middle Name</th>
+                                                <th>Last Name</th>
+                                                <th>Gender</th>
+                                                <th>Age</th>
+                                                <th>Division</th>
+                                                <th>Round</th>
+                                                <th>Ordering</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="atheleteTable"></tbody>
+                                    </table>
+                                </div>
+                                <div class="form-group center-block">
+                                    <label class="col-md-10 control-label" for="submit"></label>
+                                    <div class="col-md-2">
+                                        <button id="set-division" name="submit" class="btn btn-primary">Confirm next Division</button>
                                     </div>   
                                 </div>
                             </fieldset>                            

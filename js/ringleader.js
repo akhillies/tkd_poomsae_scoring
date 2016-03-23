@@ -57,6 +57,8 @@ var division = function(int) {
 };
 
 $(function() {
+    $("body").fadeIn(500);
+    
     $('form[name="search-athlete"]').submit(function(event) {
         event.preventDefault();
         $.ajax({
@@ -106,9 +108,11 @@ $(function() {
         event.preventDefault();
         if($('#select-ring').text() == "Select Another Ring") {
             $('#select-ring').text("Select Ring");
+            $('#select-division').text("Select Division");
             $('form[name="select-ring"]')[0].elements.ring.disabled = false;
             $('form[name="select-ring"]')[0].reset();
             $('#selectDivision').fadeOut(500);
+            $('#athleteDivision').fadeOut(500);
         } else {
             $('#selectDivision').fadeOut(500);
             $.ajax({
@@ -128,13 +132,28 @@ $(function() {
                         if(info.divisions) {
                             var tablebody = "";
                             info.divisions.forEach(function(divis, index, array) {
-                                tablebody += '<tr>';
+                                tablebody += '<tr';
+                                if(divis.finished == 1) {
+                                    tablebody += '>';
+                                } else {
+                                    tablebody += ' class="success">';
+                                }
                                 tablebody += '<td>' + division(divis.division) + "</td>";
                                 tablebody += '<td>' + gender(divis.gender) + "</td>";
                                 tablebody += '<td>' + round(divis.round) + "</td>";
 
                                 var id = "division" + index;
-                                tablebody += '<td>' + '<label class="radio-inline"><input type="radio" name="division" id="' + id + '" value="' + (divis.division + '-' + divis.gender + '-' + divis.round) + '" required></label>' + '</td>';
+                                tablebody += '<td>' + '<input type="radio" name="division" id="' + id + '" value="' + ('n-' + divis.division + '-' + divis.gender + '-' + divis.round) + '" required';
+                                if(divis.finished == 1) {
+                                    tablebody += ' disabled';
+                                }
+                                tablebody += '>' + '</td>';
+
+                                tablebody += '<td>' + '<input type="radio" name="division" id="' + id + '" value="' + ('f-' + divis.division + '-' + divis.gender + '-' + divis.round) + '" required';
+                                if(divis.finished == 1) {
+                                    tablebody += ' disabled';
+                                }
+                                tablebody += '>' + '</td>';
                             
                                 tablebody += '</tr>';
                             });
@@ -169,9 +188,9 @@ $(function() {
                 dataType: "text",
                 url: link + "lookupDivision.php",
                 data: {
-                    division: items[0],
-                    gender: items[1],
-                    round: items[2],
+                    division: items[1],
+                    gender: items[2],
+                    round: items[3],
                 },
                 success: function(data) {
                     var dt = JSON.parse(data);
@@ -247,10 +266,10 @@ $(function() {
                 success: function(data) {
                     var dt = JSON.parse(data);
                     if(dt.status == 'success') {
-                        $('#set-division').text("Success!").removeClass("btn-warning").addClass("btn-success");
+                        $('#set-division').text("Success!").removeClass("btn-primary").addClass("btn-success");
                         setTimeout(function () {
                             $('#select-division').text("Select Division");
-                            $('#set-division').text("Set as next Division").addClass("btn-warning").removeClass("btn-success")
+                            $('#set-division').text("Confirm as next Division").addClass("btn-primary").removeClass("btn-success")
                             $('form[name="select-division"]')[0].reset();
                             $('#selectDivision').fadeOut(500);
                             $('#athleteDivision').fadeOut(500, function() {
@@ -261,9 +280,9 @@ $(function() {
                         $('form[name="select-ring"]')[0].elements.ring.disabled = false;
                         $('form[name="select-ring"]')[0].reset();
                     } else if(dt.status == 'failed') {
-                        $('#set-division').text("Failed!").removeClass("btn-warning").addClass("btn-failure");
+                        $('#set-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
                         setTimeout(function () {
-                            $('#set-division').text("Set as next Division").addClass("btn-warning").removeClass("btn-failure")
+                            $('#set-division').text("Confirm as next Division").addClass("btn-primary").removeClass("btn-failure")
                         }, 1500);
                     } else {
                         alert("add went seriously wrong, got a bad response: " + data);
@@ -272,12 +291,19 @@ $(function() {
                 error: ajaxFail
             });
         } else {
-            $('#set-division').text("Need Unique Numbers!!").removeClass("btn-warning").addClass("btn-failure");
+            $('#set-division').text("Need Unique Numbers!!").removeClass("btn-primary").addClass("btn-failure");
             setTimeout(function () {
-                $('#set-division').text("Set as next Division").addClass("btn-warning").removeClass("btn-failure")
+                $('#set-division').text("Confirm as next Division").addClass("btn-primary").removeClass("btn-failure")
             }, 2500);
         }
     });
+
+
+    $('form[name="finish-division"]').submit(function(event) {
+        event.preventDefault();
+        
+    });
+
 
     $('form[name="find-score-by-id"]').submit(function(event) {
         event.preventDefault();
