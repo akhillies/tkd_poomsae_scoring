@@ -57,6 +57,8 @@ var division = function(int) {
 };
 
 $(function() {
+    $("body").fadeIn(500);
+    
     $('form[name="add-athlete"]').submit(function(event) {
         event.preventDefault();
         var formElems = $('form[name="add-athlete"]')[0].elements;

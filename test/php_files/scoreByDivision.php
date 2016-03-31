@@ -3,7 +3,6 @@
 
     $link = (include 'connect.php');
     $sql = "SELECT * FROM scores WHERE division={$_POST['division']} AND gender={$_POST['gender']} AND round={$_POST['round']} ORDER BY id, poomsae, judge";
-$response_array['sql'] = $sql;
     if ($result=mysqli_query($link,$sql))
     {
         $response_array['status'] = 'success'; 

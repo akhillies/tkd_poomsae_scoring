@@ -241,7 +241,7 @@
                                     <div class="form-group center-block">
                                         <label class="col-md-5 control-label" for="submit"></label>
                                         <div class="col-md-4">
-                                            <button id="select-division" name="submit" class="btn btn-primary">Select Division</button>
+                                            <button id="select-division" name="submit" class="btn btn-primary">Select Division/Round</button>
                                         </div>
                                     </div>
                                 </fieldset>                            
@@ -253,6 +253,7 @@
                         <form name="set-division" class="form-horizontal">
                             <fieldset>                            
                                 <div class="table-responsive">
+                                    <h2>Set order of competitors for round</h2>
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
@@ -267,43 +268,45 @@
                                                 <th>Ordering</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="atheleteTable"></tbody>
+                                        <tbody id="athleteTable"></tbody>
                                     </table>
                                 </div>
                                 <div class="form-group center-block">
                                     <label class="col-md-10 control-label" for="submit"></label>
                                     <div class="col-md-2">
-                                        <button id="set-division" name="submit" class="btn btn-primary">Confirm next Division</button>
+                                        <button id="set-division" name="submit" class="btn btn-primary">Confirm next round</button>
                                     </div>   
                                 </div>
                             </fieldset>                            
                         </form>
                     </div>
                     <div id="scoreDivision" class="row" hidden>
-                        <form name="set-division" class="form-horizontal">
+                        <form name="finish-division" class="form-horizontal">
                             <fieldset>                            
                                 <div class="table-responsive">
+                                    <h2>Confirm final scores for round</h2>
                                     <table class="table table-striped table-hover">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>First Name</th>
-                                                <th>Middle Name</th>
-                                                <th>Last Name</th>
                                                 <th>Gender</th>
-                                                <th>Age</th>
                                                 <th>Division</th>
                                                 <th>Round</th>
-                                                <th>Ordering</th>
+                                                <th>Poomsae</th>
+                                                <th># of Judges</th>
+                                                <th>Sum of Scores</th>
+                                                <th>Min Score</th>
+                                                <th>Max Score</th>
+                                                <th>Final Score</th>
                                             </tr>
                                         </thead>
-                                        <tbody id="atheleteTable"></tbody>
+                                        <tbody id="scoresList"></tbody>
                                     </table>
                                 </div>
                                 <div class="form-group center-block">
                                     <label class="col-md-10 control-label" for="submit"></label>
                                     <div class="col-md-2">
-                                        <button id="set-division" name="submit" class="btn btn-primary">Confirm next Division</button>
+                                        <button id="finish-division" name="submit" class="btn btn-primary">Confirm round finished</button>
                                     </div>   
                                 </div>
                             </fieldset>                            

@@ -10,6 +10,8 @@ var ajaxFail = function(e) {
             };
 var test;
 $(function() {
+    $("body").fadeIn(500);
+    
     $('form[name="select-group"]').submit(function(event) {
         event.preventDefault();
         var formElems = $('form[name="select-group"]')[0].elements;

@@ -6,6 +6,8 @@ var ajaxFail = function(e) {
                 console.log(e);
             };
 $(document).ready(function() {
+    $("body").fadeIn(500);
+    
     $('form[name="enter-pin"]').submit(function(event) {
         event.preventDefault();
         $.ajax({
