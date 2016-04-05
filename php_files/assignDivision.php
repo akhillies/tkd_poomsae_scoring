@@ -14,9 +14,9 @@
         $count = $result->fetch_assoc()['count'];
 
         if($count > 0) {
-            if($count <= 4) {
+            if($count <= 8) {
                 $curr_round = 3;
-            } else if ($count <= 8) {
+            } else if ($count <= 16) {
                 $curr_round = 2;
             } else {
                 $curr_round = 1;

@@ -19,7 +19,6 @@ var gender = function(int) {
             return "";
     }
 }
-
 var round = function(int) {
     switch(int) {
         case '1':
@@ -32,6 +31,10 @@ var round = function(int) {
             return "";
     }
 };
+
+var make2dec = function(int) {
+    return Math.round(int * 100)/100;
+}
 
 var division = function(int) {
     switch(int) {
@@ -109,8 +112,9 @@ $(function() {
         if($('#select-ring').text() == "Select Another Ring") {
             $('#select-ring').text("Select Ring");
             $('#select-division').text("Select Division/Round");
-            $('form[name="select-division"] input[name="division"]').removeAttr("disabled")
+            $('form[name="select-division"] input[name="division"]').removeAttr("disabled");
             $('form[name="select-ring"]')[0].reset();
+            $('form[name="select-ring"]')[0].elements.ring.disabled = false;  
             $('#selectDivision').fadeOut(500);
             $('#athleteDivision').fadeOut(500);
         } else {
@@ -246,25 +250,26 @@ $(function() {
                     },
                     success: function(data) {
                         var dt = JSON.parse(data);
-                        console.log(dt.sql);
                         if(dt.status == 'success') {
                             $('form[name="select-division"] input[name="division"]').attr("disabled", "true")
                             $('#select-division').text("Choose Another Division/Round");
                             if(dt.info) {
                                 var tablebody = "";
                                 dt.info.forEach(function(score, index, array) {
-                                    tablebody += '<tr>';
-                                    tablebody += '<th scole="row">' + score.id + "</th>";
-                                    tablebody += '<td>' + gender(score.gender) + "</td>";
-                                    tablebody += '<td>' + division(score.division) + "</td>";
-                                    tablebody += '<td>' + round(score.round) + "</td>";
-                                    tablebody += '<td>' + score.poomsae + "</td>";
-                                    tablebody += '<td>' + score.judges + "</td>";
-                                    tablebody += '<td>' + (Math.round(score.tscore*100)/100) + "</td>";
-                                    tablebody += '<td>' + (Math.round(score.min*100)/100) + "</td>";
-                                    tablebody += '<td>' + (Math.round(score.max*100)/100) + "</td>";
-                                    tablebody += '<td>' + (Math.round(score.fscore*100)/100) + "</td>";
-                                    tablebody += '</tr>';
+                                    for(var poom in score.poomsae) {
+                                        tablebody += '<tr>';
+                                        tablebody += '<th scole="row">' + score.id + "</th>";
+                                        tablebody += '<td>' + gender(score.gender) + "</td>";
+                                        tablebody += '<td>' + division(score.division) + "</td>";
+                                        tablebody += '<td>' + round(score.round) + "</td>";
+                                        tablebody += '<td>' + poom + "</td>";
+                                        tablebody += '<td>' + score.poomsae[poom].judges + "</td>";
+                                        tablebody += '<td>' + make2dec(score.poomsae[poom].tscore) + "</td>";
+                                        tablebody += '<td>' + make2dec(score.poomsae[poom].min) + "</td>";
+                                        tablebody += '<td>' + make2dec(score.poomsae[poom].max) + "</td>";
+                                        tablebody += '<td>' + make2dec(score.poomsae[poom].fscore) + "</td>";
+                                        tablebody += '</tr>';
+                                    }
                                 });
                                 $("#scoresList").html(tablebody);
                             } else {
@@ -301,9 +306,9 @@ $(function() {
                 url: link + "setNextDivision.php",
                 data: {
                     ring: $('form[name="select-ring"]')[0].elements.ring.value,
-                    division: items[0],
-                    gender: items[1],
-                    round: items[2],
+                    division: items[1],
+                    gender: items[2],
+                    round: items[3],
                     orderings: Array.from(orderings),
                     ids: Array.from(ids)
                 },
@@ -316,7 +321,7 @@ $(function() {
                             $('#set-division').text("Confirm next round").addClass("btn-primary").removeClass("btn-success")
                             $('form[name="select-division"]')[0].reset();
                             $('#selectDivision').fadeOut(500, function() {
-                                $('#selectDivision').html("");
+                                $('#divisionTable').html("");
                             });
                             $('#athleteDivision').fadeOut(500, function() {
                                 $('#athleteTable').html("");
@@ -367,10 +372,10 @@ $(function() {
                         $('#finish-division').text("Confirm round finished").addClass("btn-primary").removeClass("btn-success")
                         $('form[name="select-division"]')[0].reset();
                         $('#selectDivision').fadeOut(500, function() {
-                            $('#selectDivision').html("");
+                            $('#divisionTable').html("");
                         });
                         $('#scoreDivision').fadeOut(500, function() {
-                            $('#scoreDivision').html("");
+                            $('#scoresList').html("");
                         });
                     }, 1500);
                     $('#select-ring').text("Select Ring");
@@ -479,6 +484,58 @@ $(function() {
                     $('#score-by-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
                     setTimeout(function () {
                         $('#score-by-division').text("Get Scores").addClass("btn-primary").removeClass("btn-failure")
+                    }, 1500);
+                    $("#athleteScores").fadeOut(500);
+                } else {
+                    alert("get went seriously wrong, got a bad response: " + data);
+                }
+            },
+            error: ajaxFail
+        });
+    });
+
+    $('#final-score-by-division').click(function(event) {
+        event.preventDefault();
+        $("#athleteScores").fadeOut(500);
+        $.ajax({
+            type: 'POST',
+            dataType: "text",
+            url: link + "calculateScores.php",
+            data: {
+                gender: $('form[name="find-score-by-division"]')[0].elements.gender.value,
+                division: $('form[name="find-score-by-division"]')[0].elements.division.value,
+                round: $('form[name="find-score-by-division"]')[0].elements.round.value,
+                confirmed: 0
+            },
+            success: function(data) {
+                var dt = JSON.parse(data);
+                if(dt.status == 'success') {
+                    $('#final-score-by-division').text("Success!").removeClass("btn-primary").addClass("btn-success");
+                    setTimeout(function () {
+                        $('#final-score-by-division').text("Get Final Scores").addClass("btn-primary").removeClass("btn-success")
+                    }, 1500);
+                    if(dt.info) {
+                        var tablebody = "";
+                        dt.info.forEach(function(score, index, array) {
+                            tablebody += '<tr>';
+                            tablebody += '<th scole="row">' + score.id + "</th>";
+                            tablebody += '<td>' + gender(score.gender) + "</td>";
+                            tablebody += '<td>' + division(score.division) + "</td>";
+                            tablebody += '<td>' + round(score.round) + "</td>";
+                            tablebody += '<td>-</td>';
+                            tablebody += '<td>-</td>';
+                            tablebody += '<td>' + make2dec(score.tfscore) + "</td>";
+                            tablebody += '</tr>';
+                        });
+                        $("#scoresTable").html(tablebody);
+                    } else {
+                        $("#scoresTable").html("<h2>No scores for given division</h2>");
+                    }
+                    $("#athleteScores").fadeIn(500);
+                } else if(dt.status == 'failed') {
+                    $('#final-score-by-division').text("Failed!").removeClass("btn-primary").addClass("btn-failure");
+                    setTimeout(function () {
+                        $('#final-score-by-division').text("Get Scores").addClass("btn-primary").removeClass("btn-failure")
                     }, 1500);
                     $("#athleteScores").fadeOut(500);
                 } else {
