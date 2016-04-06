@@ -16,7 +16,6 @@ $color_la_palma_approx: #339900;
 $color_chartreuse_approx: #77ff00;
 $rgba_navy_light: rgba(0, 0, 143, 0.2);
 
-
 $text-color: $color_navy_blue_approx;
 //fonts
 $font_0: Verdana;
@@ -66,7 +65,7 @@ body {
 	}
 //-----------BUTTONS-------------------
 	.buttonrow {
-		height:100%;
+		height:60%;
 	}
 
 	.btn-radio {
@@ -87,6 +86,7 @@ body {
 		color: $white;
 		font-size: 200%;
 		background-color:$color_geraldine_approx;
+		vertical-align:middle;
 	}
 	.deductcol {
 		height:100%;
