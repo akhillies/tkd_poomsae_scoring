@@ -7,6 +7,7 @@ $color_geraldine_approx: #ff8888;
 $color_stratos_approx: #00003f;
 $gold: #ffd700;
 $black: black;
+$white: white;
 $red: #ff0000;
 $color_flush_orange_approx: #ff7700;
 $yellow: #ffff00;
@@ -28,6 +29,10 @@ $url_1: url(../images/retina_wood/retina_wood.png);
 
 * {
   border-radius: 0 !important;
+}
+
+html, body {
+	height:100%;
 }
 
 body {
@@ -55,12 +60,15 @@ body {
 	font-family: $font_0, $font_1, $font_2;
 	color: $text-color;
 	position:relative;
+
+	.allcontent {
+		height:100%;
+	}
+//-----------BUTTONS-------------------
 	.buttonrow {
 		height:100%;
 	}
 
-
-//-----------BUTTONS-------------------
 	.btn-radio {
 		// background: $color_mischka_approx;
 		border: 1px solid $color_mountain_mist_approx;
@@ -74,14 +82,14 @@ body {
 		color: $text-color;
 	}
 	.deductbutton {
+		height:100%;
 		width: 100%;
+		color: $white;
 		font-size: 200%;
-		padding: 10;
+		background-color:$color_geraldine_approx;
 	}
 	.deductcol {
-		display: inline-block;
-		vertical-align: middle;
-		float: none;
+		height:100%;
 	}
 	.undobutton {
 		font-size: 100%;
@@ -96,6 +104,7 @@ body {
 	.undorow {
 		position:relative;
 		vertical-align: bottom;
+		padding-top:15px;
 	}
 
 	// #scoresubmit {

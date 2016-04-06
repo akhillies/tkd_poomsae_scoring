@@ -1,6 +1,9 @@
 * {
   border-radius: 0 !important; }
 
+html, body {
+  height: 100%; }
+
 body {
   background-image: url(../images/retina_wood/retina_wood.png); }
 
@@ -22,6 +25,8 @@ body {
   font-family: Verdana, Geneva, sans-serif;
   color: #00008f;
   position: relative; }
+  .sportpoom .allcontent {
+    height: 100%; }
   .sportpoom .buttonrow {
     height: 100%; }
   .sportpoom .btn-radio {
@@ -33,13 +38,13 @@ body {
   .sportpoom .presbtn {
     color: #00008f; }
   .sportpoom .deductbutton {
+    height: 100%;
     width: 100%;
+    color: white;
     font-size: 200%;
-    padding: 10; }
+    background-color: #ff8888; }
   .sportpoom .deductcol {
-    display: inline-block;
-    vertical-align: middle;
-    float: none; }
+    height: 100%; }
   .sportpoom .undobutton {
     font-size: 100%;
     height: 50%;
@@ -50,7 +55,8 @@ body {
     border: none; }
   .sportpoom .undorow {
     position: relative;
-    vertical-align: bottom; }
+    vertical-align: bottom;
+    padding-top: 15px; }
   .sportpoom .scores {
     position: relative; }
   .sportpoom #submitbtndiv {
