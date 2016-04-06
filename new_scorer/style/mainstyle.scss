@@ -30,10 +30,6 @@ $url_1: url(../images/retina_wood/retina_wood.png);
   border-radius: 0 !important;
 }
 
-.row{
-  overflow: hidden; 
-}
-
 body {
 	background-image: $url_1;
 	h3 {
@@ -58,19 +54,11 @@ body {
 	text-align: center;
 	font-family: $font_0, $font_1, $font_2;
 	color: $text-color;
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom:0;
+	position:relative;
 	.buttonrow {
 		height:100%;
-		position: relative;
-		bottom: 0;
-		top: 0;
-		left: 0;
-		right: 0;
 	}
+
 
 //-----------BUTTONS-------------------
 	.btn-radio {
@@ -109,11 +97,24 @@ body {
 		vertical-align: bottom;
 	}
 
-	#scoresubmit {
-		height:100%;
-		// margin-top: 15px;
-		// width: 90%;
-		// font-size: 220%;
+	// #scoresubmit {
+	// 	position:absolute;
+	// 	top:0;
+	// }
+
+	.scores { 
+		// background-color: $color_navy_blue_approx;
+		position:relative;
+	}
+	#submitbtndiv {
+		// background-color: $color_corn_approx;
+		position:absolute;
+		bottom:0;
+		right:0;
+	}
+
+	#total-score-info {
+		// background-color:$color_geraldine_approx;
 	}
 
 //---------------SUBMITSCREEN-------------
