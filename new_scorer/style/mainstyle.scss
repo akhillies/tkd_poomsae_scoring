@@ -13,6 +13,8 @@ $yellow: #ffff00;
 $color_japanese_laurel_approx: #006400;
 $color_la_palma_approx: #339900;
 $color_chartreuse_approx: #77ff00;
+$rgba_navy_light: rgba(0, 0, 143, 0.2);
+
 
 $text-color: $color_navy_blue_approx;
 //fonts
@@ -24,23 +26,8 @@ $font_2: sans-serif;
 $url_0: url(../images/bgnoise_lg/bgnoise_lg.png);
 $url_1: url(../images/retina_wood/retina_wood.png);
 
-//@extend-elements
-//original selectors
-//.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff
-%extend_1 {
-	height: 100%;
-	float: none;
-	display: table-cell;
-	vertical-align: top;
-}
-
 * {
   border-radius: 0 !important;
-}
-
-.row [class*="col-"]{
-  margin-bottom: -99999px;
-  padding-bottom: 99999px;
 }
 
 .row{
@@ -52,10 +39,6 @@ body {
 	h3 {
 	}
 }
-
-// .all-content {
-// 	height: 100%;
-// }
 
 .miscounts div h2 {
 	margin-top: 0;
@@ -75,7 +58,6 @@ body {
 	text-align: center;
 	font-family: $font_0, $font_1, $font_2;
 	color: $text-color;
-	// text-shadow: 0 0 2px $color_corn_approx;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -89,11 +71,6 @@ body {
 		left: 0;
 		right: 0;
 	}
-	.majorcol {
-		background:$gold;
-	}
-
-
 
 //-----------BUTTONS-------------------
 	.btn-radio {
@@ -109,13 +86,14 @@ body {
 		color: $text-color;
 	}
 	.deductbutton {
-		// position:relative;
 		width: 100%;
-		// font-size: 200%;
-		// top:0;
-		// bottom:0;
+		font-size: 200%;
 		padding: 10;
-		height: 100%;
+	}
+	.deductcol {
+		display: inline-block;
+		vertical-align: middle;
+		float: none;
 	}
 	.undobutton {
 		font-size: 100%;
@@ -165,13 +143,13 @@ body {
 	}
 
 
-	.pressiestuff .option3 {
-		.active {
-			// background: $color_mountain_mist_approx;
-		}
-		.pwrspd h2 {
-			margin-top: 0;
-		}
+
+	.active {
+		background: $rgba_navy_light;
 	}
+	.pwrspd h2 {
+		margin-top: 0;
+	}
+
 }
 

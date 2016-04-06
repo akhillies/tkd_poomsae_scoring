@@ -54,12 +54,7 @@ a:active {
 
 /* End Landing */
 #tournaments {
-  background-color: #335CAD;
-  color: #FFFFFF; }
-  #tournaments h2 small {
-    color: #FFFFFF; }
-  #tournaments h1 {
-    color: #FFFFFF; }
+  background-color: #335CAD; }
 
 #help {
   position: relative; }
