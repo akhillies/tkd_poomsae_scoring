@@ -49,6 +49,7 @@ body {
     width: 70%;
     border: none; }
   .sportpoom .undorow {
+    position: relative;
     vertical-align: bottom; }
   .sportpoom .scores {
     position: relative; }
@@ -71,7 +72,7 @@ body {
     font-size: 50%;
     text-shadow: none;
     color: black;
-    padding-top: 7px; }
+    padding-top: 20px; }
   .sportpoom .active {
     background: rgba(0, 0, 143, 0.2); }
   .sportpoom .pwrspd h2 {
