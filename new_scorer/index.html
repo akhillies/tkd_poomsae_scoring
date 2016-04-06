@@ -18,6 +18,61 @@
     <body class="sportpoom">
         <div class="container-fluid">  
         <!-- <div class="row all-content"> -->
+        <div class="row scores">
+            <div class="col-xs-8" id="total-score-info">
+                <div class="row" id="score-top-row">
+                    <div class="col-xs-2">
+                    <h3>Accuracy</h3>
+                    </div>
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-2">
+                    <h3>Presentation</h3>
+                    </div>
+                    <div class="col-xs-1">
+                    </div>
+                    <div class="col-xs-2">
+                    <h3>Total</h3>
+                    </div>
+                </div>
+                <div class="row" id="score-bottom-row">
+                    <div class="col-xs-2">
+                    <h3 id="accscore">4.0</h3>
+                    </div>
+                    <div class="col-xs-1">
+                    <h3>+</h3>
+                    </div>
+                    <div class="col-xs-2">
+                    <h3 id="presscore">0.0</h3>
+                    </div>
+                    <div class="col-xs-1">
+                    <h3>=</h3>
+                    </div>
+                    <div class="col-xs-2">
+                    <h3 id="totalscore">4.0</h3> 
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="col-xs-2">
+                <h3>Accuracy</h3>
+                <h3 id="accscore">4.0</h3>
+            </div>
+            <div class="col-xs-1"><h3>+</h3></div>
+            <div class="col-xs-2">
+                <h3>Presentation</h3>
+                <h3 id="presscore">0.0</h3>
+            </div>
+            <div class="col-xs-1"><h3>=</h3></div>
+            <div class="col-xs-2">
+                <h3>Total</h3>
+                <h3 id="totalscore">4.0</h3> 
+            </div> -->
+            <div class="col-xs-4">
+                <button id="scoresubmit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#submitscore" disabled>Submit Score</button>
+            </div>
+        </div>
+
         <div class="row mistakecounts">
             <div class="col-xs-3 ">
                 <h3>Major: <span id="majorcount">0</span></h3>
@@ -224,25 +279,7 @@
 
 
 
-        <div class="row scores">
-            <div class="col-xs-2">
-                <h3 id="accscore">4.0</h3>
-                <h3>Accuracy Score</h3>
-            </div>
-            <div class="col-xs-1"><h3>+</h3></div>
-            <div class="col-xs-2">
-                <h3 id="presscore">0.0</h3>
-                <h3>Presentation Score</h3>
-            </div>
-            <div class="col-xs-1"><h3>=</h3></div>
-            <div class="col-xs-2">
-                <h3 id="totalscore">4.0</h3>
-                <h3>Total Score</h3>
-            </div>
-            <div class="col-xs-4">
-                <button id="scoresubmit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#submitscore" disabled>Submit Score</button>
-            </div>
-        </div>
+        
         <div class="row cpyrght">
             <span class="glyphicon glyphicon-copyright-mark"></span> 2015 by Akhil Batra, Melvin Huang, and Michael Cho<br/>All work done and owned by Akhil Batra, Melvin Huang, and Michael Cho<br/>This software may not be sold in any country unless given explicit permission from developers
         </div>
