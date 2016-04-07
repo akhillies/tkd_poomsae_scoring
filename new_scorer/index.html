@@ -17,7 +17,6 @@
     </head>
     <body class="sportpoom">
         <div class="container-fluid allcontent">  
-        <!-- <div class="row all-content"> -->
         <div class="row scores">
             <div class="col-xs-9" id="total-score-info">
             <div class="row" id="score-top-row">
@@ -243,6 +242,14 @@
                         </label>
                     </div>
                 </div>
+                <div class="row clock">
+                    <span id="time">00:00:000</span>
+                    <p>
+                    <div class="btn-group"> 
+                        <label class="btn-default stopwatch" id="button-startpause" onclick="startpause()">Start</label>
+                        <label class="btn-default stopwatch" id="button-stopreset" onclick="reset()">Reset</label>
+                    </div>
+                </div>
             </div>
             <div class="col-xs-3 deductcol">
                 <div class="deductbutton" id="minorbutton">
@@ -280,6 +287,5 @@
                 </div>
             </div>
         </div>
-        <!-- </div> -->
     </body>
 </html>

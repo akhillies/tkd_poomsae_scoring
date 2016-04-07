@@ -49,6 +49,7 @@ var clsStopwatch = function()
 var x = new clsStopwatch();
 var $time;
 var $stopreset = document.getElementById("button-stopreset");
+var $startpause = document.getElementById("button-startpause");
 
 var clocktimer;
 var started = false;
@@ -92,16 +93,17 @@ function update()
     sessionStorage.setItem('time', x.time());
 }
 
-function stopreset()
+function startpause()
 {
     if (started)
     {
         stop();
-        $stopreset.innerHTML="Reset";
+        $startpause.innerHTML = "Resume"
     }
-    else
+    else 
     {
-        reset();
+        start();
+        $startpause.innerHTML = "Stop"
     }
 }
 
@@ -110,7 +112,7 @@ function start()
     show();
     clocktimer = setInterval("update()", 1);
     x.start();
-    $stopreset.innerHTML="Stop";
+    $startpause.innerHTML = "Resume"
     started=true;
 }
 
@@ -123,9 +125,10 @@ function stop()
 
 function reset()
 {
-    stop();
     x.reset();
-    $time.innerHTML="Start/Resume";
+    stop();
     started=false;
+    $startpause.innerHTML = "Start"
+    update();
 }
 
