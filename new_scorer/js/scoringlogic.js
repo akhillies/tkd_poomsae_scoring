@@ -210,21 +210,14 @@ $(document).ready(function()
     }
     //provision for a window.matchMedia method here; no need for it at this moment
     
-    // Enter key now removes focus from athlete-name box
-    $(window).keydown(function(event)
-        {
-            if(event.keyCode == 13) {
-                event.preventDefault();
-                $('.athlete-name').blur();
-                return false;
-            }
-        });
 
     $("#majorbutton").click(that.updater.addMajor);
     $("#minorbutton").click(that.updater.addMinor);
     $("#undomajorbutton").click(that.updater.subMajor);
     $("#undominorbutton").click(that.updater.subMinor);
     $("#resetbutton").click(that.updater.resetScore);
+    $("#resetplayer").click(that.updater.resetScore);
+
 
     $("#scoresubmit").click(that.updater.updateSubmit);
 
