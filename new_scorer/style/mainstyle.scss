@@ -56,11 +56,12 @@ body {
 .clock {
 	padding-top:15px;
 	.stopwatch {
-		font-size:200%;
-		padding:15px;
+		font-size:150%;
+		padding-right:15px;
+		padding-left:15px;
 	}
 	#time {
-		font-size:350%;
+		font-size:300%;
 	}
 }
 .sportpoom {
@@ -94,9 +95,9 @@ body {
 		height:100%;
 		width: 100%;
 		color: $white;
-		font-size: 400%;
+		font-size: 300%;
 		background-color:$score_button_color;
-		padding-top:60%
+		vertical-align:middle;
 	}
 	.deductcol {
 		height:100%;
