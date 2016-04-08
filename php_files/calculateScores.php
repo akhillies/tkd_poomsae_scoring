@@ -45,8 +45,12 @@
             $max = $max < $s ? $s : $max;
             $scoringInfo[$index]['poomsae'][$scr['poomsae']]['max'] = $max;
             $scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] += 1;
-            $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'] = ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['tscore'] - $min - $max) / ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] - 2);
-
+            
+            if($scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] >= 5) { 
+                $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'] = ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['tscore'] - $min - $max) / ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] - 2);
+            } else {
+                $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'] = $scoringInfo[$index]['poomsae'][$scr['poomsae']]['tscore'] / $scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'];
+            }
             $scoringInfo[$index]['tfscore'] = 0;
             for($i = 1; $i <= $scr['poomsae']; $i++) {
                 $scoringInfo[$index]['tfscore'] += $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'];

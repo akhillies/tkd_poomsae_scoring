@@ -1,8 +1,12 @@
 * {
   border-radius: 0 !important; }
 
-html, body {
-  height: 100%; }
+.row [class*="col-"] {
+  margin-bottom: -99999px;
+  padding-bottom: 99999px; }
+
+.row {
+  overflow: hidden; }
 
 body {
   background-image: url(../images/retina_wood/retina_wood.png); }
@@ -11,25 +15,33 @@ body {
   margin-top: 0;
   padding-top: 0; }
 
-.clock {
-  padding-top: 15px; }
-  .clock .stopwatch {
-    font-size: 150%;
-    padding-right: 15px;
-    padding-left: 15px; }
-  .clock #time {
-    font-size: 300%; }
+.stopwatch {
+  background: #ccccdd;
+  border: 1px solid #999999; }
+  .stopwatch .btn-lg {
+    text-align: center;
+    font-size: 128%;
+    border: none; }
 
 .sportpoom {
   height: 100%;
   text-align: center;
   font-family: Verdana, Geneva, sans-serif;
-  color: black;
-  position: relative; }
-  .sportpoom .allcontent {
-    height: 100%; }
+  color: #00008f;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
   .sportpoom .buttonrow {
-    height: 60%; }
+    height: 100%;
+    position: relative;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0; }
+  .sportpoom .majorcol {
+    background: #ffd700; }
   .sportpoom .btn-radio {
     border: 1px solid #999999;
     font-size: 5 100%; }
@@ -37,59 +49,40 @@ body {
     background: none;
     padding: 12px 22px; }
   .sportpoom .presbtn {
-    color: black; }
+    color: #00008f; }
   .sportpoom .deductbutton {
-    height: 100%;
     width: 100%;
-    color: white;
-    font-size: 300%;
-    background-color: #d43f3a;
-    padding-top: 75%; }
-  .sportpoom .deductcol {
+    padding: 10;
     height: 100%; }
   .sportpoom .undobutton {
     font-size: 100%;
     height: 50%;
+    background: #ff8888;
     margin-top: 0;
     padding: 15px;
     width: 70%;
     border: none; }
   .sportpoom .undorow {
-    position: relative;
-    vertical-align: bottom;
-    padding-top: 15px; }
-  .sportpoom .scores {
-    position: relative; }
-  .sportpoom #submitbtndiv {
-    position: absolute;
-    bottom: 0;
-    right: 0; }
-  .sportpoom .resetrow {
-    padding-bottom: 10px; }
+    vertical-align: bottom; }
+  .sportpoom #scoresubmit {
+    height: 100%; }
   .sportpoom .scorescreen {
     width: 98%;
     height: 92%;
     padding: 0; }
   .sportpoom .scorebody {
     height: 99%; }
-  .sportpoom .finalscores {
-    font-size: 1000%;
-    color: #337ab7; }
-  .sportpoom #finaltotal {
-    font-size: 2000%;
-    color: black; }
-  .sportpoom .scoreboxops {
-    padding-top: 65%;
-    font-size: 500%;
-    color: #337ab7; }
+  .sportpoom #finalscore {
+    font-size: 3000%; }
+  .sportpoom .scorebox {
+    background: #00003f;
+    color: #ffd700; }
   .sportpoom .cpyrght {
     font-size: 50%;
     text-shadow: none;
     color: black;
-    padding-top: 20px; }
-  .sportpoom .active {
-    background: rgba(92, 184, 92, 0.3); }
-  .sportpoom .pwrspd h2 {
+    padding-top: 7px; }
+  .sportpoom .pressiestuff .option3 .pwrspd h2 {
     margin-top: 0; }
 
 /*# sourceMappingURL=mainstyle.css.map */

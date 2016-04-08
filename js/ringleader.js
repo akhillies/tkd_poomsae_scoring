@@ -1,7 +1,7 @@
-// if(sessionStorage.allowed != "./ringleader.html") {
-//     sessionStorage.removeItem("allowed");
-//     window.location.replace("./home.html");
-// }
+if(sessionStorage.allowed != "./ringleader.html") {
+    sessionStorage.removeItem("allowed");
+    window.location.replace("./home.html");
+}
 
 var link = localStorage.link;
 var ajaxFail = function(e) {

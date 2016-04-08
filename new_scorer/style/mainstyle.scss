@@ -7,27 +7,14 @@ $color_geraldine_approx: #ff8888;
 $color_stratos_approx: #00003f;
 $gold: #ffd700;
 $black: black;
-$white: white;
 $red: #ff0000;
 $color_flush_orange_approx: #ff7700;
 $yellow: #ffff00;
 $color_japanese_laurel_approx: #006400;
 $color_la_palma_approx: #339900;
 $color_chartreuse_approx: #77ff00;
-$rgba_navy_light: rgba(0, 0, 143, 0.2);
 
-//Palatte 1
-$red: #EF767A;
-$warning-red: #d43f3a;
-$green: #5cb85c;
-$green_trans: rgba(92, 184, 92, .3);
-$blue: #337ab7;
-$light_blue: #5bc0de;
-// $blue_trans: rgba(69, 105, 144, .3);
-
-$text-color: $black;
-$deduct_button_color: $warning-red;
-
+$text-color: $color_navy_blue_approx;
 //fonts
 $font_0: Verdana;
 $font_1: Geneva;
@@ -37,12 +24,27 @@ $font_2: sans-serif;
 $url_0: url(../images/bgnoise_lg/bgnoise_lg.png);
 $url_1: url(../images/retina_wood/retina_wood.png);
 
+//@extend-elements
+//original selectors
+//.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff
+%extend_1 {
+	height: 100%;
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+}
+
 * {
   border-radius: 0 !important;
 }
 
-html, body {
-	height:100%;
+.row [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.row{
+  overflow: hidden; 
 }
 
 body {
@@ -51,19 +53,21 @@ body {
 	}
 }
 
+// .all-content {
+// 	height: 100%;
+// }
+
 .miscounts div h2 {
 	margin-top: 0;
 	padding-top: 0;
 }
-.clock {
-	padding-top:15px;
-	.stopwatch {
-		font-size:150%;
-		padding-right:15px;
-		padding-left:15px;
-	}
-	#time {
-		font-size:300%;
+.stopwatch {
+	background: $color_mischka_approx;
+	border: 1px solid $color_mountain_mist_approx;
+	.btn-lg {
+		text-align: center;
+		font-size: 128%;
+		border:none;
 	}
 }
 .sportpoom {
@@ -71,27 +75,32 @@ body {
 	text-align: center;
 	font-family: $font_0, $font_1, $font_2;
 	color: $text-color;
-	position:relative;
-
-	.allcontent {
-		height:100%;
-	}
-//-----------BUTTONS-------------------
+	// text-shadow: 0 0 2px $color_corn_approx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom:0;
 	.buttonrow {
-		height:60%;
+		height:100%;
+		position: relative;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.majorcol {
+		background:$gold;
 	}
 
+
+
+//-----------BUTTONS-------------------
 	.btn-radio {
 		// background: $color_mischka_approx;
 		border: 1px solid $color_mountain_mist_approx;
 		font-size:5 100%;
 	}
-
-	#resetPlayer {
-		// padding-bottom:10px;
-	}
-
-
 	.btn.outline {
 	    background: none;
 	    padding: 12px 22px;
@@ -100,19 +109,18 @@ body {
 		color: $text-color;
 	}
 	.deductbutton {
-		height:100%;
+		// position:relative;
 		width: 100%;
-		color: $white;
-		font-size: 300%;
-		background-color:$deduct_button_color;
-		padding-top:75%;
-	}
-	.deductcol {
-		height:100%;
+		// font-size: 200%;
+		// top:0;
+		// bottom:0;
+		padding: 10;
+		height: 100%;
 	}
 	.undobutton {
 		font-size: 100%;
 		height:50%;
+		background: $color_geraldine_approx;
 		margin-top: 0;
 		padding: 15px;
 		width: 70%;
@@ -120,28 +128,15 @@ body {
 	}
 
 	.undorow {
-		position:relative;
 		vertical-align: bottom;
-		padding-top:15px;
 	}
 
-	// #scoresubmit {
-	// 	position:absolute;
-	// 	top:0;
-	// }
-
-	.scores { 
-		position:relative;
+	#scoresubmit {
+		height:100%;
+		// margin-top: 15px;
+		// width: 90%;
+		// font-size: 220%;
 	}
-	#submitbtndiv {
-		position:absolute;
-		bottom: 0;
-		right: 0;
-	}
-	.resetrow {
-		padding-bottom:10px;
-	}
-
 
 //---------------SUBMITSCREEN-------------
 	.scorescreen {
@@ -152,26 +147,13 @@ body {
 	.scorebody {
 		height: 99%;
 	}
-	.finalscores {
-		font-size: 1000%;
-		color: $blue;
-	}
-	#finaltotal {
-		font-size: 2000%;
-		color: $black;
-	}
-
-	.scoreboxops {
-		padding-top:65%;
-		font-size: 500%;
-		color:$blue;
+	#finalscore {
+		font-size: 3000%;
 	}
 	.scorebox {
-		// background: $color_stratos_approx;
-		// color: $blue;
+		background: $color_stratos_approx;
+		color: $gold;
 	}
-
-
 
 
 //------------------COPYRIGHT---------------
@@ -179,17 +161,17 @@ body {
 		font-size: 50%;
 		text-shadow: none;
 		color: $black;
-		padding-top: 20px;
+		padding-top: 7px;
 	}
 
 
-
-	.active {
-		background: $green_trans;
+	.pressiestuff .option3 {
+		.active {
+			// background: $color_mountain_mist_approx;
+		}
+		.pwrspd h2 {
+			margin-top: 0;
+		}
 	}
-	.pwrspd h2 {
-		margin-top: 0;
-	}
-
 }
 
