@@ -1,7 +1,9 @@
 <?php
-    /* adds the given player to the datatable
-     *  INPUT: all the player data needed
-     *  OUTPUT: player data that was added */
+    if (!isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] === 'off') {
+        /* header('Location: https://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'], true, 301); */
+        /* exit(); */
+    }
+
     $user = 'root';
     $password = 'root';
     $db = 'ucmap_tkd_scoring';
