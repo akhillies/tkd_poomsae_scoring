@@ -54,7 +54,7 @@
             </div>
             <div class="col-xs-3" id="submitbtndiv">
                 <div class="row resetrow"> 
-                    <button id="resetplayer" class="btn btn-warning">Reset</button>
+                    <button id="resetplayer" class="btn btn-warning" onclick="reset()">Reset</button>
                 </div>
                 <div class="row">
                     <button id="scoresubmit" class="btn btn-success btn-lg" data-toggle="modal" data-target="#submitscore" disabled>Submit Score</button>
@@ -281,13 +281,28 @@
                 <div class="modal-content scorebox">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title">FINAL SCORE</h4>
+                        <h4 class="modal-title">Final Score</h4>
                     </div>
                     <div class="modal-body scorebody"></div>
-                        <h1 id="finalscore">0.0</h1>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <h2 class="finaltext">Accuracy</h2>
+                                <h2 class="finalscores" id="finalacc">0.0</h2>
+                            </div>
+                            <div class="col-xs-2">
+                                <!-- <h2 class="scoreboxops" id="finalplussign"> + </h2> -->
+                            </div>
+                            <div class="col-xs-5">
+                            <h2 class="finaltext">Presentation</h2>
+                            <h2 class="finalscores" id="finalpres">0.0</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <h1 id="finaltotal">0.0</h1> 
+                        </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" id="resetbutton" class="btn btn-primary">Reset Player</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Edit Score</button>
+                        <button type="button" id="resetbutton" class="btn btn-primary" onclick="reset()">Reset Player</button>
                     </div>
                 </div>
             </div>

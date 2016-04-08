@@ -72,11 +72,16 @@ body {
     padding: 0; }
   .sportpoom .scorebody {
     height: 99%; }
-  .sportpoom #finalscore {
-    font-size: 3000%; }
-  .sportpoom .scorebox {
-    background: #00003f;
-    color: #ffd700; }
+  .sportpoom .finalscores {
+    font-size: 1000%;
+    color: #337ab7; }
+  .sportpoom #finaltotal {
+    font-size: 2000%;
+    color: black; }
+  .sportpoom .scoreboxops {
+    padding-top: 65%;
+    font-size: 500%;
+    color: #337ab7; }
   .sportpoom .cpyrght {
     font-size: 50%;
     text-shadow: none;

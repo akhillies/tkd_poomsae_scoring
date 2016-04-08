@@ -86,7 +86,7 @@ var updater = (function ()
     {
         that.scores.totalScore = that.scores.presScore + that.scores.accScore;
         $("#totalscore").html(that.scores.totalScore.toFixed(1));
-        $("#finalscore").html(that.scores.totalScore.toFixed(1));
+        $("#finaltotal").html(that.scores.totalScore.toFixed(1));
         sessionStorage.setItem('scores', JSON.stringify(that.scores));
     }
 
@@ -191,6 +191,11 @@ var updater = (function ()
             {
                 alert("Please enter a valid Presentation score.");
             }
+            else{
+                $("#finalpres").html(that.scores.presScore.toFixed(1));
+                $("#finalacc").html(that.scores.accScore.toFixed(1));
+
+            }
         }
     };
 })();
@@ -215,8 +220,9 @@ $(document).ready(function()
     $("#minorbutton").click(that.updater.addMinor);
     $("#undomajorbutton").click(that.updater.subMajor);
     $("#undominorbutton").click(that.updater.subMinor);
-    $("#resetbutton").click(that.updater.resetScore);
     $("#resetplayer").click(that.updater.resetScore);
+    $("#resetbutton").click(that.updater.resetScore);
+
 
 
     $("#scoresubmit").click(that.updater.updateSubmit);

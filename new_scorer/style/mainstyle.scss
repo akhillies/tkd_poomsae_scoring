@@ -21,8 +21,9 @@ $red: #EF767A;
 $warning-red: #d43f3a;
 $green: #5cb85c;
 $green_trans: rgba(92, 184, 92, .3);
-$blue: #456990;
-$blue_trans: rgba(69, 105, 144, .3);
+$blue: #337ab7;
+$light_blue: #5bc0de;
+// $blue_trans: rgba(69, 105, 144, .3);
 
 $text-color: $black;
 $deduct_button_color: $warning-red;
@@ -151,13 +152,26 @@ body {
 	.scorebody {
 		height: 99%;
 	}
-	#finalscore {
-		font-size: 3000%;
+	.finalscores {
+		font-size: 1000%;
+		color: $blue;
+	}
+	#finaltotal {
+		font-size: 2000%;
+		color: $black;
+	}
+
+	.scoreboxops {
+		padding-top:65%;
+		font-size: 500%;
+		color:$blue;
 	}
 	.scorebox {
-		background: $color_stratos_approx;
-		color: $gold;
+		// background: $color_stratos_approx;
+		// color: $blue;
 	}
+
+
 
 
 //------------------COPYRIGHT---------------
