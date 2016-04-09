@@ -1,6 +1,6 @@
 <?php
-    header('Access-Control-Allow-Origin: *');
-
     session_unset(); 
-    session_destroy();
+    if (session_status() != PHP_SESSION_NONE) {
+        session_destroy();
+    }
 ?>
