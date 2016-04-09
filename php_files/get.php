@@ -31,7 +31,6 @@
     }        
 
     echo json_encode($response_array);
-    session_destroy();
 ?>
 
 
