@@ -1,6 +1,6 @@
 <?php
-    session_unset(); 
-    if (session_status() != PHP_SESSION_NONE) {
+    $_SESSION = array();
+    if(session_status() == PHP_SESSION_ACTIVE) {
         session_destroy();
     }
 ?>

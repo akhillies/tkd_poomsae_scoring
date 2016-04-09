@@ -12,7 +12,7 @@ var ajaxFail = function(e) {
 $.ajax({
     url: link + "verifysession.php",
     success: function(data) {
-        if(!data) {
+        if(data) {
             sessionStorage.removeItem("allowed");
             window.location.replace("./home.html");
         }
