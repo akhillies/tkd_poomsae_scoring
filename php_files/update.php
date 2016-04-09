@@ -2,10 +2,10 @@
     /* updates the player with the given id in the datatable
      *  INPUT: player id and all the player data that will be changed
      *  OUTPUT: new player data */
+    session_start();
     header('Access-Control-Allow-Origin: *');
     header('Content-type: application/json');
 
-    session_start();
     $link = (include 'connect.php');
     if(!$link) {
         echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
@@ -56,5 +56,5 @@
     }
 
     echo json_encode($response_array);
+    session_destroy();
 ?>
-

@@ -2,10 +2,10 @@
     /* gets the row from datatable with the player's given ID
      *  INPUT: player_id = id of the player you want
      *  OUTPUT: string row with all the values comma-separated */
+    session_start();
     header('Access-Control-Allow-Origin: *');
     header('Content-type: application/json');
 
-    session_start();
     $link = (include 'connect.php');
     if(!$link) {
         echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
@@ -31,6 +31,7 @@
     }        
 
     echo json_encode($response_array);
+    session_destroy();
 ?>
 
 

@@ -1,9 +1,9 @@
 <?php
+    include 'endsession.php';
+    session_start();
     header('Access-Control-Allow-Origin: *');
     header('Content-type: application/json');
 
-    include 'endsession.php';
-    session_start();
     $_SESSION['access'] = 0;
     $link = (include 'connect.php');
     if(!$link) {
@@ -34,5 +34,6 @@
         $response_array['message'] = "Query failed";  
     }
     echo json_encode($response_array);
+    session_destroy();
 ?>
 
