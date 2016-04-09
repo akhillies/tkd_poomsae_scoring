@@ -1,7 +1,13 @@
 <?php
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
 
+    session_start();
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
 
     $division = (array_key_exists('division', $_POST) ? $_POST['division'] : 0);
     $round = (array_key_exists('round', $_POST) ? $_POST['round'] : 0);
@@ -21,7 +27,6 @@
         $response_array['sql'] = $sql;
     }        
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>
 

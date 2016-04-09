@@ -3,8 +3,14 @@
      *  INPUT: all the player data needed
      *  OUTPUT: player data that was added */
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
 
+    session_start();
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
 
     $first_name = (array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
     $last_name = (array_key_exists('last_name', $_POST) ? $_POST['last_name'] : "unknown");
@@ -38,6 +44,6 @@
         $response_array['status'] = 'failed';  
         $response_array['message'] = "Unable to add player - maybe Player's ID was already taken?";  
     }
-    header('Content-type: application/json');
+    
     echo json_encode($response_array);
 ?>

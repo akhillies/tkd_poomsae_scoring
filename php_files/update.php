@@ -3,8 +3,15 @@
      *  INPUT: player id and all the player data that will be changed
      *  OUTPUT: new player data */
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
 
+    session_start();
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
+
     $sql = "SELECT * FROM competitors WHERE id={$_POST['id']}";
 
     if ($result=mysqli_query($link,$sql)) {
@@ -48,7 +55,6 @@
         $response_array['message'] = "Unable to get player - maybe Player does not exist?";
     }
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>
 

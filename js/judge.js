@@ -5,10 +5,21 @@ if(sessionStorage.allowed != "./judge.html") {
 
 var link = localStorage.link;
 var ajaxFail = function(e) {
-                alert("Failed to add with ajax:  " + e);
+                alert("Failed to add with ajax:  " + JSON.stringify(e));
                 console.log(e);
             };
-var test;
+
+$.ajax({
+    url: link + "verifysession.php",
+    success: function(data) {
+        if(data == 'denied') {
+            sessionStorage.removeItem("allowed");
+            window.location.replace("./home.html");
+        }
+    },
+    failure: ajaxFail
+});
+
 $(function() {
     $("body").fadeIn(500);
     

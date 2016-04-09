@@ -1,7 +1,13 @@
 <?php
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
 
+    session_start();
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
 
     function cmpfscore($sc1, $sc2) {
         if ($sc1['tfscore'] == $sc2['tfscore']) {
@@ -110,7 +116,6 @@
         $response_array['message'] = "Unable to get scores - maybe no player with that id has scores?";
     }        
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>
 
