@@ -3,7 +3,7 @@
     header('Access-Control-Allow-Origin: *');
     header('Content-type: application/text');
     
-    $starturl = "http://127.0.0.1:8888/";
+    $starturl = "http://127.0.0.1:8888/html/";
     if($_SESSION['access'] <= 0) {
         if($_SERVER['HTTP_REFERER'] == "{$starturl}home.html") {
             return true;

@@ -1,0 +1,177 @@
+//colors
+$color_mischka_approx: #ccccdd;
+$color_mountain_mist_approx: #999999;
+$color_navy_blue_approx: #00008f;
+$color_corn_approx: #e5c100;
+$color_geraldine_approx: #ff8888;
+$color_stratos_approx: #00003f;
+$gold: #ffd700;
+$black: black;
+$red: #ff0000;
+$color_flush_orange_approx: #ff7700;
+$yellow: #ffff00;
+$color_japanese_laurel_approx: #006400;
+$color_la_palma_approx: #339900;
+$color_chartreuse_approx: #77ff00;
+
+$text-color: $color_navy_blue_approx;
+//fonts
+$font_0: Verdana;
+$font_1: Geneva;
+$font_2: sans-serif;
+
+//urls
+$url_0: url(../../../assets/bgnoise_lg/bgnoise_lg.png);
+$url_1: url(../../../assets/retina_wood/retina_wood.png);
+
+//@extend-elements
+//original selectors
+//.sportpoom .scoringstuff .deductButton, .sportpoom .scoringstuff .pressiestuff
+%extend_1 {
+	height: 100%;
+	float: none;
+	display: table-cell;
+	vertical-align: top;
+}
+
+* {
+  border-radius: 0 !important;
+}
+
+.row [class*="col-"]{
+  margin-bottom: -99999px;
+  padding-bottom: 99999px;
+}
+
+.row{
+  overflow: hidden; 
+}
+
+body {
+	background-image: $url_1;
+	h3 {
+	}
+}
+
+// .all-content {
+// 	height: 100%;
+// }
+
+.miscounts div h2 {
+	margin-top: 0;
+	padding-top: 0;
+}
+.stopwatch {
+	background: $color_mischka_approx;
+	border: 1px solid $color_mountain_mist_approx;
+	.btn-lg {
+		text-align: center;
+		font-size: 128%;
+		border:none;
+	}
+}
+.sportpoom {
+	height:100%;
+	text-align: center;
+	font-family: $font_0, $font_1, $font_2;
+	color: $text-color;
+	// text-shadow: 0 0 2px $color_corn_approx;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom:0;
+	.buttonrow {
+		height:100%;
+		position: relative;
+		bottom: 0;
+		top: 0;
+		left: 0;
+		right: 0;
+	}
+	.majorcol {
+		background:$gold;
+	}
+
+
+
+//-----------BUTTONS-------------------
+	.btn-radio {
+		// background: $color_mischka_approx;
+		border: 1px solid $color_mountain_mist_approx;
+		font-size:5 100%;
+	}
+	.btn.outline {
+	    background: none;
+	    padding: 12px 22px;
+	}
+	.presbtn {
+		color: $text-color;
+	}
+	.deductbutton {
+		// position:relative;
+		width: 100%;
+		// font-size: 200%;
+		// top:0;
+		// bottom:0;
+		padding: 10;
+		height: 100%;
+	}
+	.undobutton {
+		font-size: 100%;
+		height:50%;
+		background: $color_geraldine_approx;
+		margin-top: 0;
+		padding: 15px;
+		width: 70%;
+		border:none;
+	}
+
+	.undorow {
+		vertical-align: bottom;
+	}
+
+	#scoresubmit {
+		height:100%;
+		// margin-top: 15px;
+		// width: 90%;
+		// font-size: 220%;
+	}
+
+//---------------SUBMITSCREEN-------------
+	.scorescreen {
+		width: 98%;
+		height: 92%;
+		padding: 0;
+	}
+	.scorebody {
+		height: 99%;
+	}
+	#finalscore {
+		font-size: 3000%;
+	}
+	.scorebox {
+		background: $color_stratos_approx;
+		color: $gold;
+	}
+
+
+//------------------COPYRIGHT---------------
+	.cpyrght {
+		font-size: 50%;
+		text-shadow: none;
+		color: $black;
+		padding-top: 7px;
+	}
+
+
+	.pressiestuff .option3 {
+		.active {
+			// background: $color_mountain_mist_approx;
+		}
+		.pwrspd h2 {
+			margin-top: 0;
+		}
+	}
+}
+
