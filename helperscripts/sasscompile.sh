@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-sourcefile='./sport_poomsae/style/style.scss';
-destfile='./sport_poomsae/style/compiledCSS/style.css';
+sourcefile='*./scss';
+destfile='*./css';
 compression='compressed';
 
 

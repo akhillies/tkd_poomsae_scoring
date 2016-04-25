@@ -86,7 +86,7 @@ var updater = (function ()
     {
         that.scores.totalScore = that.scores.presScore + that.scores.accScore;
         $("#totalscore").html(that.scores.totalScore.toFixed(1));
-        $("#finalscore").html(that.scores.totalScore.toFixed(1));
+        $("#finaltotal").html(that.scores.totalScore.toFixed(1));
         sessionStorage.setItem('scores', JSON.stringify(that.scores));
     }
 
@@ -191,6 +191,11 @@ var updater = (function ()
             {
                 alert("Please enter a valid Presentation score.");
             }
+            else{
+                $("#finalpres").html(that.scores.presScore.toFixed(1));
+                $("#finalacc").html(that.scores.accScore.toFixed(1));
+
+            }
         }
     };
 })();
@@ -210,21 +215,15 @@ $(document).ready(function()
     }
     //provision for a window.matchMedia method here; no need for it at this moment
     
-    // Enter key now removes focus from athlete-name box
-    $(window).keydown(function(event)
-        {
-            if(event.keyCode == 13) {
-                event.preventDefault();
-                $('.athlete-name').blur();
-                return false;
-            }
-        });
 
     $("#majorbutton").click(that.updater.addMajor);
     $("#minorbutton").click(that.updater.addMinor);
     $("#undomajorbutton").click(that.updater.subMajor);
     $("#undominorbutton").click(that.updater.subMinor);
+    $("#resetplayer").click(that.updater.resetScore);
     $("#resetbutton").click(that.updater.resetScore);
+
+
 
     $("#scoresubmit").click(that.updater.updateSubmit);
 
