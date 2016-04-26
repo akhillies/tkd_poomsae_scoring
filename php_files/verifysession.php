@@ -20,6 +20,10 @@
         if($_SERVER['HTTP_REFERER'] == "{$starturl}html/judge.html" || $_SERVER['HTTP_REFERER'] == "{$starturl}sport_poomsae/tournament/index.html") {
             return true;
         }
+    } else if($_SESSION['access'] == 4) {
+        if($_SERVER['HTTP_REFERER'] == "{$starturl}html/audience.html") {
+            return true;
+        }
     }
     /* echo "denied"; */
     return false;
