@@ -26,6 +26,7 @@
             $i += 1;
         }
         
+        $idList = [];
         $index = -1;
         foreach ($scores as $scr) {
             if($scoringInfo[$index]['id'] != $scr['id']) {
@@ -36,6 +37,8 @@
                 $scoringInfo[$index]['round'] = $scr['round'];
                 $scoringInfo[$index]['poomsae'][$scr['poomsae']]['min'] = 10;
                 $scoringInfo[$index]['poomsae'][$scr['poomsae']]['max'] = 0;
+                
+                $idList[$index] = $scr['id'];
             }
             if($scr['poomsae'] > count($scoringInfo[$index]['poomsae'])) {
                 $scoringInfo[$index]['poomsae'][$scr['poomsae']]['min'] = 10;
@@ -62,6 +65,15 @@
                 $scoringInfo[$index]['tfscore'] += $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'];
             }
             $scoringInfo[$index]['tfscore'] /= 2;
+        }
+
+        $index = 0;
+        $sql2 = "SELECT fname, lname FROM competitors WHERE id IN (" . implode(",", $idList) . ")";
+        if ($result2=mysqli_query($link,$sql2)) {
+            while ($row2 = $result2->fetch_assoc()) {
+                $scoringInfo[$index]['name'] = $row2['fname'] . " " . $row2['lname'];
+                $index += 1;
+            }
         }
         usort($scoringInfo, "cmpfscore");
         if($_POST['confirmed'] == 1) {

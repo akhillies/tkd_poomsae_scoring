@@ -270,6 +270,7 @@ $(function() {
                                     for(var poom in score.poomsae) {
                                         tablebody += '<tr>';
                                         tablebody += '<th scole="row">' + score.id + "</th>";
+                                        tablebody += '<td>' + score.name + "</th>";
                                         tablebody += '<td>' + gender(score.gender) + "</td>";
                                         tablebody += '<td>' + division(score.division) + "</td>";
                                         tablebody += '<td>' + round(score.round) + "</td>";
@@ -427,6 +428,7 @@ $(function() {
                         dt.info.scores.forEach(function(score, index, array) {
                             tablebody += '<tr>';
                             tablebody += '<th scole="row">' + score.id + "</th>";
+                            tablebody += '<td>' + score.name + "</td>";
                             tablebody += '<td>' + gender(score.gender) + "</td>";
                             tablebody += '<td>' + division(score.division) + "</td>";
                             tablebody += '<td>' + round(score.round) + "</td>";
@@ -478,6 +480,7 @@ $(function() {
                         dt.info.scores.forEach(function(score, index, array) {
                             tablebody += '<tr>';
                             tablebody += '<th scole="row">' + score.id + "</th>";
+                            tablebody += '<td>' + score.name + "</td>";
                             tablebody += '<td>' + gender(score.gender) + "</td>";
                             tablebody += '<td>' + division(score.division) + "</td>";
                             tablebody += '<td>' + round(score.round) + "</td>";
@@ -530,6 +533,7 @@ $(function() {
                         dt.info.forEach(function(score, index, array) {
                             tablebody += '<tr>';
                             tablebody += '<th scole="row">' + score.id + "</th>";
+                            tablebody += '<td>' + score.name + "</th>";
                             tablebody += '<td>' + gender(score.gender) + "</td>";
                             tablebody += '<td>' + division(score.division) + "</td>";
                             tablebody += '<td>' + round(score.round) + "</td>";

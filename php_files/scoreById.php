@@ -9,8 +9,8 @@
         exit();
     }
 
+    $idList = [];
     $sql = "SELECT * FROM scores WHERE id={$_POST['id']} ORDER BY round, poomsae, judge";
-
     if ($result=mysqli_query($link,$sql))
     {
         $response_array['status'] = 'success'; 
@@ -19,7 +19,19 @@
         while ($row = $result->fetch_assoc())
         {
             $response_array['info']['scores'][$index] = $row;
+            $idList[$index] = $row['id'];
+            
             $index = $index + 1;
+        }
+
+        $sql2 = "SELECT fname, lname FROM competitors WHERE id IN (" . implode(",", $idList) . ")";
+        if ($result2=mysqli_query($link,$sql2)) {
+            if($row2 = $result2->fetch_assoc()) {
+                while($index > 0) {
+                    $index -= 1;
+                    $response_array['info']['scores'][$index]['name'] = $row2['fname'] . " " . $row2['lname'];
+                }
+            }
         }
     } else {
         $response_array['status'] = 'failed';  
