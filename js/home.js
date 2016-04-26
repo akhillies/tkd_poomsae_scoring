@@ -1,10 +1,15 @@
 sessionStorage.removeItem("allowed");
 
 var link = 'http://127.0.0.1:8888/php_files/';
+$.ajax({
+    url: link + "endsession.php"
+});
+
 var ajaxFail = function(e) {
                 alert("Failed to add with ajax:  " + e);
                 console.log(e);
             };
+
 $(document).ready(function() {
     $("body").fadeIn(500);
     

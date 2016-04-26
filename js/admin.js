@@ -5,9 +5,21 @@ if(sessionStorage.allowed != "./admin.html") {
 
 var link = localStorage.link;
 var ajaxFail = function(e) {
-                alert("Failed to add with ajax:  " + e);
+                alert("Failed to add with ajax:  " + JSON.stringify(e));
                 console.log(e);
             };
+
+$.ajax({
+    url: link + "verifysession.php",
+    success: function(data) {
+        if(data) {
+            sessionStorage.removeItem("allowed");
+            window.location.replace("./home.html");
+        }
+    },
+    failure: ajaxFail
+});
+
 
 var gender = function(int) {
     switch(int) {

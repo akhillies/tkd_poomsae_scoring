@@ -1,7 +1,13 @@
 <?php
+    session_start();
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
 
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
 
     function cmpfscore($sc1, $sc2) {
         if ($sc1['tfscore'] == $sc2['tfscore']) {
@@ -45,8 +51,12 @@
             $max = $max < $s ? $s : $max;
             $scoringInfo[$index]['poomsae'][$scr['poomsae']]['max'] = $max;
             $scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] += 1;
-            $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'] = ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['tscore'] - $min - $max) / ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] - 2);
-
+            
+            if($scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] >= 5) { 
+                $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'] = ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['tscore'] - $min - $max) / ($scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'] - 2);
+            } else {
+                $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'] = $scoringInfo[$index]['poomsae'][$scr['poomsae']]['tscore'] / $scoringInfo[$index]['poomsae'][$scr['poomsae']]['judges'];
+            }
             $scoringInfo[$index]['tfscore'] = 0;
             for($i = 1; $i <= $scr['poomsae']; $i++) {
                 $scoringInfo[$index]['tfscore'] += $scoringInfo[$index]['poomsae'][$scr['poomsae']]['fscore'];
@@ -106,7 +116,5 @@
         $response_array['message'] = "Unable to get scores - maybe no player with that id has scores?";
     }        
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>
-

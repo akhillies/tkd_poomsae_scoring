@@ -1,6 +1,14 @@
 <?php
+    session_start();
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
+    
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
+
     
     $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $round = (array_key_exists('round', $_POST) ? $_POST['round'] : 0);
@@ -18,7 +26,5 @@
         $response_array['message'] = "Unable to delete score - maybe score does not exist";
     } 
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>
-

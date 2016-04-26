@@ -1,6 +1,14 @@
 <?php
+    session_start();
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
+    
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
+
     $sql = "SELECT * FROM rings WHERE division={$_POST['division']} AND gender={$_POST['gender']} AND round={$_POST['round']}";
 
     if ($result=mysqli_query($link,$sql))
@@ -30,6 +38,5 @@
         $response_array['message'] = "Unable to get division - maybe division was not added?";
     } 
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>

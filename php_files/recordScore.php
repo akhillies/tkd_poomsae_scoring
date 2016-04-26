@@ -1,7 +1,14 @@
 <?php
+    session_start();
     header('Access-Control-Allow-Origin: *');
-    $link = (include 'connect.php');
+    header('Content-type: application/json');
     
+    $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
+
     $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
 
     $sql = "SELECT * FROM competitors WHERE id=$id"; 
@@ -43,6 +50,5 @@
         $response_array['message'] = "Unable to add score - maybe score was already given for the player?";
     } 
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>

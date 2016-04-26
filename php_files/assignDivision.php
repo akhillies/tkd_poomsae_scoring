@@ -1,7 +1,13 @@
 <?php
+    session_start();
     header('Access-Control-Allow-Origin: *');
+    header('Content-type: application/json');
 
     $link = (include 'connect.php');
+    if(!$link) {
+        echo "{'status':'noaccess', 'msg':'wtf why are you here', 'link':'{$link}'}";
+        exit();
+    }
 
     $ring = (array_key_exists('ring', $_POST) ? $_POST['ring'] : 0);
     $division = (array_key_exists('division', $_POST) ? $_POST['division'] : 0);
@@ -51,6 +57,5 @@
         $response_array['message'] = "Unable to find competitors in division";
     }
 
-    header('Content-type: application/json');
     echo json_encode($response_array);
 ?>
