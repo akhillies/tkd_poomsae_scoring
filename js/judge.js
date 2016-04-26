@@ -40,6 +40,7 @@ $(function() {
                     dt.info.judge = formElems.judge.value;
                     dt.info.poomsae = formElems.poomsae.value;
                     localStorage.info = JSON.stringify(dt.info);
+                    localStorage.index = 0;
                     window.location.replace("../sport_poomsae/tournament/index.html");
                 } else if(dt.status == 'failed') {
                     $('#select-group').text("Failed!").removeClass("btn-info").addClass("btn-failure");

@@ -33,7 +33,7 @@ Temporary Items
 
 
 ### Sass ###
-.sass-cache/
+*/.sass-cache/
 *.css.map
 
 

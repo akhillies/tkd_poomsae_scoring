@@ -1,2 +1,98 @@
-*{border-radius:0 !important}html,body{height:100%}body{background-image:url(../../../assets/retina_wood/retina_wood.png)}.miscounts div h2{margin-top:0;padding-top:0}.clock{padding-top:15px}.clock .stopwatch{font-size:150%;padding-right:15px;padding-left:15px}.clock #time{font-size:300%}.sportpoom{height:100%;text-align:center;font-family:Verdana,Geneva,sans-serif;color:#000;position:relative}.sportpoom .allcontent{height:100%}.sportpoom .buttonrow{height:60%}.sportpoom .btn-radio{border:1px solid #999;font-size:5 100%}.sportpoom .btn.outline{background:none;padding:12px 22px}.sportpoom .presbtn{color:#000}.sportpoom .deductbutton{height:100%;width:100%;color:#fff;font-size:300%;background-color:#d43f3a;padding-top:75%}.sportpoom .deductcol{height:100%}.sportpoom .undobutton{font-size:100%;height:50%;margin-top:0;padding:15px;width:70%;border:none}.sportpoom .undorow{position:relative;vertical-align:bottom;padding-top:15px}.sportpoom .scores{position:relative}.sportpoom #submitbtndiv{position:absolute;bottom:0;right:0}.sportpoom .resetrow{padding-bottom:10px}.sportpoom .scorescreen{width:98%;height:92%;padding:0}.sportpoom .scorebody{height:99%}.sportpoom .finalscores{font-size:1000%;color:#337ab7}.sportpoom #finaltotal{font-size:2000%;color:#000}.sportpoom .scoreboxops{padding-top:65%;font-size:500%;color:#337ab7}.sportpoom .cpyrght{font-size:50%;text-shadow:none;color:#000;padding-top:20px}.sportpoom .active{background:rgba(92,184,92,0.3)}.sportpoom .pwrspd h2{margin-top:0}
+* {
+  border-radius: 0 !important; }
+
+html, body {
+  height: 100%; }
+
+body {
+  background-image: url(../../../assets/retina_wood/retina_wood.png); }
+
+.miscounts div h2 {
+  margin-top: 0;
+  padding-top: 0; }
+
+.clock {
+  padding-top: 15px; }
+  .clock .stopwatch {
+    font-size: 150%;
+    padding-right: 15px;
+    padding-left: 15px; }
+  .clock #time {
+    font-size: 300%; }
+
+.sportpoom {
+  height: 100%;
+  text-align: center;
+  font-family: Verdana, Geneva, sans-serif;
+  color: black;
+  position: relative; }
+  .sportpoom .allcontent {
+    height: 100%; }
+  .sportpoom .buttonrow {
+    height: 60%; }
+  .sportpoom .btn-radio {
+    border: 1px solid #999999;
+    font-size: 5 100%; }
+  .sportpoom .btn.outline {
+    background: none;
+    padding: 12px 22px; }
+  .sportpoom .presbtn {
+    color: black; }
+  .sportpoom .deductbutton {
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-size: 300%;
+    background-color: #d43f3a;
+    padding-top: 75%; }
+  .sportpoom .deductcol {
+    height: 100%; }
+  .sportpoom .undobutton {
+    font-size: 100%;
+    height: 50%;
+    margin-top: 0;
+    padding: 15px;
+    width: 70%;
+    border: none; }
+  .sportpoom .undorow {
+    position: relative;
+    vertical-align: bottom;
+    padding-top: 15px; }
+  .sportpoom .scores {
+    position: relative; }
+  .sportpoom #submitbtndiv {
+    position: absolute;
+    bottom: 0;
+    right: 0; }
+  .sportpoom .resetrow {
+    padding-bottom: 10px; }
+  .sportpoom .scorescreen {
+    width: 98%;
+    height: 92%;
+    padding: 0; }
+  .sportpoom .scorebody {
+    height: 99%; }
+  .sportpoom .finalscores {
+    font-size: 1000%;
+    color: #5bc0de; }
+  .sportpoom #finaltotal {
+    font-size: 2000%;
+    color: #ffd700; }
+  .sportpoom .scoreboxops {
+    padding-top: 65%;
+    font-size: 500%;
+    color: #5bc0de; }
+  .sportpoom .scorebox {
+    background: #00003f;
+    color: #337ab7; }
+  .sportpoom .cpyrght {
+    font-size: 50%;
+    text-shadow: none;
+    color: black;
+    padding-top: 20px; }
+  .sportpoom .active {
+    background: rgba(92, 184, 92, 0.3); }
+  .sportpoom .pwrspd h2 {
+    margin-top: 0; }
+
 /*# sourceMappingURL=mainstyle.css.map */

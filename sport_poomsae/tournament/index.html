@@ -67,9 +67,9 @@
                 <h3>Major: <span id="majorcount">0</span></h3>
             </div>
             <div class="col-xs-6">
+            <h4> Judge: <small id="judge-num">NUMBER</small></h4>
             <h4> Athlete: <small id="athlete-name">NAME</small></h4>
             <h4> Division: <small id="division">DIVISION</small></h4>
-            <h4> Round: <small id="round">ROUND</small></h4>
             </div>
             <div class="col-xs-3 countcol">
                 <h3>Minor: <span id="minorcount">0</span></h3>
@@ -286,7 +286,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title">Final Score</h4>
                     </div>
-                    <div class="modal-body scorebody"></div>
+                    <div class="modal-body scorebody">
                         <div class="row">
                             <div class="col-xs-5">
                                 <h2 class="finaltext">Accuracy</h2>
@@ -303,9 +303,9 @@
                         <div class="row">
                             <h1 id="finaltotal">0.0</h1> 
                         </div>
+                    </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Edit Score</button>
-                        <button type="button" id="resetbutton" class="btn btn-primary" onclick="reset()">Reset Player</button>
+                        <button type="button" id="resetbutton" class="btn btn-primary" onclick="reset()">Next Player</button>
                     </div>
                 </div>
             </div>

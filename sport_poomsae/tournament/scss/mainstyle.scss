@@ -154,21 +154,21 @@ body {
 	}
 	.finalscores {
 		font-size: 1000%;
-		color: $blue;
+		color: $light_blue;
 	}
 	#finaltotal {
 		font-size: 2000%;
-		color: $black;
+		color: $gold;
 	}
 
 	.scoreboxops {
 		padding-top:65%;
 		font-size: 500%;
-		color:$blue;
+		color:$light_blue;
 	}
 	.scorebox {
-		// background: $color_stratos_approx;
-		// color: $blue;
+	    background: $color_stratos_approx;
+		color: $blue;
 	}
 
 
