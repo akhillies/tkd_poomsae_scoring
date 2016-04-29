@@ -41,7 +41,7 @@ $(function() {
                     dt.info.poomsae = 1;
                     localStorage.info = JSON.stringify(dt.info);
                     localStorage.index = 0;
-                    window.location.replace("../sport_poomsae/tournament/index.html");
+                    window.location.replace("../scorer/index.html");
                 } else if(dt.status == 'failed') {
                     $('#select-group').text("Failed!").removeClass("btn-info").addClass("btn-failure");
                     setTimeout(function () {
