@@ -73,7 +73,7 @@ var loadTable = function() {
             { data: "round", render: round},
             { data: "tfscore", render: make2dec}
         ]    
-	});});
+	});
 };
 
 $(document).ready(function() {
@@ -84,4 +84,5 @@ $(document).ready(function() {
 	$('form[name="find-score-by-division"]').fadeOut(1000);	
 	setInterval(loadTable, 30000);
 	
+});
 });
