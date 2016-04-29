@@ -10,6 +10,9 @@
 <link href="../lib/bootstrap-3.3.4-dist/css/bootstrap.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/ju-1.11.4/dt-1.10.11/datatables.min.css"/>
 
+<!-- css -->
+<script src="../css/audience.css" defer></script>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
 <script src="../lib/jquery-2.1.3-dist/jquery-2.1.3.min.js"></script>
 <script src="../js/audience.js" defer></script>
@@ -44,6 +47,58 @@
 </nav>
 <div class="container-fluid">
   <div class="row">
+                   <form name="find-score-by-division" class="form-horizontal">
+                                <fieldset>
+                                    <legend>Find Scores By Division</legend>
+                                    <div class="row">
+                                        <div class="form-group col-md-6 col-lg-6">
+                                            <label class="col-md-4 control-label" for="gender">Gender</label>
+                                            <div class="col-md-4 col-lg-7">
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="gender" id="genderMale" value=1 required> Male
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" name="gender" id="genderFemale" value=2 required> Female
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6 col-lg-6">
+                                            <label class="col-md-4 control-label" for="division">Division</label>
+                                            <div class="col-md-4 col-lg-7">
+                                                <select class="form-control" name="division" required>
+                                                    <option value="" selected>Select One</option>
+                                                    <option value="1">Youth</option>
+                                                    <option value="2">Cadet</option>
+                                                    <option value="3">Junior</option>
+                                                    <option value="4">Senior 1</option>
+                                                    <option value="5">Senior 2</option>
+                                                    <option value="6">Master 1</option>
+                                                    <option value="7">Master 2</option>
+                                                    <option value="8">Master 3</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group col-md-6 col-lg-6">
+                                            <label class="col-md-4 control-label" for="round">Round</label>
+                                            <div class="col-md-4 col-lg-7">
+                                                <select class="form-control" name="round" required>
+                                                    <option value="" selected>Select One</option>
+                                                    <option value="1">Preliminaries</option>
+                                                    <option value="2">Semi-Finals</option>
+                                                    <option value="3">Finals</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    
+                                    <div class="form-group center-block col-md-6 col-lg-6">
+                                        <label class="col-md-2 control-label" for="submit"></label>
+                                        <div class="col-md-">
+                                            <button id="score-by-division" name="submit" class="btn btn-primary">Get Scores</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </fieldset>
+                            </form>
     <div class="col-md-6 col-md-offset-3">
       <h1 class="text-center">Results</h1>
     </div>
@@ -53,6 +108,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-2">
+    
       <table id="results" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
         <thead>
             <tr>
@@ -65,9 +121,9 @@
         </thead>
         <tbody>
             <tr>
-                <td>Melvin</td>
-                <td>Huang</td>
-                <td>Senior Male Individual</td>
+                <td>Melvin Huang</td>
+                <td>Undecided</td>
+                <td>Senior 1</td>
                 <td>Shipjin</td>
                 <td>6.33</td>
             </tr>

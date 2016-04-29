@@ -54,16 +54,19 @@ var division = function(int) {
 
 
 $(document).ready(function() {
-    $('#results').DataTable( {
+     $('form[name="find-score-by-division"]').submit(function(event) {
+        event.preventDefault();
+	$('form[name="find-score-by-division"]').fadeOut(1000);	
+	$('#results').DataTable( {
         processing: true,
         serverSide: true,
         ajax: {
             url: link + "viewFinalScores.php",
             type: "POST",
             data: {
-                division: 4,
-                gender: 2,
-                round: 2,
+                gender: $('form[name="find-score-by-division"]')[0].elements.gender.value,
+                division: $('form[name="find-score-by-division"]')[0].elements.division.value,
+                round: $('form[name="find-score-by-division"]')[0].elements.round.value,
             },
             dataSrc: "info"
         },
@@ -74,5 +77,5 @@ $(document).ready(function() {
             { data: "round", render: round},
             { data: "tfscore", render: make2dec}
         ]    
-    });
+	});});
 });
