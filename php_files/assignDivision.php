@@ -29,7 +29,7 @@
             }
             if($round >= $curr_round) {
                 $sql2 = "INSERT INTO rings (ring, division, round, next, gender, finished) VALUES ('$ring', '$division', '$round', '0', '$gender', '0'); ";
-                $sql2 .= "UPDATE division SET current_round='$curr_round', num_competitors='$index' WHERE division='$division' AND gender='$gender'; ";
+                $sql2 .= "UPDATE division SET current_round='$curr_round', num_competitors='$count' WHERE division='$division' AND gender='$gender'; ";
                 $sql2 .= "UPDATE competitors SET round='$curr_round', priority='0' WHERE division='$division' AND gender='$gender'; ";
                 if ($result2=mysqli_multi_query($link,$sql2))
                 {
