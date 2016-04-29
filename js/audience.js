@@ -1,5 +1,11 @@
 // Functionality of the audience page
 //modify the script to fit implementation
+if(sessionStorage.allowed != "./audience.html") {
+    sessionStorage.removeItem("allowed");
+    window.location.replace("./home.html");
+}
+
+
 var link = localStorage.link;
 
 var gender = function(int) {
