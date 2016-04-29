@@ -38,7 +38,7 @@ $(function() {
                 var dt = JSON.parse(data);
                 if(dt.status == 'success') {
                     dt.info.judge = formElems.judge.value;
-                    dt.info.poomsae = formElems.poomsae.value;
+                    dt.info.poomsae = 1;
                     localStorage.info = JSON.stringify(dt.info);
                     localStorage.index = 0;
                     window.location.replace("../sport_poomsae/tournament/index.html");

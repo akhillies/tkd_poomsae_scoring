@@ -7,6 +7,7 @@ var that = this;
 var link = localStorage.link;
 var info = JSON.parse(localStorage.info);
 var ind = 0;
+var poomsae = 1;
 var scores = {
     minor: 0,
     major: 0,
@@ -247,13 +248,20 @@ var updater = (function ()
                     data: {
                         id: that.info.athletes[ind].id,
                         judge: that.info.judge,
-                        poomsae: that.info.poomsae,
+                        poomsae: poomsae,
                         score: that.scores.totalScore,
                     },
                     success: function(data) {
                         var dt = JSON.parse(data);
                         if(dt.status == 'success') {
-                            localStorage.index = ++ind;
+                            if(that.info.round == "3" && poomsae == 1) {
+                                poomsae++;
+                                $("#round").html(round(that.info.round) + ", Poomsae " + poomsae);
+                            } else {
+                                poomsae--;
+                                localStorage.index = ++ind;
+                            }
+                            localStorage.poomsae = poomsae;
                             that.updater.updatePlayer();
                         } else {
                             alert("Failed to record score: " + JSON.stringify(data));
@@ -268,8 +276,8 @@ var updater = (function ()
             }
         },
         updatePlayer: function() {
-            var name = that.info.athletes[ind].fname + " " + that.info.athletes[ind].lname;
-            $("#athlete-name").html(name);
+            $("#athlete-name").html(that.info.athletes[ind].fname + " " + that.info.athletes[ind].lname);
+            $("#round").html(round(that.info.round) + ", Poomsae " + poomsae);
         }
     };
 })();
@@ -292,6 +300,10 @@ $(document).ready(function()
     if(!ind) {
         ind = 0;
     }
+    poomsae = localStorage.poomsae;
+    if(!poomsae) {
+        poomsae = 1;
+    }
     
     $("#majorbutton").click(that.updater.addMajor);
     $("#minorbutton").click(that.updater.addMinor);
@@ -302,7 +314,8 @@ $(document).ready(function()
     $("#scoresubmit").click(that.updater.updateSubmit);
 
     $("#judge-num").html(info.judge)
-    $("#division").html(gender(info.gender) + " " + division(info.division) + " " + round(info.round));
+    $("#division").html(gender(info.gender) + " " + division(info.division));
+    $("#round").html(round(that.info.round) + ", Poomsae " + poomsae);
     that.updater.updatePlayer();
     
     $(".speedin").click(function()
