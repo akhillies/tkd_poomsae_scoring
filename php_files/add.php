@@ -12,9 +12,9 @@
         exit();
     }
 
-    $first_name = mysql_real_escape_string(array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
-    $last_name = mysql_real_escape_string(array_key_exists('last_name', $_POST) ? $_POST['last_name'] : "unknown");
-    $middle_name = mysql_real_escape_string(array_key_exists('middle_name', $_POST) ? $_POST['middle_name'] : '');
+    $first_name = htmlspecialchars(array_key_exists('first_name', $_POST) ? $_POST['first_name'] : 'unknown');
+    $last_name = htmlspecialchars(array_key_exists('last_name', $_POST) ? $_POST['last_name'] : "unknown");
+    $middle_name = htmlspecialchars(array_key_exists('middle_name', $_POST) ? $_POST['middle_name'] : '');
     $id = htmlspecialchars(array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $age = htmlspecialchars(array_key_exists('age', $_POST) ? $_POST['age'] : 0);
     $belt = htmlspecialchars(array_key_exists('belt', $_POST) ? $_POST['belt'] : "black");
