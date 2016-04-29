@@ -59,7 +59,7 @@ var division = function(int) {
 };
 
 var loadTable = function() {
-	$('#results').DataTable( {
+	return $('#results').DataTable( {
         processing: true,
         serverSide: true,
         ajax: {
@@ -88,8 +88,8 @@ $(document).ready(function() {
     $('form[name="find-score-by-division"]').submit(function(event) {
         event.preventDefault();
 	$('form[name="find-score-by-division"]').fadeOut(1000);	
-    loadTable();
-	setInterval(loadTable, 30000);
+    var table = loadTable();
+	setInterval(table.ajax.reload, 30000);
 	
 });
 });
