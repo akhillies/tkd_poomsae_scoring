@@ -88,6 +88,7 @@ $(document).ready(function() {
     $('form[name="find-score-by-division"]').submit(function(event) {
         event.preventDefault();
 	$('form[name="find-score-by-division"]').fadeOut(1000);	
+    loadTable();
 	setInterval(loadTable, 30000);
 	
 });
