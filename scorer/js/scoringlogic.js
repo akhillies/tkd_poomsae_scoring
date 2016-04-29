@@ -51,9 +51,15 @@ var division = function(int) {
         case '3':
             return "Junior";
         case '4':
-            return "Senior";
+            return "Senior 1";
         case '5':
-            return "Executive";
+            return "Senior 2";
+        case '6':
+            return "Master 1";
+        case '7':
+            return "Master 2";
+        case '8':
+            return "Master 3";
         defaut:
             return "";
     }    
