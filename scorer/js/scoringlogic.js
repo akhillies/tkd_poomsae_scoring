@@ -4,7 +4,10 @@ window.onload=$(function()
     });
 
 var that = this;
-
+var link = localStorage.link;
+var info = JSON.parse(localStorage.info);
+var ind = 0;
+var poomsae = 1;
 var scores = {
     minor: 0,
     major: 0,
@@ -14,6 +17,46 @@ var scores = {
     presScore: 0.0,
     accScore: 4.0,
     totalScore: 4.0
+};
+
+var gender = function(int) {
+    switch(int) {
+        case '1':
+            return "Male";
+        case '2':
+            return "Female";
+        default:
+            return "";
+    }
+}
+var round = function(int) {
+    switch(int) {
+        case '1':
+            return "Preliminaries";
+        case '2':
+            return "Semi-Finals";
+        case '3':
+            return "Finals";
+        default:
+            return "";
+    }
+};
+
+var division = function(int) {
+    switch(int) {
+        case '1':
+            return "Youth";
+        case '2':
+            return "Cadet";
+        case '3':
+            return "Junior";
+        case '4':
+            return "Senior";
+        case '5':
+            return "Executive";
+        defaut:
+            return "";
+    }    
 };
 
 var updater = (function ()
@@ -87,7 +130,7 @@ var updater = (function ()
         that.scores.totalScore = that.scores.presScore + that.scores.accScore;
         $("#totalscore").html(that.scores.totalScore.toFixed(1));
         $("#finaltotal").html(that.scores.totalScore.toFixed(1));
-        sessionStorage.setItem('scores', JSON.stringify(that.scores));
+        localStorage.setItem('scores', JSON.stringify(that.scores));
     }
 
     return {
@@ -136,11 +179,6 @@ var updater = (function ()
             updatePres();
         },
 
-        updatePoomName: function(dombutton)
-        {
-            $("#poomsae-name").html(dombutton.innerHTML);
-        },
-
         restoreScore: function()
         {
             updateMajorDisp(0);
@@ -179,10 +217,12 @@ var updater = (function ()
             $("#energynum").html(that.scores.eng.toFixed(1));
             updatePres();
             
-            sessionStorage.setItem('scores', JSON.stringify(that.scores));
+            localStorage.setItem('scores', JSON.stringify(that.scores));
 
             $("#submitscore").modal("hide");
-
+            if(ind >= info.athletes.length) {
+                window.location.href = "../../html/judge.html"
+            }
             //location.reload();
         },
         updateSubmit: function()
@@ -195,7 +235,43 @@ var updater = (function ()
                 $("#finalpres").html(that.scores.presScore.toFixed(1));
                 $("#finalacc").html(that.scores.accScore.toFixed(1));
 
+                $.ajax({
+                    type: 'POST',
+                    dataType: "text",
+                    url: link + "recordScore.php",
+                    data: {
+                        id: that.info.athletes[ind].id,
+                        judge: that.info.judge,
+                        poomsae: poomsae,
+                        score: that.scores.totalScore,
+                    },
+                    success: function(data) {
+                        var dt = JSON.parse(data);
+                        if(dt.status == 'success') {
+                            if(that.info.round == "3" && poomsae == 1) {
+                                poomsae++;
+                                $("#round").html(round(that.info.round) + ", Poomsae " + poomsae);
+                            } else {
+                                poomsae--;
+                                localStorage.index = ++ind;
+                            }
+                            localStorage.poomsae = poomsae;
+                            that.updater.updatePlayer();
+                        } else {
+                            alert("Failed to record score: " + JSON.stringify(data));
+                        }
+
+                    },
+                    error: function(data) {
+                        alert("something went seriously wrong, got a bad response: " + JSON.stringify(data));
+                    }
+                });
+
             }
+        },
+        updatePlayer: function() {
+            $("#athlete-name").html(that.info.athletes[ind].fname + " " + that.info.athletes[ind].lname);
+            $("#round").html(round(that.info.round) + ", Poomsae " + poomsae);
         }
     };
 })();
@@ -203,7 +279,7 @@ var updater = (function ()
 
 $(document).ready(function()
 {
-    var scor = sessionStorage.getItem('scores');
+    var scor = localStorage.getItem('scores');
     if(scor)
     {
         that.scores = JSON.parse(scor);
@@ -211,22 +287,30 @@ $(document).ready(function()
     }
     else
     {
-        sessionStorage.setItem('scores', JSON.stringify(that.scores));
+        localStorage.setItem('scores', JSON.stringify(that.scores));
     }
-    //provision for a window.matchMedia method here; no need for it at this moment
-    
 
+    ind = localStorage.index;
+    if(!ind) {
+        ind = 0;
+    }
+    poomsae = localStorage.poomsae;
+    if(!poomsae) {
+        poomsae = 1;
+    }
+    
     $("#majorbutton").click(that.updater.addMajor);
     $("#minorbutton").click(that.updater.addMinor);
     $("#undomajorbutton").click(that.updater.subMajor);
     $("#undominorbutton").click(that.updater.subMinor);
     $("#resetplayer").click(that.updater.resetScore);
     $("#resetbutton").click(that.updater.resetScore);
-
-
-
     $("#scoresubmit").click(that.updater.updateSubmit);
 
+    $("#judge-num").html(info.judge)
+    $("#division").html(gender(info.gender) + " " + division(info.division));
+    $("#round").html(round(that.info.round) + ", Poomsae " + poomsae);
+    that.updater.updatePlayer();
     
     $(".speedin").click(function()
     {
@@ -240,9 +324,5 @@ $(document).ready(function()
     {
         that.updater.updateEnergy(this);
     });
-
-    $(".poom-names").click(function()
-    {
-        that.updater.updatePoomName(this);
-    });
 });
+
