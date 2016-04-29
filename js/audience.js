@@ -52,11 +52,7 @@ var division = function(int) {
     }    
 };
 
-
-$(document).ready(function() {
-     $('form[name="find-score-by-division"]').submit(function(event) {
-        event.preventDefault();
-	$('form[name="find-score-by-division"]').fadeOut(1000);	
+var loadTable = function() {
 	$('#results').DataTable( {
         processing: true,
         serverSide: true,
@@ -78,4 +74,14 @@ $(document).ready(function() {
             { data: "tfscore", render: make2dec}
         ]    
 	});});
+};
+
+$(document).ready(function() {
+	
+	
+    $('form[name="find-score-by-division"]').submit(function(event) {
+        event.preventDefault();
+	$('form[name="find-score-by-division"]').fadeOut(1000);	
+	setInterval(loadTable, 30000);
+	
 });
