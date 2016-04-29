@@ -1,0 +1,106 @@
+[  
+   {  
+      "first_name":"Ricardo",
+      "last_name":"Trejo",
+      "age":"31",
+      "rank":"3rd Dan",
+      "gender":"Male",
+      "school_name":"Matias Martial Arts"
+   },
+   {  
+      "first_name":"Joseph",
+      "last_name":"Ong",
+      "age":"18",
+      "rank":"1st Dan",
+      "gender":"Male",
+      "school_name":"Manila Taekwondo"
+   },
+   {  
+      "first_name":"Jaclyn",
+      "last_name":"Louie",
+      "age":"25",
+      "rank":"1st Dan",
+      "gender":"Female",
+      "school_name":"UC Martial Arts Program"
+   },
+   {  
+      "first_name":"israel",
+      "last_name":"garcia",
+      "age":"25",
+      "rank":"3rd Dan",
+      "gender":"Male",
+      "school_name":"Edge Martial Arts Academy"
+   },
+   {  
+      "first_name":"Milla",
+      "last_name":"Weithington ",
+      "age":"31",
+      "rank":"1st Dan",
+      "gender":"Female",
+      "school_name":"Robinson's Taekwondo Rocklin"
+   },
+   {  
+      "first_name":"Allison",
+      "last_name":"Taylor",
+      "age":"28",
+      "rank":"2nd Dan",
+      "gender":"Female",
+      "school_name":"TG Taekwondo"
+   },
+   {  
+      "first_name":"Rick",
+      "last_name":"Vierra",
+      "age":"51",
+      "rank":"3rd Dan",
+      "gender":"Male",
+      "school_name":"UC Martial Arts Program"
+   },
+   {  
+      "first_name":"David",
+      "last_name":"Won",
+      "age":"54",
+      "rank":"3rd Dan",
+      "gender":"Male",
+      "school_name":"UC Martial Arts Program"
+   },
+   {  
+      "first_name":"Kenneth",
+      "last_name":"Bautista",
+      "age":"18",
+      "rank":"1st Dan",
+      "gender":"Male",
+      "school_name":"Hwa Rang Kwan Martial Arts Center"
+   },
+   {  
+      "first_name":"KOLTEN",
+      "last_name":"LUNDHOLM",
+      "age":"24",
+      "rank":"2nd Dan",
+      "gender":"Male",
+      "school_name":"Arbol Taekwondo"
+   },
+   {  
+      "first_name":"Zoltan",
+      "last_name":"Metlagel",
+      "age":"38",
+      "rank":"1st Dan",
+      "gender":"Male",
+      "school_name":"UC Martial Arts Program"
+   },
+   {  
+      "first_name":"Hang",
+      "last_name":"Wei",
+      "age":"21",
+      "rank":"1st Dan",
+      "gender":"Male",
+      "school_name":"University of Southern California Taekwondo Club"
+   },
+   {  
+      "first_name":"Jeffrey",
+      "last_name":"Fish",
+      "age":"32",
+      "rank":"2nd Dan",
+      "gender":"Male",
+      "school_name":"Chico TKD Academy "
+   }
+]
