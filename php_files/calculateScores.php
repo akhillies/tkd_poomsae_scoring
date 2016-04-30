@@ -26,6 +26,13 @@
             $i += 1;
         }
         
+        if(!$scores)
+        {
+            $response_array['status'] = 'success'; 
+            $response_array['message'] = "No Scores";        
+            $response_array['info'] = [];
+        }
+        
         $idList = [];
         $index = -1;
         foreach ($scores as $scr) {
