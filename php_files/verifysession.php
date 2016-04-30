@@ -17,7 +17,7 @@
             return true;
         }
     } else if($_SESSION['access'] == 3) {
-        if($_SERVER['HTTP_REFERER'] == "{$starturl}html/judge.html" || $_SERVER['HTTP_REFERER'] == "{$starturl}sport_poomsae/tournament/index.html") {
+        if($_SERVER['HTTP_REFERER'] == "{$starturl}html/judge.html" || $_SERVER['HTTP_REFERER'] == "{$starturl}scorer/index.html") {
             return true;
         }
     } else if($_SESSION['access'] == 4) {
