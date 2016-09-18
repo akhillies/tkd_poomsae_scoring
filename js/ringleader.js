@@ -1,114 +1,40 @@
-if(sessionStorage.allowed != "./ringleader.html") {
-    sessionStorage.removeItem("allowed");
-    window.location.replace("./home.html");
-}
-
-var link = localStorage.link;
-var ajaxFail = function(e) {
-                alert("Failed to add with ajax:  " + JSON.stringify(e));
-                console.log(e);
-            };
-
-$.ajax({
-    url: link + "verifysession.php",
-    success: function(data) {
-        if(data) {
-            sessionStorage.removeItem("allowed");
-            window.location.replace("./home.html");
-        }
-    },
-    failure: ajaxFail
-});
-
-var gender = function(int) {
-    switch(int) {
-        case '1':
-            return "Male";
-        case '2':
-            return "Female";
-        default:
-            return "";
-    }
-}
-var round = function(int) {
-    switch(int) {
-        case '1':
-            return "Preliminaries";
-        case '2':
-            return "Semi-Finals";
-        case '3':
-            return "Finals";
-        default:
-            return "";
-    }
-};
-
-var make2dec = function(int) {
-    return Math.round(int * 100)/100;
-}
-
-var division = function(int) {
-    switch(int) {
-        case '1':
-            return "Youth";
-        case '2':
-            return "Cadet";
-        case '3':
-            return "Junior";
-        case '4':
-            return "Senior 1";
-        case '5':
-            return "Senior 2";
-        case '6':
-            return "Master 1";
-        case '7':
-            return "Master 2";
-        case '8':
-            return "Master 3";
-        defaut:
-            return "";
-    }    
-};
+startPage("ringleader");
 
 $(function() {
     $("body").fadeIn(500);
     
-    $('form[name="search-athlete"]').submit(function(event) {
+    var $searchAthleteByIdForm = $('form[name="search-athlete-by-id"]');
+    $searchAthleteByIdForm.submit(function(event) {
         event.preventDefault();
         $.ajax({
             type: 'POST',
             dataType: "text",
             url: link + "get.php",
             data: {
-                id: $('form[name="search-athlete"]')[0].elements.search.value 
+                id: $searchAthleteByIdForm[0].elements.search.value 
             },
             success: function(data) {
                 var dt = JSON.parse(data);
-                if(dt.status == 'success') {
-                    $("#player-no-exist").fadeOut(500);
-                    $("#player-no-found").fadeOut(500);
-                    var $form = $('form[name="view-athlete"]').fadeIn(500);
-                    var formElems = $form[0].elements;
-                    var info = dt.info;
-                    formElems.id.value = info.id;
-                    formElems.first_name.value = info.fname;
-                    formElems.middle_name.value = info.mname;
-                    formElems.last_name.value = info.lname;
-                    formElems.age.value = info.age;
-                    formElems.gender.value = info.gender;
-                    formElems.belt.value = info.belt;
-                    formElems.school.value = info.school;
-                    formElems.division.value = info.division;
-                    formElems.round.value = info.round;
-                } else if(dt.status == 'nosuchelement') {
-                    $("#player-no-exist").fadeIn(500);
-                    $("#player-no-found").fadeOut(500);
-                    $('form[name="view-athlete"]').fadeOut(500)
-                } else if(dt.status == 'failed') {
-                    $("#player-no-exist").fadeOut(500);
-                    $("#player-no-found").fadeIn(500);
-                    $('form[name="view-athlete"]').fadeOut(500)
-                }else {
+                var $form = $('form[name="view-athlete"]');
+                if(dt.status == 'success')
+                {
+                    fadeOutIn([$("#player-no-exist"), $("#player-no-found")],
+                        [$form],
+                        function() {
+                            populateAthleteInfo($form[0].elements, dt.info);
+                        });
+                }
+                else if(dt.status == 'nosuchelement')
+                {
+                    fadeOutIn([$("#player-no-found"), $form], [$("#player-no-exist")]);
+                }
+                else if(dt.status == 'failed')
+                {
+                    fadeOutIn([$("#player-no-exist"), $form], [$("#player-no-found")]);
+                }
+                else
+                {
+                    fadeOutIn([$("#player-no-exist"), $("#player-no-found"), $form]);
                     alert("get went seriously wrong, got a bad response: " + data);
                 }
 
@@ -118,32 +44,34 @@ $(function() {
 
     });
 
-    $('form[name="select-ring"]').submit(function(event) {
+
+    var $selectRingForm = $('form[name="select-ring"]');
+    $selectRingForm.submit(function(event) {
         event.preventDefault();
         if($('#select-ring').text() == "Select Another Ring") {
             $('#select-ring').text("Select Ring");
             $('#select-division').text("Select Division/Round");
             $('form[name="select-division"] input[name="division"]').removeAttr("disabled");
-            $('form[name="select-ring"]')[0].reset();
-            $('form[name="select-ring"]')[0].elements.ring.disabled = false;  
-            $('#selectDivision').fadeOut(500);
-            $('#athleteDivision').fadeOut(500);
+            $selectRingForm[0].reset();
+            $selectRingForm[0].elements.ring.disabled = false;  
+            fadeOutIn([$('#selectDivision'), $('#athleteDivision')]);
         } else {
-            $('#selectDivision').fadeOut(500);
             $.ajax({
                 type: 'POST',
                 dataType: "text",
                 url: link + "viewRing.php",
                 data: {
-                    ring: $('form[name="select-ring"]')[0].elements.ring.value,
+                    ring: $selectRingForm[0].elements.ring.value,
                 },
                 success: function(data) {
                     var dt = JSON.parse(data);
-                    if(dt.status == 'success') {
-                        $('form[name="select-ring"]')[0].elements.ring.disabled = true;
+                    if(dt.status == 'success')
+                    {
+                        $selectRingForm[0].elements.ring.disabled = true;
                         var info = dt.info;
                         $('#select-ring').text("Select Another Ring");
-                        if(info.divisions) {
+                        if(info && info.divisions) 
+                        {
                             var tablebody = "";
                             info.divisions.forEach(function(divis, index, array) {
                                 tablebody += '<tr>';
@@ -153,13 +81,15 @@ $(function() {
 
                                 var id = "division" + index;
                                 tablebody += '<td>' + '<input type="radio" name="division" id="' + id + '" value="' + ('n-' + divis.division + '-' + divis.gender + '-' + divis.round) + '" required';
-                                if(divis.finished == 1) {
+                                if(divis.finished == 1)
+                                {
                                     tablebody += ' disabled';
                                 }
                                 tablebody += '>' + '</td>';
 
                                 tablebody += '<td>' + '<input type="radio" name="division" id="' + id + '" value="' + ('f-' + divis.division + '-' + divis.gender + '-' + divis.round) + '" required';
-                                if(divis.finished == 1) {
+                                if(divis.finished == 1)
+                                {
                                     tablebody += ' disabled';
                                 }
                                 tablebody += '>' + '</td>';
@@ -167,13 +97,20 @@ $(function() {
                                 tablebody += '</tr>';
                             });
                             $("#divisionTable").html(tablebody);
-                        } else {
+                        }
+                        else
+                        {
                             $("#divisionTable").html("<h2>No Divisions in this Ring</h2>");
                         }
-                        $('#selectDivision').fadeIn(500);
-                    } else if(dt.status == 'failed') {
-                        $('#selectDivision').fadeOut(500);
-                    } else {
+                        $('#selectDivision').fadeIn(fadeTime);
+                    }
+                    else if(dt.status == 'failed')
+                    {
+                        $('#selectDivision').fadeOut(fadeTime);
+                    }
+                    else
+                    {
+                        $('#selectDivision').fadeOut(fadeTime);
                         alert("get went seriously wrong, got a bad response: " + data);
                     }
 
@@ -182,19 +119,22 @@ $(function() {
             });
         }
     });
-    $('form[name="select-division"]').submit(function(event) {
+
+    var $selectDivisionForm = $('form[name="select-division"]');
+    $selectDivisionForm.submit(function(event) {
         event.preventDefault();
-        if($('#select-division').text() == "Choose Another Division/Round") {
+        if($('#select-division').text() == "Choose Another Division/Round")
+        {
             $('#select-division').text("Choose Division/Round");
-            $('form[name="select-division"] input[name="division"]').removeAttr("disabled")
-            $('form[name="select-division"]')[0].reset();
-            $('#athleteDivision').fadeOut(500);
-            $('#scoreDivision').fadeOut(500);
-        } else {
-            $('#athleteDivision').fadeOut(500);
-            $('#scoreDivision').fadeOut(500);
-            var items = $('form[name="select-division"]')[0].elements.division.value.split('-');
-            if(items[0] == 'n') {
+            $('form[name="select-division"] input[name="division"]').removeAttr("disabled");
+            $selectDivisionForm[0].reset();
+            fadeOutIn([$('#athleteDivision'), $('#scoreDivision')]);
+        }
+        else
+        {
+            var items = $selectDivisionForm[0].elements.division.value.split('-');
+            if(items[0] == 'n')
+            {
                 $.ajax({
                     type: 'POST',
                     dataType: "text",
@@ -206,49 +146,57 @@ $(function() {
                     },
                     success: function(data) {
                         var dt = JSON.parse(data);
-                        if(dt.status == 'success') {
-                            $('form[name="select-division"] input[name="division"]').attr("disabled", "true")
-                            $("#athlete-division").fadeOut(500);
-                            var info = dt.info;
+                        if(dt.status == 'success')
+                        {
+                            $('form[name="select-division"] input[name="division"]').attr("disabled", "true");
                             $('#select-division').text("Choose Another Division/Round");
-                            if(info.athletes) {
-                                var tablebody = "";
-                                info.athletes.forEach(function(athlete, index, array) {
-                                    tablebody += '<tr>';
-                                    tablebody += '<th scole="row">' + athlete.id + "</th>";
-                                    tablebody += '<td>' + athlete.fname + "</td>";
-                                    tablebody += '<td>' + athlete.mname + "</td>";
-                                    tablebody += '<td>' + athlete.lname + "</td>";
-                                    tablebody += '<td>' + gender(athlete.gender) + "</td>";
-                                    tablebody += '<td>' + athlete.age + "</td>";
-                                    tablebody += '<td>' + division(athlete.division) + "</td>";
-                                    tablebody += '<td>' + round(athlete.round) + "</td>";
+                            var info = dt.info;
+                            fadeOutIn([], [$("#athleteDivision")], function() {
+                                if(info.athletes)
+                                {
+                                    var tablebody = "";
+                                    info.athletes.forEach(function(athlete, index, array) {
+                                        tablebody += '<tr>';
+                                        tablebody += '<th scole="row">' + athlete.id + "</th>";
+                                        tablebody += '<td>' + athlete.fname + "</td>";
+                                        tablebody += '<td>' + athlete.mname + "</td>";
+                                        tablebody += '<td>' + athlete.lname + "</td>";
+                                        tablebody += '<td>' + gender(athlete.gender) + "</td>";
+                                        tablebody += '<td>' + athlete.age + "</td>";
+                                        tablebody += '<td>' + division(athlete.division) + "</td>";
+                                        tablebody += '<td>' + round(athlete.round) + "</td>";
 
-                                    var id = "ordering" + index;
-                                    tablebody += '<td>' + '<div class="form-group"><label class="sr-only" for="' + id + '">Order</label><input id="' + id + '" name="' + athlete.id + '" type="number" class="form-control input-sm priority" value=' + (index+1) + ' placeholder=0 required></div>' + "</td>";
-                                
-                                    tablebody += '</tr>';
-                                });
-                                $("#athleteTable").html(tablebody);
-                            } else {
-                                $("#athleteTable").html("<h2>No Athletes in this Division</h2>");
-                            }
-                            $('#athleteDivision').fadeIn(500);
-                        } else if(dt.status == 'nosuchelement') {
-                            $("#division-no-added").fadeIn(500);
-                            $("#division-no-found").fadeOut(500);
-                            $('#athleteDivision').fadeOut(500);
-                        } else if(dt.status == 'failed') {
-                            $("#division-no-added").fadeOut(500);
-                            $("#division-no-found").fadeIn(500);
-                            $('#athleteDivision').fadeOut(500);
-                        } else {
+                                        var id = "ordering" + index;
+                                        tablebody += '<td>' + '<div class="form-group"><label class="sr-only" for="' + id + '">Order</label><input id="' + id + '" name="' + athlete.id + '" type="number" class="form-control input-sm priority" value=' + (index+1) + ' placeholder=0 required></div>' + "</td>";    
+                                        tablebody += '</tr>';
+                                    });
+                                    $("#athleteTable").html(tablebody);
+                                }
+                                else
+                                {
+                                    $("#athleteTable").html("<h2>No Athletes in this Division</h2>");
+                                }
+                            });
+                        }
+                        else if(dt.status == 'nosuchelement')
+                        {
+                            fadeOutIn([$("#division-no-found"), $('#athleteDivision')], [$("#division-no-added")]);
+                        }
+                        else if(dt.status == 'failed')
+                        {
+                            fadeOutIn([$("#division-no-added"), $('#athleteDivision')], [$("#division-no-found")]);
+                        }
+                        else
+                        {
                             alert("get went seriously wrong, got a bad response: " + data);
+                            fadeOutIn([$("#division-no-found"), $('#athleteDivision'), $("#division-no-added")]);
                         }
                     },
                     error: ajaxFail
                 });
-            } else if(items[0] == 'f') {
+            }
+            else if(items[0] == 'f') 
+            {
                 $.ajax({
                     type: 'POST',
                     dataType: "text",
@@ -261,8 +209,9 @@ $(function() {
                     },
                     success: function(data) {
                         var dt = JSON.parse(data);
-                        if(dt.status == 'success') {
-                            $('form[name="select-division"] input[name="division"]').attr("disabled", "true")
+                        if(dt.status == 'success')
+                        {
+                            $('form[name="select-division"] input[name="division"]').attr("disabled", "true");
                             $('#select-division').text("Choose Another Division/Round");
                             if(dt.info) {
                                 var tablebody = "";
@@ -288,10 +237,11 @@ $(function() {
                                 $("#scoresList").html("<h2>No scores for given division/round</h2>");
 
                             }
-                            $("#scoreDivision").fadeIn(500);
+                            $("#scoreDivision").fadeIn(fadeTime);
                         } else if(dt.status == 'failed') {
-                            $("#scoreDivision").fadeOut(500);
+                            $("#scoreDivision").fadeOut(fadeTime);
                         } else {
+                            $("#scoreDivision").fadeOut(fadeTime);
                             alert("get went seriously wrong, got a bad response: " + data);
                         }
                     },
@@ -476,20 +426,7 @@ $(function() {
                         $('#score-by-division').text("Get Scores").addClass("btn-primary").removeClass("btn-success")
                     }, 1500);
                     if(dt.info) {
-                        var tablebody = "";
-                        dt.info.scores.forEach(function(score, index, array) {
-                            tablebody += '<tr>';
-                            tablebody += '<th scole="row">' + score.id + "</th>";
-                            tablebody += '<td>' + score.name + "</td>";
-                            tablebody += '<td>' + gender(score.gender) + "</td>";
-                            tablebody += '<td>' + division(score.division) + "</td>";
-                            tablebody += '<td>' + round(score.round) + "</td>";
-                            tablebody += '<td>' + score.judge + "</td>";
-                            tablebody += '<td>' + score.poomsae + "</td>";
-                            tablebody += '<td>' + score.score + "</td>";
-                            tablebody += '</tr>';
-                        });
-                        $("#scoresTable").html(tablebody);
+                        $("#scoresTable").html(scoreArrayToTable(dt.info.scores));
                     } else {
                         $("#scoresTable").html("<h2>No scores for given division</h2>");
                     }
@@ -529,22 +466,7 @@ $(function() {
                         $('#final-score-by-division').text("Get Final Scores").addClass("btn-primary").removeClass("btn-success")
                     }, 1500);
                     if(dt.info) {
-                        var tablebody = "";
-                        dt.info.forEach(function(score, index, array) {
-                            tablebody += '<tr>';
-                            tablebody += '<th scole="row">' + score.id + "</th>";
-                            tablebody += '<td>' + score.name + "</th>";
-                            tablebody += '<td>' + gender(score.gender) + "</td>";
-                            tablebody += '<td>' + division(score.division) + "</td>";
-                            tablebody += '<td>' + round(score.round) + "</td>";
-                            tablebody += '<td>-</td>';
-                            tablebody += '<td>-</td>';
-                            tablebody += '<td>' + make2dec(score.tfscore) + "</td>";
-                            tablebody += '</tr>';
-                        });
-                        $("#scoresTable").html(tablebody);
-                    } else {
-                        $("#scoresTable").html("<h2>No scores for given division</h2>");
+                        $("#scoresTable").html(scoreArrayToTable(dt.info.scores));
                     }
                     $("#athleteScores").fadeIn(500);
                 } else if(dt.status == 'failed') {

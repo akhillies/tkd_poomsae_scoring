@@ -13,11 +13,11 @@
 
     if ($result=mysqli_query($link,$sql))
     {
+            $response_array['status'] = 'success';  
+            $response_array['message'] = "YAY :D";
             $index = 0;
             while ($row = $result->fetch_assoc())
             {
-                $response_array['status'] = 'success';  
-                $response_array['message'] = "YAY :D";
                 $response_array['info']['divisions'][$index] = $row;
                 $index = $index + 1;
             }
