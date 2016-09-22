@@ -88,20 +88,6 @@ function ajaxFail(e)
     console.log(e);
 };
 
-function populateAthleteInfo(formElems, player)
-{
-    formElems.id.value = player.id;
-    formElems.first_name.value = player.fname;
-    formElems.middle_name.value = player.mname;
-    formElems.last_name.value = player.lname;
-    formElems.age.value = player.age;
-    formElems.gender.value = player.gender;
-    formElems.belt.value = player.belt;
-    formElems.school.value = player.school;
-    formElems.division.value = player.division;
-    formElems.round.value = player.round;
-}
-
 function scoreArrayToTable(scores)
 {
     if(scores)
