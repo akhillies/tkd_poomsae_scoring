@@ -1,4 +1,5 @@
 git status
+echo
 
 echo -n "add everything? (y/n): "
 read add
@@ -10,6 +11,8 @@ fi
 git add -A
 
 git status
+echo
+
 echo -n "commit? (y/n): "
 read commit
 if [ "$commit" == "n" ] 
@@ -20,6 +23,8 @@ fi
 git commit -m "$1"
 
 git status
+echo
+
 echo -n "pull and push? (y/n): "
 read puspul 
 if [ "$puspul" == "n" ] 
