@@ -29,7 +29,7 @@
         $idList = [];
         $index = -1;
         foreach ($scores as $scr) {
-            if($scoringInfo[$index]['id'] != $scr['id']) {
+            if($index == -1 || $scoringInfo[$index]['id'] != $scr['id']) {
                 $index += 1;
                 $scoringInfo[$index]['id'] = $scr['id'];
                 $scoringInfo[$index]['gender'] = $scr['gender'];

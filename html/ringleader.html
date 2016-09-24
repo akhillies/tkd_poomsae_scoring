@@ -10,7 +10,7 @@
     <link href="../lib/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="../css/ringleader.css" rel="stylesheet" type="text/css">
     
-    <script src="../lib/jquery-1.11.1-dist/jquery-1.11.1.min.js" type="text/javascript" defer></script>
+    <script src="../lib/jquery-2.1.3-dist/jquery-2.1.3.min.js" type="text/javascript" defer></script>
     <script src="../lib/bootstrap-3.3.4-dist/js/bootstrap.min.js" type="text/javascript" defer></script>
     <script src="../js/helper.js" type="text/javascript" defer></script>
     <script src="../js/ringleader.js" type="text/javascript" defer></script>
@@ -405,9 +405,12 @@
                                         <th>Gender</th>
                                         <th>Division</th>
                                         <th>Round</th>
-                                        <th>Judge</th>
-                                        <th>Poomsae</th>
-                                        <th>Score</th>
+                                        <th class="viewIndividual">Judge</th>
+                                        <th class="viewIndividual">Poomsae</th>
+                                        <th class="viewIndividual">Score</th>
+                                        <th class="viewFinal" hidden>Poomsae 1</th>
+                                        <th class="viewFinal" hidden>Poomsae 2</th>
+                                        <th class="viewFinal" hidden>Total Score</th>
                                     </tr>
                                 </thead>
                                 <tbody id="scoresTable"></tbody>

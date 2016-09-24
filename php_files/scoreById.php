@@ -18,7 +18,7 @@
         $index = 0;
         while ($row = $result->fetch_assoc())
         {
-            $response_array['info']['scores'][$index] = $row;
+            $response_array['info'][$index] = $row;
             $idList[$index] = $row['id'];
             
             $index = $index + 1;

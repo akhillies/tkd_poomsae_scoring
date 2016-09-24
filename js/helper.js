@@ -77,6 +77,10 @@ function startPage(pageName)
                 sessionStorage.removeItem("allowed");
                 window.location.replace("./home.html");
             }
+            else
+            {
+                $("body").fadeIn(fadeTime);
+            }
         },
         failure: ajaxFail
     });
@@ -86,6 +90,8 @@ function ajaxFail(e)
 {
     alert("Failed to add with ajax:  " + JSON.stringify(e));
     console.log(e);
+    sessionStorage.removeItem("allowed");
+    window.location.replace("./home.html");
 };
 
 function scoreArrayToTable(scores)
@@ -152,4 +158,22 @@ function fadeOutIn(fadeOut, fadeIn, afterFadeOut)
             toFadeOut.fadeOut(fadeTime);
         });
     }
+}
+
+function buttonRespondSuccess(button)
+{
+    var originalText = button.text();
+    button.text("Success!!!").removeClass("btn-primary").addClass("btn-success");
+    setTimeout(function () {
+        button.text(originalText).addClass("btn-primary").removeClass("btn-success")
+    }, fadeTime);
+}
+
+function buttonRespondFail(button)
+{
+    var originalText = button.text();
+    button.text("Failed!").removeClass("btn-primary").addClass("btn-failure");
+    setTimeout(function () {
+        button.text(originalText).addClass("btn-primary").removeClass("btn-failure")
+    }, fadeTime);
 }
