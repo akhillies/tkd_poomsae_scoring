@@ -1,9 +1,10 @@
 startPage("admin");
 
 $(function() {
-    $('form[name="add-athlete"]').submit(function(event) {
+    var $addAthleteForm = $('form[name="add-athlete"]');
+    $addAthleteForm.submit(function(event) {
         event.preventDefault();
-        var formElems = $('form[name="add-athlete"]')[0].elements;
+        var formElems = $addAthleteForm[0].elements;
         $.ajax({
             type: 'POST',
             dataType: "text",
@@ -16,15 +17,14 @@ $(function() {
                 age: formElems.age.value,
                 gender: formElems.gender.value,
                 belt: formElems.school.belt,
-                school: formElems.school.value,
-                division: formElems.division.value
+                school: formElems.school.value
             },
             success: function(data) {
                 var dt = JSON.parse(data);
                 if(dt.status == 'success')
                 {
                     buttonRespondSuccess($('#add-athlete'))
-                    $('form[name="add-athlete"]')[0].reset();
+                    $addAthleteForm[0].reset();
                 }
                 else if(dt.status == 'failed')
                 {
@@ -37,49 +37,45 @@ $(function() {
             },
             error: ajaxFail
         });
-        return false;
     }); 
 
-    $('form[name="search-athlete"]').submit(function(event) {
+    var $searchAthleteForm = $('form[name="search-athlete"]');
+    var $editAthleteForm = $('form[name="edit-athlete"]');
+    $searchAthleteForm.submit(function(event) {
         event.preventDefault();
         $.ajax({
             type: 'POST',
             dataType: "text",
             url: link + "get.php",
             data: {
-                id: $('form[name="search-athlete"]')[0].elements.search.value 
+                id: $searchAthleteForm[0].elements.search.value 
             },
             success: function(data) {
                 var dt = JSON.parse(data);
                 if(dt.status == 'success')
                 {
-                    $("#player-no-exist").fadeOut(fadeTime);
-                    $("#player-no-found").fadeOut(fadeTime);
-                    var $form = $('form[name="edit-athlete"]').fadeIn(fadeTime);
-                    var formElems = $form[0].elements;
-                    var info = dt.info;
-                    formElems.id.value = info.id;
-                    formElems.first_name.value = info.fname;
-                    formElems.middle_name.value = info.mname;
-                    formElems.last_name.value = info.lname;
-                    formElems.age.value = info.age;
-                    formElems.gender.value = info.gender;
-                    formElems.belt.value = info.belt;
-                    formElems.school.value = info.school;
-                    formElems.division.value = info.division;
-                    formElems.round.value = info.round;
+                    fadeOutIn([$("#player-no-exist"), $("#player-no-found")], [$editAthleteForm], function() {
+                        var formElems = $editAthleteForm[0].elements;
+                        var info = dt.info;
+                        formElems.id.value = info.id;
+                        formElems.first_name.value = info.fname;
+                        formElems.middle_name.value = info.mname;
+                        formElems.last_name.value = info.lname;
+                        formElems.age.value = info.age;
+                        formElems.gender.value = info.gender;
+                        formElems.belt.value = info.belt;
+                        formElems.school.value = info.school;
+                        formElems.division.value = info.division;
+                        formElems.round.value = info.round;
+                    });
                 }
                 else if(dt.status == 'nosuchelement')
                 {
-                    $("#player-no-exist").fadeIn(fadeTime);
-                    $("#player-no-found").fadeOut(fadeTime);
-                    $('form[name="edit-athlete"]').fadeOut(fadeTime)
+                    fadeOutIn([$("#player-no-found"), $editAthleteForm], [$("#player-no-exist")]);
                 }
                 else if(dt.status == 'failed')
                 {
-                    $("#player-no-exist").fadeOut(fadeTime);
-                    $("#player-no-found").fadeIn(fadeTime);
-                    $('form[name="edit-athlete"]').fadeOut(fadeTime)
+                    fadeOutIn([$("#player-no-exist"), $editAthleteForm], [$("#player-no-found")]);
                 }
                 else
                 {
@@ -92,9 +88,9 @@ $(function() {
 
     });
 
-    $('form[name="edit-athlete"]').submit(function(event) {
+    $editAthleteForm.submit(function(event) {
         event.preventDefault();
-        var formElems = $('form[name="edit-athlete"]')[0].elements;
+        var formElems = $editAthleteForm[0].elements;
         $.ajax({
             type: 'POST',
             dataType: "text",
@@ -117,10 +113,10 @@ $(function() {
                 {
                     buttonRespondSuccess($('#edit-athlete'));
                     setTimeout(function () {
-                        $('form[name="search-athlete"]')[0].reset();
-                        $('form[name="edit-athlete"]')[0].reset();
-                        $('form[name="edit-athlete"]').fadeOut(fadeTime);
-                    }, 1500);
+                        $searchAthleteForm[0].reset();
+                        $editAthleteForm[0].reset();
+                        $editAthleteForm.fadeOut(fadeTime);
+                    }, fadeTime);
                 }
                 else if(dt.status == 'failed')
                 {
@@ -145,7 +141,7 @@ $(function() {
                 dataType: "text",
                 url: link + "delete.php",
                 data: {
-                    id: $('form[name="edit-athlete"]')[0].elements.id.value, 
+                    id: $editAthleteForm[0].elements.id.value, 
                 },
                 success: function(data) {
                     var dt = JSON.parse(data);
@@ -153,18 +149,18 @@ $(function() {
                     {
                         $('#delete-athlete').text("Deleted!").removeClass("btn-danger").addClass("btn-success");
                         setTimeout(function () {
-                            $('#delete-athlete').text("Delete Athelete").addClass("btn-danger").removeClass("btn-success")
-                            $('form[name="search-athlete"]')[0].reset();
-                            $('form[name="edit-athlete"]')[0].reset();
-                            $('form[name="edit-athlete"]').fadeOut(fadeTime);
-                        }, 1500);
+                            $('#delete-athlete').text("Delete Athlete").addClass("btn-danger").removeClass("btn-success")
+                            $searchAthleteForm[0].reset();
+                            $editAthleteForm[0].reset();
+                            $editAthleteForm.fadeOut(fadeTime);
+                        }, fadeTime);
                     }
                     else if(dt.status == 'failed')
                     {
                         $('#delete-athlete').text("Failed!").removeClass("btn-danger").addClass("btn-failure");
                         setTimeout(function () {
-                            $('#delete-athlete').text("Delete Athelete").addClass("btn-danger").removeClass("btn-failure")
-                        }, 1500);
+                            $('#delete-athlete').text("Delete Athlete").addClass("btn-danger").removeClass("btn-failure")
+                        }, fadeTime);
                     }
                     else
                     {
@@ -177,9 +173,9 @@ $(function() {
     });
 
 
-    $('form[name="add-division"]').submit(function(event) {
-        var formElems = $('form[name="add-division"]')[0].elements;        
-        $('#impossible-division').fadeOut(fadeTime);
+    var $addDivisionForm = $('form[name="add-division"]');
+    $addDivisionForm.submit(function(event) {
+        var formElems = $addDivisionForm[0].elements;        
         event.preventDefault();
         $.ajax({
             type: 'POST',
@@ -193,24 +189,21 @@ $(function() {
             },
             success: function(data) {
                 var dt = JSON.parse(data);
-                console.log(dt.sql);
                 if(dt.status == 'success')
                 {
                     buttonRespondSuccess($('#add-division'));
-                    setTimeout(function () {
-                        $('form[name="add-division"]')[0].reset();
-                    }, 1500);
+                    fadeOutIn([$('#impossible-division'), $('#empty-division')], [], function () {
+                        $addDivisionForm[0].reset();
+                    });
                 }
                 else if(dt.status == 'noplayers')
                 {
-                    $('#add-division').text("Division has no competitors!!!").removeClass("btn-primary").addClass("btn-failure");
-                    setTimeout(function () {
-                        $('#add-division').text("Add Division").addClass("btn-primary").removeClass("btn-failure")
-                    }, 2500);
+                    fadeOutIn([$('#impossible-division')], [$('#empty-division')]);
+                    buttonRespondFail($('#add-division'));
                 }
                 else if(dt.status == 'badround')
                 {
-                    $('#impossible-division').fadeIn(fadeTime);
+                    fadeOutIn([$('#empty-division')], [$('#impossible-division')]);
                     buttonRespondFail($('#add-division'));
                 }
                 else if(dt.status == 'failed')

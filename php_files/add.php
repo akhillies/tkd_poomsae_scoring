@@ -18,12 +18,11 @@
     $id = (array_key_exists('id', $_POST) ? $_POST['id'] : 0);
     $age = (array_key_exists('age', $_POST) ? $_POST['age'] : 0);
     $belt = (array_key_exists('belt', $_POST) ? $_POST['belt'] : "black");
-    $division = (array_key_exists('division', $_POST) ? $_POST['division'] : 0);
     $round = (array_key_exists('round', $_POST) ? $_POST['round'] : 0);
     $gender = (array_key_exists('gender', $_POST) ? $_POST['gender'] : 0);
     $school = (array_key_exists('school', $_POST) ? $_POST['school'] : "unknown");
         
-    $sql = "INSERT INTO competitors (fname, lname, mname, id, age, belt, division, gender, round, school) VALUES ('$first_name', '$last_name', '$middle_name', $id, $age, '$belt', '$division', $gender, '$round', '$school')";
+    $sql = "INSERT INTO competitors (fname, lname, mname, id, age, belt, gender, round, school) VALUES ('$first_name', '$last_name', '$middle_name', $id, $age, '$belt', $gender, '$round', '$school')";
     if (mysqli_query($link,$sql))
     {
         $response_array['status'] = 'success';  
@@ -34,7 +33,6 @@
         $response_array['info']['lname'] = $last_name;
         $response_array['info']['age'] = $age;
         $response_array['info']['belt'] = $belt;
-        $response_array['info']['division'] = $division;
         $response_array['info']['round'] = $round;
         $response_array['info']['gender'] = $gender;
         $response_array['info']['school'] = $school;

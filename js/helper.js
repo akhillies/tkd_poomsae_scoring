@@ -74,8 +74,7 @@ function startPage(pageName)
         success: function(data) {
             if(data)
             {
-                sessionStorage.removeItem("allowed");
-                window.location.replace("./home.html");
+                ajaxFail();
             }
             else
             {
