@@ -508,7 +508,7 @@ $(function() {
                 else if(dt.status == 'failed')
                 {
                     buttonRespondFail($('#final-score-by-division'));
-                    $("#athleteScores").fadeOut(fadeTime);
+                    $("#athleteScores).fadeOut(fadeTime);
                 }
                 else
                 {

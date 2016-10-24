@@ -147,20 +147,15 @@ $(function() {
                     var dt = JSON.parse(data);
                     if(dt.status == 'success')
                     {
-                        $('#delete-athlete').text("Deleted!").removeClass("btn-danger").addClass("btn-success");
-                        setTimeout(function () {
-                            $('#delete-athlete').text("Delete Athlete").addClass("btn-danger").removeClass("btn-success")
+                        buttonResponseSuccess($('#delete-athlete'), function() {
                             $searchAthleteForm[0].reset();
                             $editAthleteForm[0].reset();
                             $editAthleteForm.fadeOut(fadeTime);
-                        }, fadeTime);
+                        }, true);
                     }
                     else if(dt.status == 'failed')
                     {
-                        $('#delete-athlete').text("Failed!").removeClass("btn-danger").addClass("btn-failure");
-                        setTimeout(function () {
-                            $('#delete-athlete').text("Delete Athlete").addClass("btn-danger").removeClass("btn-failure")
-                        }, fadeTime);
+                        buttonResponseFail($('#delete-athlete'), null, true)
                     }
                     else
                     {
@@ -192,19 +187,19 @@ $(function() {
                 if(dt.status == 'success')
                 {
                     buttonRespondSuccess($('#add-division'));
-                    fadeOutIn([$('#impossible-division'), $('#empty-division')], [], function () {
+                    fadeOutIn([$('#badround-division'), $('#empty-division')], [], function () {
                         $addDivisionForm[0].reset();
                     });
                 }
                 else if(dt.status == 'noplayers')
                 {
-                    fadeOutIn([$('#impossible-division')], [$('#empty-division')]);
                     buttonRespondFail($('#add-division'));
+                    fadeOutIn([$('#empty-division')], [$('#empty-division')]);
                 }
                 else if(dt.status == 'badround')
                 {
-                    fadeOutIn([$('#empty-division')], [$('#impossible-division')]);
                     buttonRespondFail($('#add-division'));
+                    fadeOutIn([$('#empty-division')], [$('#badround-division')]);
                 }
                 else if(dt.status == 'failed')
                 {
@@ -220,22 +215,21 @@ $(function() {
         return false;
     });
 
-    $('form[name="search-division"]').submit(function(event) {
+    var $searchDivisionForm = $('form[name="search-division"]');
+    var searchDivisionFormElems = $searchDivisionForm[0].elements;        
+    var $moveDivisionForm = $('form[name="move-division"]');
+    var moveDivisionFormElems = $moveDivisionForm[0].elements;
+    $searchDivisionForm.submit(function(event) {
         event.preventDefault();
-        var searchFormElems = $('form[name="search-division"]')[0].elements;        
-        var $moveForm = $('form[name="move-division"]');
         if($('#find-division').text() == "Find Another Division")
         {
             $('#find-division').text("Find Division");
-            searchFormElems.division.disabled = false;
-            searchFormElems.round.disabled = false;
-            searchFormElems.genderMale.disabled = false;
-            searchFormElems.genderFemale.disabled = false;
-            $('form[name="search-division"]')[0].reset();
-            $moveForm.fadeOut(fadeTime);
-            $("#division-no-added").fadeOut(fadeTime);
-            $("#division-no-found").fadeOut(fadeTime);
-            $('#athleteDivision').fadeOut(fadeTime);
+            searchDivisionFormElems.division.disabled = false;
+            searchDivisionFormElems.round.disabled = false;
+            searchDivisionFormElems.genderMale.disabled = false;
+            searchDivisionFormElems.genderFemale.disabled = false;
+            $searchDivisionForm[0].reset();
+            fadeOutIn([$("#division-no-added"), $("#division-no-found"), $('#athleteDivision'), $moveDivisionForm]);
         }
         else
         {
@@ -244,28 +238,24 @@ $(function() {
                 dataType: "text",
                 url: link + "lookupDivision.php",
                 data: {
-                    division: searchFormElems.division.value,
-                    round: searchFormElems.round.value,
-                    gender: searchFormElems.gender.value,
+                    division: searchDivisionFormElems.division.value,
+                    round: searchDivisionFormElems.round.value,
+                    gender: searchDivisionFormElems.gender.value,
                 },
                 success: function(data) {
                     var dt = JSON.parse(data);
                     if(dt.status == 'success') 
                     {
-                        $("#division-no-added").fadeOut(fadeTime);
-                        $("#division-no-found").fadeOut(fadeTime);
-                        $moveForm.fadeIn(fadeTime);
                         var info = dt.info;
-                        searchFormElems.division.disabled = true;
-                        searchFormElems.round.disabled = true;
-                        searchFormElems.genderMale.disabled = true;
-                        searchFormElems.genderFemale.disabled = true;
-                        var moveFormElems = $moveForm[0].elements;
-                        moveFormElems.ring.value = info.ring;
+                        searchDivisionFormElems.division.disabled = true;
+                        searchDivisionFormElems.round.disabled = true;
+                        searchDivisionFormElems.genderMale.disabled = true;
+                        searchDivisionFormElems.genderFemale.disabled = true;
+                        moveDivisionForm.ring.value = info.ring;
                         $('#find-division').text("Find Another Division");
                         if(info.athletes)
                         {
-                            moveFormElems.numplay.value = info.athletes.length;
+                            moveDivisionForm.numplay.value = info.athletes.length;
                             var tablebody = "";
                             info.athletes.forEach(function(athlete, index, array) {
                                 tablebody += '<tr>';
@@ -284,24 +274,18 @@ $(function() {
                         }
                         else
                         {
-                            moveFormElems.numplay.value = 0;
+                            moveDivisionFormElems.numplay.value = 0;
                             $("#divisionTable").html("<h2>No Athletes in this Division</h2>");
                         }
-                        $('#athleteDivision').fadeIn(fadeTime);
+                        fadeOutIn([$("#division-no-found"), $("#division-no-added")], [$moveDivisionForm, $('#athleteDivision')]);
                     }
                     else if(dt.status == 'nosuchelement')
                     {
-                        $("#division-no-added").fadeIn(fadeTime);
-                        $("#division-no-found").fadeOut(fadeTime);
-                        $moveForm.fadeOut(fadeTime)
-                        $('#athleteDivision').fadeOut(fadeTime);
+                        fadeOutIn([$("#division-no-found"), $('#athleteDivision'), $moveDivisionForm], [$("#division-no-added")]);
                     }
                     else if(dt.status == 'failed')
                     {
-                        $("#division-no-added").fadeOut(fadeTime);
-                        $("#division-no-found").fadeIn(fadeTime);
-                        $moveForm.fadeOut(fadeTime)
-                        $('#athleteDivision').fadeOut(fadeTime);
+                        fadeOutIn([$("#division-no-added"), $('#athleteDivision'), $moveDivisionForm], [$("#division-no-found")]);
                     }
                     else
                     {
@@ -315,37 +299,33 @@ $(function() {
     });
 
 
-    $('form[name="move-division"]').submit(function(event) {
-        var searchFormElems = $('form[name="search-division"]')[0].elements;        
-        var moveFormElems = $('form[name="move-division"]')[0].elements;        
+    $moveDivisionForm.submit(function(event) {
         event.preventDefault();
         $.ajax({
             type: 'POST',
             dataType: "text",
             url: link + "moveDivision.php",
             data: {
-                ring: moveFormElems.ring.value,
-                division: searchFormElems.division.value,
-                round: searchFormElems.round.value,
-                gender: searchFormElems.gender.value,
+                ring: moveDivisionFormElems.ring.value,
+                division: searchDivisionFormElems.division.value,
+                round: searchDivisionFormElems.round.value,
+                gender: searchDivisionFormElems.gender.value,
             },
             success: function(data) {
                 var dt = JSON.parse(data);
                 if(dt.status == 'success')
                 {
                     buttonRespondSuccess($('#move-division'))
-                    setTimeout(function () {
-                        $('form[name="search-division"]')[0].reset();
-                        $('form[name="move-division"]').fadeOut(fadeTime)[0].reset();
-                        $('#athleteDivision').fadeOut(fadeTime, function() {
-                            $('#divisionTable').html("");
-                        });
+                    fadeOutIn([$moveDivisionForm, $('#athleteDivision')], [], function () {
+                        $searchDivisionForm[0].reset();
+                        $moveDivisionForm[0].reset();
+                        $('#divisionTable').html("");
                         $('#find-division').text("Find Division");
-                        searchFormElems.division.disabled = false;
-                        searchFormElems.round.disabled = false;
-                        searchFormElems.genderMale.disabled = false;
-                        searchFormElems.genderFemale.disabled = false;
-                    }, 1500);
+                        searchDivisionFormElems.division.disabled = false;
+                        searchDivisionFormElems.round.disabled = false;
+                        searchDivisionFormElems.genderMale.disabled = false;
+                        searchDivisionFormElems.genderFemale.disabled = false;
+                    });
                 }
                 else if(dt.status == 'failed')
                 {
@@ -379,20 +359,15 @@ $(function() {
                     var dt = JSON.parse(data);
                     if(dt.status == 'success')
                     {
-                        $('#remove-division').text("Success!").removeClass("btn-danger").addClass("btn-success");
-                        setTimeout(function () {
-                            $('#remove-division').text("Remove Division").addClass("btn-danger").removeClass("btn-success")
-                            $('form[name="search-division"]')[0].reset();
-                            $('form[name="move-division"]').fadeOut(fadeTime)[0].reset();
-                            $('#athleteDivision').fadeOut(fadeTime);
-                        }, 1500);
+                        buttonRespondSuccess($('#remove-division'), function() {
+                            $searchDivisionForm[0].reset();
+                            $moveDivisionForm[0].reset();
+                        }, "danger");
+                        fadeOutIn([$moveDivisionForm, $('#athleteDivision')]);
                     } 
                     else if(dt.status == 'failed') 
                     {
-                        $('#remove-division').text("Failed!").removeClass("btn-danger").addClass("btn-failure");
-                        setTimeout(function () {
-                            $('#remove-division').text("Remove Division").addClass("btn-danger").removeClass("btn-failure")
-                        }, 1500);
+                        buttonRespondFail($('#remove-division'), null, "danger");
                     } 
                     else 
                     {
@@ -404,9 +379,10 @@ $(function() {
         }
     });
 
-    $('form[name="record-score"]').submit(function(event) {
+    var $recordScoreForm = $('form[name="record-score"]');
+    $recordScoreForm.submit(function(event) {
         event.preventDefault();
-        var formElems = $('form[name="record-score"]')[0].elements;        
+        var formElems = $recordScoreForm[0].elements;        
         $.ajax({
             type: 'POST',
             dataType: "text",
@@ -422,7 +398,7 @@ $(function() {
                 if(dt.status == 'success') 
                 {
                     buttonRespondSuccess($('#record-score'));
-                    $('form[name="record-score"]')[0].reset();
+                    $recordScoreForm[0].reset();
                 } 
                 else if(dt.status == 'failed')
                 {
@@ -438,7 +414,8 @@ $(function() {
         });
     });
 
-    $('form[name="find-score-by-id"]').submit(function(event) {
+    var $findScoreByIdForm = $('form[name="find-score-by-id"]');
+    $findScoreByIdForm.submit(function(event) {
         event.preventDefault();
         $("#athleteScores").fadeOut(fadeTime);
         $.ajax({
@@ -446,7 +423,7 @@ $(function() {
             dataType: "text",
             url: link + "scoreById.php",
             data: {
-                id: $('form[name="find-score-by-id"]')[0].elements.id.value,
+                id: $findScoreByIdForm=[0].elements.id.value,
             },
             success: function(data) {
                 var dt = JSON.parse(data);

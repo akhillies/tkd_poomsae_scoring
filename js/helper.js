@@ -159,20 +159,30 @@ function fadeOutIn(fadeOut, fadeIn, afterFadeOut)
     }
 }
 
-function buttonRespondSuccess(button)
+function buttonRespondSuccess(button, func, notPrimary)
 {
+    var btnType = notPrimary ? "btn-" + notPrimary : "btn-primary";
     var originalText = button.text();
-    button.text("Success!!!").removeClass("btn-primary").addClass("btn-success");
+    button.text("Success!!!").removeClass(btnType).addClass("btn-success");
     setTimeout(function () {
-        button.text(originalText).addClass("btn-primary").removeClass("btn-success")
+        button.text(originalText).addClass(btnType).removeClass("btn-success")
+        if(func)
+        {
+            func();
+        }
     }, fadeTime);
 }
 
-function buttonRespondFail(button)
+function buttonRespondFail(button, func, notPrimary)
 {
+    var btnType = notPrimary ? "btn-" + notPrimary : "btn-primary";
     var originalText = button.text();
-    button.text("Failed!").removeClass("btn-primary").addClass("btn-failure");
+    button.text("Failed!").removeClass(btnType).addClass("btn-failure");
     setTimeout(function () {
-        button.text(originalText).addClass("btn-primary").removeClass("btn-failure")
+        button.text(originalText).addClass(btnType).removeClass("btn-failure")
+        if(func)
+        {
+            func();
+        }
     }, fadeTime);
 }
